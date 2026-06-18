@@ -25,3 +25,62 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
+  intent_profiles:
+    - tag: distillation
+      description: 查找On-Policy Distillation相关的视觉语言大模型论文
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: on-policy distillation
+          keyword_cn: 在线策略蒸馏
+          query: on-policy distillation technique for vision and language models
+        - keyword: large language models
+          keyword_cn: 大语言模型
+          query: large language model distillation
+        - keyword: reinforcement learning from human feedback
+          keyword_cn: 人类反馈强化学习
+          query: reinforcement learning from human feedback distillation
+        - keyword: visual language model
+          keyword_cn: 视觉语言模型
+          query: visual language model training
+        - keyword: on-policy learning
+          keyword_cn: 在线策略学习
+          query: on-policy learning in vision language models
+      intent_queries:
+        - query: On policy distillation methods for large language models
+          query_cn: 面向大语言模型的在线策略蒸馏方法
+          enabled: true
+          source: manual
+          note: ''
+        - query: Knowledge distillation techniques in reinforcement learning for LLMs
+          query_cn: 强化学习中针对大语言模型的知识蒸馏技术
+          enabled: true
+          source: manual
+          note: ''
+        - query: Improving language model via on policy distillation
+          query_cn: 通过在线策略蒸馏改进语言模型
+          enabled: true
+          source: manual
+          note: ''
+        - query: On policy distillation for vision language models
+          query_cn: 面向视觉语言模型的在线策略蒸馏
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-06-18T10:38:46.844Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq
