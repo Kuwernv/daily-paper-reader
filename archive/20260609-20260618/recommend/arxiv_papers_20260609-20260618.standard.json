@@ -1,0 +1,840 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-18T10:46:18.189107+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 18,
+    "deep_cap": 6,
+    "deep_selected": 10,
+    "quick_candidates": 16,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2606.11627v1",
+      "source": "arxiv",
+      "title": "When Context Returns: Toward Robust Internalization in On-Policy Distillation",
+      "abstract": "Recent work has shown that on-policy distillation can internalize privileged context, such as system prompts or task hints, into a student model so that the context is no longer needed at inference time. Although this approach successfully improves the student's no-context performance, we identify an interesting and previously unstudied phenomenon: in many settings, reintroducing the original privileged context to the distilled student actually degrades its performance, even on instances it already solves correctly without context. We term this context-induced degradation and argue that robust internalization demands not only matching the teacher's context-conditioned behavior, but also remaining stable when the context is reintroduced, a property we call context removability. Motivated by this observation, we propose a lightweight consistency regularizer that first anchors the student's no-context output via stop-gradient, then penalizes the context-conditioned output for deviating from it via forward KL divergence. This simple addition requires only one extra forward pass per training step, yet it effectively mitigates context-induced degradation and, in many cases, even improves no-context performance. Across 12 configurations spanning diverse domains and model families, our method improves context-conditioned accuracy in the majority of settings, reduces context-induced harm in 11 out of 12 settings, and effectively eliminates response-length inflation. A mechanistic case study further confirms that context removability is achieved at the representation level, with hidden states remaining nearly identical regardless of whether the context is present.",
+      "authors": [
+        "Xun Wang",
+        "Ruishuo Chen",
+        "Zhuoran Li",
+        "Yu Chen",
+        "Longbo Huang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-10T03:43:43+00:00",
+      "link": "https://arxiv.org/pdf/2606.11627v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy distillation for internalizing privileged context in LLMs",
+      "llm_evidence_cn": "在策略蒸馏内化特权上下文",
+      "llm_evidence": "在策略蒸馏内化特权上下文",
+      "canonical_evidence": "在策略蒸馏内化特权上下文",
+      "llm_tldr_en": "Identifies context-induced degradation in on-policy distillation and proposes robust internalization that remains stable when context is reintroduced.",
+      "llm_tldr_cn": "现有on-policy蒸馏方法能成功将特权上下文内化到学生模型中，但本文发现一个反直觉现象：重新引入原始上下文反而会降低模型性能。作者将其命名为上下文诱导退化，并提出稳健内化方法，要求不仅匹配教师行为，还要在上下文重现时保持稳定。实验验证了退化现象并提出改进策略，对on-policy蒸馏的鲁棒性有重要启示。",
+      "llm_tldr": "现有on-policy蒸馏方法能成功将特权上下文内化到学生模型中，但本文发现一个反直觉现象：重新引入原始上下文反而会降低模型性能。作者将其命名为上下文诱导退化，并提出稳健内化方法，要求不仅匹配教师行为，还要在上下文重现时保持稳定。实验验证了退化现象并提出改进策略，对on-policy蒸馏的鲁棒性有重要启示。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.11709v1",
+      "source": "arxiv",
+      "title": "RLCSD: Reinforcement Learning with Contrastive On-Policy Self-Distillation",
+      "abstract": "On-policy self-distillation (OPSD) provides dense, token-level supervision for reasoning models by aligning a model's own distribution with the distribution it produces under privileged context, typically a verified solution. However, we show that the learning signal drawn from this distributional gap concentrates on style tokens rather than task-bearing ones, as the hinted model tends to produce more direct, shorter outputs. We term this pathology \\emph{privilege-induced style drift}, which destabilizes training or causes response length to shrink. To address this, we propose \\textbf{RLCSD} (Reinforcement Learning with Contrastive on-policy Self-Distillation), which mitigates this drift by contrasting the teacher-student gap under a correct hint against that under a wrong hint, suppressing the style shift that conditioning on a hint tends to induce regardless of correctness, and yielding a signal that is more concentrated on task-bearing tokens. Experiments on Qwen3 (1.7B/4B/8B) and Olmo-3-7B-Think across mathematical and logical reasoning show that RLCSD consistently outperforms GRPO and prior OPSD methods. We further show that the contrastive principle is general: it plugs into existing OPSD methods to improve them, and its underlying insight extends to the broader cross-model on-policy distillation setting.",
+      "authors": [
+        "Leyi Pan",
+        "Shuchang Tao",
+        "Yunpeng Zhai",
+        "Lingzhe Zhang",
+        "Zhaoyang Liu",
+        "Bolin Ding",
+        "Aiwei Liu",
+        "Lijie Wen"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "published": "2026-06-10T06:31:59+00:00",
+      "link": "https://arxiv.org/pdf/2606.11709v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Contrastive on-policy self-distillation for reasoning models",
+      "llm_evidence_cn": "对比式在线策略自蒸馏用于推理模型",
+      "llm_evidence": "对比式在线策略自蒸馏用于推理模型",
+      "canonical_evidence": "对比式在线策略自蒸馏用于推理模型",
+      "llm_tldr_en": "RLCSD mitigates privilege-induced style drift in on-policy self-distillation by contrasting teacher-student gaps, improving training stability and quality for reasoning models.",
+      "llm_tldr_cn": "现有在线策略自蒸馏方法在推理模型中提供密集逐词监督，但发现学习信号集中在风格标记而非任务标记上，导致输出长度收缩和训练不稳定。本文提出RLCSD，通过对比正确提示下的教师与学生分布差距来缓解这一风格漂移问题，将对比学习引入自蒸馏。实验表明RLCSD有效提高了训练稳定性和推理质量，为推理模型的在线策略蒸馏提供了改进方案。",
+      "llm_tldr": "现有在线策略自蒸馏方法在推理模型中提供密集逐词监督，但发现学习信号集中在风格标记而非任务标记上，导致输出长度收缩和训练不稳定。本文提出RLCSD，通过对比正确提示下的教师与学生分布差距来缓解这一风格漂移问题，将对比学习引入自蒸馏。实验表明RLCSD有效提高了训练稳定性和推理质量，为推理模型的在线策略蒸馏提供了改进方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.12299v1",
+      "source": "arxiv",
+      "title": "Learning What to Say to Your VLA: Mostly Harmless Vision Language Action Model Steering",
+      "abstract": "Vision-Language-Action (VLA) models provide a natural language interface to robot control, but the mapping from language to behavior is often brittle and unintuitive: semantically similar instructions can induce drastically different behaviors, while some capabilities may not be elicitable through prompting alone. As a result, both human instructions and zero-shot language models can fail to reliably steer VLAs toward successful task execution. In this work, we propose a framework that interactively searches for language sequences that improve closed-loop VLA task performance, distills these sequences into a test-time language feedback policy (LFP), and learns an improvement head that predicts when language steering will improve performance. We conformalize this improvement head to prevent harmful steering interventions, where the LFP decreases task performance relative to the original instruction on out-of-distribution scenarios. Crucially, our approach operates on arbitrary frozen pre-trained VLAs, requiring neither access to the original training distribution nor fine-tuning of the underlying model. On seen environments, our conformalized LFP improves base VLA performance by 24.7% in simulation and 65.0% in hardware. On visual and semantic perturbations, our conformalized LFP has strong harmlessness guarantees, and produces recovery behaviors not observed with open-loop prompting.",
+      "authors": [
+        "Hyun Joe Jeong",
+        "Gokul Swamy",
+        "Andrea Bajcsy"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "published": "2026-06-10T16:34:49+00:00",
+      "link": "https://arxiv.org/pdf/2606.12299v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Explicitly distills language sequences into a feedback policy for VLA models, aligning with on-policy distillation for vision language models.",
+      "llm_evidence_cn": "明确将语言序列蒸馏为VLA模型的反馈策略，与视觉语言模型的在线策略蒸馏直接相关。",
+      "llm_evidence": "明确将语言序列蒸馏为VLA模型的反馈策略，与视觉语言模型的在线策略蒸馏直接相关。",
+      "canonical_evidence": "明确将语言序列蒸馏为VLA模型的反馈策略，与视觉语言模型的在线策略蒸馏直接相关。",
+      "llm_tldr_en": "Proposes distillation of language feedback policy from interactive search for VLA models, directly addressing on-policy distillation for vision-language models.",
+      "llm_tldr_cn": "VLA模型的语言映射常不直观，导致指令执行失败。本文提出一个框架，通过交互搜索寻找改善任务成功的语言序列，并将其蒸馏为测试时语言反馈策略。学习改进头预测何时需要语言引导。实验证明该方法显著提升了VLA任务的成功率，是面向视觉语言动作模型的在线策略蒸馏的代表性工作。",
+      "llm_tldr": "VLA模型的语言映射常不直观，导致指令执行失败。本文提出一个框架，通过交互搜索寻找改善任务成功的语言序列，并将其蒸馏为测试时语言反馈策略。学习改进头预测何时需要语言引导。实验证明该方法显著提升了VLA任务的成功率，是面向视觉语言动作模型的在线策略蒸馏的代表性工作。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation for vision language models",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.13657v1",
+      "source": "arxiv",
+      "title": "Dense Supervision, Sparse Updates: On the Sparsity and Geometry of On-Policy Distillation",
+      "abstract": "On-policy distillation (\\textsc{OPD}) has recently become a prominent post-training recipe as it combines two desirable ingredients: on-policy student trajectories and dense teacher supervision, yet how this hybrid changes a model's parameters remains unclear. Across several language and vision-language model pairs and use cases, our analysis yields two main findings. On sparsity, \\textsc{OPD}-style updates are small and coordinate-sparse. They are distributed across layers and are usually FFN-heavy. This sparse structure is operationally useful: training only the discovered subnetwork recovers nearly the same performance as full \\textsc{OPD}. However, the sparsity-inducing SGD optimizer underperforms AdamW in our optimizer ablation, likely because dense teacher supervision preserves heterogeneous coordinate-wise gradient scales where AdamW's adaptive scaling remains useful. On geometry, the updates are numerically full-rank but spectrally concentrated; they lie mostly away from the principal singular subspaces of the source weights and fall disproportionately on coordinates where the source weights are close to zero. These findings suggest that dense teacher supervision does not turn \\textsc{OPD} into ordinary dense parameter rewriting; instead, \\textsc{OPD} retains important geometric signatures of on-policy post-training.",
+      "authors": [
+        "Guo Yu",
+        "Wenlin Liu",
+        "Yulan Hu",
+        "Hao-Xuan Ma",
+        "Jun-Peng Jiang",
+        "Han-Jia Ye"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-11T17:54:09+00:00",
+      "link": "https://arxiv.org/pdf/2606.13657v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "analyzes on-policy distillation in language and vision-language models",
+      "llm_evidence_cn": "分析语言和视觉语言模型中的在线策略蒸馏",
+      "llm_evidence": "分析语言和视觉语言模型中的在线策略蒸馏",
+      "canonical_evidence": "分析语言和视觉语言模型中的在线策略蒸馏",
+      "llm_tldr_en": "Analyzes the sparsity and geometry of OPD updates across language and vision-language models, finding updates are small, coordinate-sparse, and FFN-heavy; training the discovered subnetwork recovers OPD performance.",
+      "llm_tldr_cn": "本文分析了在线策略蒸馏（OPD）在语言和视觉语言模型中的更新稀疏性与几何特性。研究发现OPD更新量小且坐标稀疏，主要分布在FFN层。通过训练发现的子网络可以恢复完整OPD的性能，但稀疏诱导的SGD优化器不如AdamW。该工作揭示了OPD内部工作机制，为高效后训练提供了指导。",
+      "llm_tldr": "本文分析了在线策略蒸馏（OPD）在语言和视觉语言模型中的更新稀疏性与几何特性。研究发现OPD更新量小且坐标稀疏，主要分布在FFN层。通过训练发现的子网络可以恢复完整OPD的性能，但稀疏诱导的SGD优化器不如AdamW。该工作揭示了OPD内部工作机制，为高效后训练提供了指导。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.13657v2",
+      "source": "arxiv",
+      "title": "Dense Supervision, Sparse Updates: On the Sparsity and Geometry of On-Policy Distillation",
+      "abstract": "On-policy distillation (\\textsc{OPD}) has recently become a prominent post-training recipe by combining two desirable ingredients: on-policy student trajectories and dense teacher supervision. However, how this hybrid changes a model's parameters remains unclear. Across several language and vision-language model pairs and \\textsc{OPD} use cases, our analysis yields two main findings. On sparsity, \\textsc{OPD} updates are small and coordinate-sparse. They are distributed across layers, with the largest relative movement usually appearing in FFN modules. This sparse structure is operationally useful: training only the discovered subnetwork nearly recovers full-training performance. The sparse support does not remove the need for adaptive optimization: SGD, previously reported to be competitive in \\textsc{RLVR}, underperforms AdamW in our \\textsc{OPD} optimizer ablation, suggesting that dense teacher supervision preserves useful momentum structure and heterogeneous second-moment scales. On geometry, the updates are numerically full-rank but spectrally concentrated; they lie mostly away from the principal singular subspaces of the source weights and fall disproportionately on coordinates where the source weights are close to zero. These findings suggest that dense teacher supervision does not turn \\textsc{OPD} into ordinary dense parameter rewriting; instead, \\textsc{OPD} retains important geometric signatures of on-policy post-training.",
+      "authors": [
+        "Guo Yu",
+        "Wenlin Liu",
+        "Yulan Hu",
+        "Hao-Xuan Ma",
+        "Jun-Peng Jiang",
+        "Han-Jia Ye"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-11T17:54:09+00:00",
+      "link": "https://arxiv.org/pdf/2606.13657v2",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Direct analysis of on-policy distillation for language and vision-language models, studying sparsity and geometry",
+      "llm_evidence_cn": "直接分析语言和视觉语言模型上的on-policy蒸馏的稀疏性和几何结构",
+      "llm_evidence": "直接分析语言和视觉语言模型上的on-policy蒸馏的稀疏性和几何结构",
+      "canonical_evidence": "直接分析语言和视觉语言模型上的on-policy蒸馏的稀疏性和几何结构",
+      "llm_tldr_en": "This paper analyzes on-policy distillation (OPD) across language and vision-language models, revealing that OPD updates are sparse and concentrated in FFN modules, and that training only the discovered subnetwork nearly recovers full performance.",
+      "llm_tldr_cn": "本文系统分析了on-policy蒸馏（OPD）在语言和视觉语言模型上的参数更新模式。研究发现，OPD更新具有坐标稀疏性，主要集中在前馈神经网络模块。利用这一稀疏结构，仅训练发现的关键子网络即可逼近完整训练的性能，揭示了OPD的几何特性。该工作为高效OPD训练提供了理论依据和实用方法。",
+      "llm_tldr": "本文系统分析了on-policy蒸馏（OPD）在语言和视觉语言模型上的参数更新模式。研究发现，OPD更新具有坐标稀疏性，主要集中在前馈神经网络模块。利用这一稀疏结构，仅训练发现的关键子网络即可逼近完整训练的性能，揭示了OPD的几何特性。该工作为高效OPD训练提供了理论依据和实用方法。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.14368v1",
+      "source": "arxiv",
+      "title": "Be My Tutor: On-Policy Co-Distillation for Mutual LLM Improvement via Peer Feedback",
+      "abstract": "We study multi-domain LLM training in which two models, each stronger in a different domain, co-evolve by tutoring each other through on-policy feedback. Unlike one-way distillation or single-model fine-tuning, our goal is mutual Pareto improvement: each model improves across domains without losing its original strength. To this end, we propose On-Policy Co-Distillation (OPCoD), where each student's self-distillation is conditioned on its own correct rollout and feedback from its peer. To make feedback exchange effective, OPCoD uses cognizance-based gating to decide when to give feedback and feedback anchoring to ground feedback in the problem. On Science Q\\&A tasks, OPCoD consistently outperforms baselines and achieves Pareto improvement across all evaluated domain pairs and students.",
+      "authors": [
+        "Woohyeon Byeon",
+        "Jiwon Jeon",
+        "Jeonghye Kim",
+        "Youngchul Sung"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "published": "2026-06-12T11:55:51+00:00",
+      "link": "https://arxiv.org/pdf/2606.14368v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy co-distillation for mutual LLM improvement",
+      "llm_evidence_cn": "面向大语言模型互惠改进的在线策略共蒸馏",
+      "llm_evidence": "面向大语言模型互惠改进的在线策略共蒸馏",
+      "canonical_evidence": "面向大语言模型互惠改进的在线策略共蒸馏",
+      "llm_tldr_en": "Be My Tutor proposes On-Policy Co-Distillation (OPCoD) where two LLMs, each stronger in different domains, co-evolve via on-policy feedback exchange. Cognizance-based gating and feedback anchoring enable Pareto improvement across domains without losing original strengths, validated on Science Q&A.",
+      "llm_tldr_cn": "传统单模型微调或单向蒸馏难以实现跨领域共同进步。本文提出在线策略共蒸馏（OPCoD），让两个在不同领域各有所长的大语言模型通过在线策略反馈互相教学。方法包括基于认知的门控机制决定何时提供反馈，以及反馈锚定将反馈扎根于具体问题。在科学问答任务上，OPCoD实现帕累托改进，每个模型在自身领域不退化的情况下提升另一领域性能。",
+      "llm_tldr": "传统单模型微调或单向蒸馏难以实现跨领域共同进步。本文提出在线策略共蒸馏（OPCoD），让两个在不同领域各有所长的大语言模型通过在线策略反馈互相教学。方法包括基于认知的门控机制决定何时提供反馈，以及反馈锚定将反馈扎根于具体问题。在科学问答任务上，OPCoD实现帕累托改进，每个模型在自身领域不退化的情况下提升另一领域性能。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.15576v1",
+      "source": "arxiv",
+      "title": "Localizing Credit at the Divergence: Path-Conditioned Self-Distillation for LLM Reasoning",
+      "abstract": "Reinforcement learning from verifiable rewards assigns a single scalar to each rollout, leaving token-level credit assignment underspecified in long reasoning traces. On-policy self-distillation addresses this by letting the same model act as a teacher conditioned on privileged information, producing a dense per-token signal. But the common choice of a ground-truth answer is only an endpoint cue: on terse-answer tasks, the teacher falls silent at the intermediate positions where path-level guidance matters most. We propose Hindsight Self-Distillation (HSD), which conditions the teacher on a successful peer rollout drawn from the current training group. Such a peer is an exact sample from the success-conditioned policy, requiring no additional sampled rollouts. By providing a full successful continuation rather than only the final answer, the resulting credit signal concentrates at the divergence position between a failed rollout and a successful peer. Across Qwen3-8B and Qwen3-32B on math and code benchmarks, HSD obtains the best result against GRPO variants and on-policy distillation baselines, with the largest gains on terse-answer tasks such as AIME.",
+      "authors": [
+        "Yu Li",
+        "Shu Hong",
+        "Tian Lan"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-14T03:37:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.15576v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy self-distillation for LLM reasoning with path conditioning",
+      "llm_evidence_cn": "基于路径条件的在线自蒸馏用于大语言模型推理",
+      "llm_evidence": "基于路径条件的在线自蒸馏用于大语言模型推理",
+      "canonical_evidence": "基于路径条件的在线自蒸馏用于大语言模型推理",
+      "llm_tldr_en": "Proposes Hindsight Self-Distillation (HSD) for LLM reasoning, conditioning the teacher on a successful peer rollout to provide dense per-token credit signals.",
+      "llm_tldr_cn": "本文针对强化学习可验证奖励中逐token信用分配不足的问题，提出事后自蒸馏（HSD）方法。该方法利用当前训练批次中的成功同伴轨迹作为条件，让教师模型在中间位置提供密集的逐token信号。HSD不依赖外部预言，在简答任务上显著提升推理足迹质量，优于基线在线策略蒸馏方法。",
+      "llm_tldr": "本文针对强化学习可验证奖励中逐token信用分配不足的问题，提出事后自蒸馏（HSD）方法。该方法利用当前训练批次中的成功同伴轨迹作为条件，让教师模型在中间位置提供密集的逐token信号。HSD不依赖外部预言，在简答任务上显著提升推理足迹质量，优于基线在线策略蒸馏方法。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.15920v1",
+      "source": "arxiv",
+      "title": "OmniOPSD: Rationale-Privileged On-Policy Self-Distillation for Affective Computing",
+      "abstract": "Reinforcement learning for multimodal large language models (MLLMs) is often hindered by severe reward sparsity in complex reasoning tasks. This challenge is particularly pronounced in human-centered scenarios involving states, emotions, intentions, and behaviors, where heterogeneous multimodal signals and subjective human factors make high-quality chain-of-thought (CoT) annotations expensive and difficult to obtain. Although many multimodal datasets provide expert-annotated ground-truth labels, directly using these labels for supervised fine-tuning may encourage shortcut learning in multimodal perception and provides limited transparency for safety-critical human--AI interaction. To address these limitations, we propose OmniOPSD, a Rationale-Privileged On-Policy Self-Distillation framework that uses frontier-generated rationales as teacher-side privileged evidence rather than student imitation targets. OmniOPSD uses frontier-generated evidence-aware rationales only as training-time privileged evidence context for a local teacher. The student samples its own rollout from the original multimodal input, while the rationale-privileged teacher scores the same tokens and provides dense token-level supervision. Thus, the student learns on its own trajectory distribution without directly imitating frontier-model completions, and inference requires no labels, rationales, CoT annotations, or closed-source model access. Experiments on MER-UniBench show that OmniOPSD achieves state-of-the-art performance with an average score of $84.19$, and ablations further support the value of rationale-privileged teacher guidance.",
+      "authors": [
+        "Zebang Cheng",
+        "Shuimu Chen",
+        "Boxue Yang",
+        "Yuanshen Guan",
+        "Jingyi Chen",
+        "Zheng Lian",
+        "Xiaojiang Peng",
+        "Fei Ma",
+        "LaiZhong Cui",
+        "Qi Tian"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-14T16:51:22+00:00",
+      "link": "https://arxiv.org/pdf/2606.15920v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy self-distillation for multimodal large language models including vision and language",
+      "llm_evidence_cn": "面向包含视觉和语言的多模态大模型的在线策略自我蒸馏",
+      "llm_evidence": "面向包含视觉和语言的多模态大模型的在线策略自我蒸馏",
+      "canonical_evidence": "面向包含视觉和语言的多模态大模型的在线策略自我蒸馏",
+      "llm_tldr_en": "OmniOPSD proposes rationale-privileged on-policy self-distillation for multimodal LLMs, addressing reward sparsity in affective computing by generating dense token-level supervision from privileged rationales.",
+      "llm_tldr_cn": "多模态大语言模型在情感计算等复杂推理任务中面临奖励稀疏问题，现有方法难以获得高质量思维链注释。OmniOPSD提出原理特权在线策略自我蒸馏框架，通过从特权原理中生成密集的令牌级监督信号，无需外部标注即可指引模型学习。在情感计算基准上，该方法提升了多模态推理的准确性与可解释性。该工作推动了在线策略蒸馏在多模态领域的发展。",
+      "llm_tldr": "多模态大语言模型在情感计算等复杂推理任务中面临奖励稀疏问题，现有方法难以获得高质量思维链注释。OmniOPSD提出原理特权在线策略自我蒸馏框架，通过从特权原理中生成密集的令牌级监督信号，无需外部标注即可指引模型学习。在情感计算基准上，该方法提升了多模态推理的准确性与可解释性。该工作推动了在线策略蒸馏在多模态领域的发展。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.17199v1",
+      "source": "arxiv",
+      "title": "PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation",
+      "abstract": "Standard on-policy distillation (OPD) for large language models estimates the reverse-KL objective using student-sampled tokens, yielding an unbiased single-sample Monte Carlo estimator that avoids vocabulary-wide computation. However, we show that this estimator suffers from severe training pathologies in practice: sample inefficiency, unstable generation dynamics, and a substantial performance gap compared to exact full-vocabulary OPD. Reward-level diagnosis traces these pathologies to the log-ratio reward, which is unbounded by construction, producing extremely high-variance gradients concentrated at early positions and persisting throughout training; standard post-hoc scaling fail as they operate only after this distortion occurs. To solve this problem, we propose PowerOPD: a family of natively bounded, sign-consistent rewards from the Box-Cox power transformation, parameterized by alpha > 0, of which the log-ratio is the degenerate alpha -> 0 limit. Across six mathematical reasoning benchmarks and four Qwen3 teacher-student pairs, PowerOPD achieves benchmark-averaged Avg@8/Pass@8 gains of up to +6.37/+5.71 over vanilla OPD, +3.01/+3.54 over post-hoc stabilization, and +2.59/+8.90 over full-vocabulary OPD, while reducing wall-clock time by 59.2% and peak GPU memory by 23.1%. Larger alpha generally improves accuracy, consistently shortens responses, and keeps gradient norms more than 3,000x smaller than vanilla OPD.",
+      "authors": [
+        "Anhao Zhao",
+        "Junlong Tong",
+        "Yingqi Fan",
+        "Ping Nie",
+        "Wenjie Li",
+        "Xiaoyu Shen"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-15T18:37:51+00:00",
+      "link": "https://arxiv.org/pdf/2606.17199v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "stabilizing on-policy distillation for LLM",
+      "llm_evidence_cn": "稳定大语言模型中的在线策略蒸馏",
+      "llm_evidence": "稳定大语言模型中的在线策略蒸馏",
+      "canonical_evidence": "稳定大语言模型中的在线策略蒸馏",
+      "llm_tldr_en": "PowerOPD identifies training pathologies in standard on-policy distillation for LLMs and proposes bounded power transformation to stabilize the log-ratio reward. This mitigates high-variance gradients and improves sample efficiency, closing the performance gap with full-vocabulary OPD.",
+      "llm_tldr_cn": "标准在线策略蒸馏（OPD）在大语言模型中因对数比率奖励无界导致梯度方差巨大、训练不稳定。本文通过诊断发现该问题并提出PowerOPD，采用有界幂变换来稳定奖励信号。该方法无需全词汇计算即可缓解训练病理，显著提升样本效率和生成稳定性，使性能接近精确全词汇OPD。",
+      "llm_tldr": "标准在线策略蒸馏（OPD）在大语言模型中因对数比率奖励无界导致梯度方差巨大、训练不稳定。本文通过诊断发现该问题并提出PowerOPD，采用有界幂变换来稳定奖励信号。该方法无需全词汇计算即可缓解训练病理，显著提升样本效率和生成稳定性，使性能接近精确全词汇OPD。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.18195v1",
+      "source": "arxiv",
+      "title": "Learning from the Self-future: On-policy Self-distillation for dLLMs",
+      "abstract": "On-policy self-distillation (OPSD) has proven effective for post-training large language models (LLMs), yet its application to diffusion LLMs (dLLMs) remains unexplored. Existing OPSD methods are inherently autoregressive-centric. They inject privileged information via left-to-right prefix conditioning with token-level divergence supervision, a design that fundamentally conflicts with the arbitraryorder generation of dLLMs. We introduce d-OPSD, the first OPSD framework tailored for dLLMs. Our approach makes two core contributions. First, we reframe self-teacher construction by using self-generated answers as suffix conditioning, enabling the student model to learn from \"self future-experience\" rather than privileged prefixes. Second, we shift supervision from token-level to step-level, aligning training with the iterative denoising process of dLLMs. Experiments across four reasoning benchmarks show that d-OPSD consistently outperforms RLVR and SFT baselines with superior sample efficiency, requiring only around 10% of the optimization steps by RLVR and opening a promising pathway for dLLM posttraining. The code is available at https://github.com/xingzhejun/d-OPSD.",
+      "authors": [
+        "Yifu Luo",
+        "Zeyu Chen",
+        "Haoyu Wang",
+        "Xinhao Hu",
+        "Yuxuan Zhang",
+        "Zhizhou Sha",
+        "Shiwei Liu"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-06-16T17:24:57+00:00",
+      "link": "https://arxiv.org/pdf/2606.18195v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy self-distillation for diffusion LLMs",
+      "llm_evidence_cn": "扩散大语言模型上的在线策略自蒸馏",
+      "llm_evidence": "扩散大语言模型上的在线策略自蒸馏",
+      "canonical_evidence": "扩散大语言模型上的在线策略自蒸馏",
+      "llm_tldr_en": "Proposes d-OPSD, the first on-policy self-distillation framework for diffusion LLMs, reformulating self-teacher using self-generated answers as suffix conditioning.",
+      "llm_tldr_cn": "该论文针对扩散大语言模型（dLLM）提出首个在线策略自蒸馏框架d-OPSD。现有策略自蒸馏方法是为自回归模型设计的，不适用于任意顺序生成的dLLM。d-OPSD通过使用自生成答案作为后缀条件来重构自教师，让学生模型从自身未来的经验中学习。实验表明该方法有效提升了dLLM的性能，为扩散模型的后训练开辟了新途径。",
+      "llm_tldr": "该论文针对扩散大语言模型（dLLM）提出首个在线策略自蒸馏框架d-OPSD。现有策略自蒸馏方法是为自回归模型设计的，不适用于任意顺序生成的dLLM。d-OPSD通过使用自生成答案作为后缀条件来重构自教师，让学生模型从自身未来的经验中学习。实验表明该方法有效提升了dLLM的性能，为扩散模型的后训练开辟了新途径。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.10334v1",
+      "source": "arxiv",
+      "title": "Self-Distillation Policy Optimization via Visual Feedback: Bridging Code and Visual Artifacts",
+      "abstract": "Code-generating large language models (LLMs) increasingly produce visual artifacts such as charts, web pages, and slides by writing programs that are executed by non-differentiable renderers, committing to code before observing the render. As a result, otherwise executable code often yields artifacts with visually salient defects, including overlapping elements, clipped text, broken alignment, low contrast, and overflow. We study visual-feedback self-distillation for code-generated visual artifacts. We propose Visual-SDPO, a self-distillation policy-optimization framework that treats rendered visual feedback as privileged context for a weight-sharing teacher and distills this feedback into a coding student. To make supervision spatially targeted rather than uniform, we introduce Visual-Grounded Code Credit Weighting, which traces each detected defect back to the code statements responsible for the affected elements and amplifies the distillation signal on those statements. A sequence-level GRPO (Group Relative Policy Optimization) term complements the dense token-level objective by rewarding executable, visually high-quality rollouts, while failed executions remain learnable through the self-distillation path by passing execution errors as privileged context to the teacher. We instantiate Visual-SDPO for chart, web/UI, and slide generation with a unified Qwen3-VL-8B-Instruct backbone. Across chart-to-code, UI-to-code, and slide-generation benchmarks (ChartMimic, Design2Code, and AeSlides), Visual-SDPO improves over the zero-shot base by more than 10 absolute points in the primary metric and over GRPO by at least 2.4 points, with fewer training steps and no added inference-time cost.",
+      "authors": [
+        "Haoyu Dong"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-09T02:28:39+00:00",
+      "link": "https://arxiv.org/pdf/2606.10334v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Self-distillation policy optimization combining visual feedback and on-policy learning for code-generated visual artifacts",
+      "llm_evidence_cn": "结合视觉反馈和on-policy学习的自蒸馏策略优化，用于代码生成的视觉工件",
+      "llm_evidence": "结合视觉反馈和on-policy学习的自蒸馏策略优化，用于代码生成的视觉工件",
+      "canonical_evidence": "结合视觉反馈和on-policy学习的自蒸馏策略优化，用于代码生成的视觉工件",
+      "llm_tldr_en": "Visual-SDPO frames visual feedback as privileged context for a teacher and distills it into a coding student via self-distillation policy optimization, improving visual artifact quality.",
+      "llm_tldr_cn": "论文提出Visual-SDPO，一种自蒸馏策略优化框架，旨在提升代码生成视觉工件的质量。该方法将渲染后的视觉反馈作为教师模型的特权上下文，通过自蒸馏将视觉知识传递给学生编码模型。实验表明，Visual-SDPO有效减少了视觉缺陷，如重叠、裁剪和对齐问题，显著提升了生成工件的视觉质量。",
+      "llm_tldr": "论文提出Visual-SDPO，一种自蒸馏策略优化框架，旨在提升代码生成视觉工件的质量。该方法将渲染后的视觉反馈作为教师模型的特权上下文，通过自蒸馏将视觉知识传递给学生编码模型。实验表明，Visual-SDPO有效减少了视觉缺陷，如重叠、裁剪和对齐问题，显著提升了生成工件的视觉质量。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation for vision language models",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.11559v1",
+      "source": "arxiv",
+      "title": "HERO: Hindsight-Enhanced Reflection from Environment Observations for Agentic Self-Distillation",
+      "abstract": "Reinforcement learning typically improves multi-turn agent capabilities through the terminal outcome of the trajectories, which makes it difficult to determine credit assignments for each intermediate turns. Recent on-policy self-distillation methods offer a promising alternative by converting privileged feedback into dense token-level supervision through a self-teacher. Our study is motivated by the unexpected performance degradation observed when naively extending this paradigm to multi-turn settings, which we attribute to a lack of alignment between privileged feedback, such as successful trajectories or terminal outcomes, and the student's current decision context. We introduce HERO, a hindsight-enhanced self-distillation framework that uses next environment observations as locally aligned feedback. After each rollout, HERO reflects on the completed interaction to convert each observation into a compact turn-level diagnosis, that captures actionable feedback about the original action such as its necessity, validity or failure cause. On TauBench and WebShop, HERO improves task success and reduces unnecessary turns over environment-feedback-only self-distillation and GRPO. It is especially effective under limited training turn budgets, where successful rollouts are rare and GRPO provides weak reward-contrast signals.",
+      "authors": [
+        "Haoran Liu",
+        "Yuwei Zhang",
+        "Xiyao Li",
+        "Bohan Lyu",
+        "Jingbo Shang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-10T01:35:34+00:00",
+      "link": "https://arxiv.org/pdf/2606.11559v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "on-policy self-distillation for agentic tasks",
+      "llm_evidence_cn": "用于智能体任务的在线策略自我蒸馏",
+      "llm_evidence": "用于智能体任务的在线策略自我蒸馏",
+      "canonical_evidence": "用于智能体任务的在线策略自我蒸馏",
+      "llm_tldr_en": "HERO introduces hindsight-enhanced reflection to align privileged feedback with student's current context in multi-turn on-policy self-distillation, improving credit assignment.",
+      "llm_tldr_cn": "在线策略自我蒸馏方法在多轮交互场景中面临特权反馈与学生当前决策上下文对齐困难的问题。本文提出HERO框架，通过事后增强反思机制，利用环境观察将成功轨迹中的反馈与当前语境对齐，生成密集的令牌级监督信号。实验表明，HERO在多轮智能体任务上提升了信用分配效率，显著优于基线方法。该工作为强化学习与知识蒸馏的结合提供了新思路。",
+      "llm_tldr": "在线策略自我蒸馏方法在多轮交互场景中面临特权反馈与学生当前决策上下文对齐困难的问题。本文提出HERO框架，通过事后增强反思机制，利用环境观察将成功轨迹中的反馈与当前语境对齐，生成密集的令牌级监督信号。实验表明，HERO在多轮智能体任务上提升了信用分配效率，显著优于基线方法。该工作为强化学习与知识蒸馏的结合提供了新思路。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Improving language model via on policy distillation",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.13156v1",
+      "source": "arxiv",
+      "title": "Iterative Visual Thinking: Teaching Vision-Language Models Spatial Self-Correction through Visual Feedback",
+      "abstract": "Vision-language models (VLMs) achieve strong singleshot spatial grounding, yet lack any mechanism to observe and correct their own predictions. We find that naively prompting a VLM to iterate over rendered visualizations of its predictions causes catastrophic failure: Acc@0.5 on referring expression comprehension collapses from 79.6% to 48.7% (a 31 percentage point drop), revealing a fundamental gap between grounding capability and self-correction ability. We propose Iterative Visual Thinking (IVT), a closed-loop framework in which the model predicts a bounding box, observes the prediction rendered on the image, and iteratively refines through visual feedback. A two-phase training recipe closes the self-correction gap: first, we exploit the base model's own predictions as realistic errors and prompt a teacher VLM to generate corrective reasoning traces, yielding supervised data without human annotation; second, we apply Group Relative Policy Optimization (GRPO) with a simple IoU reward to stabilize multi-step refinement. On a mixed benchmark spanning RefCOCOg, Ref-Adv, and Ref-L4 (505 test samples), SFT warm-up with IVT surpasses the single-shot base model on every metric: Acc@0.5 rises to 82.0% (+2.4pp), Acc@0.7 to 74.1% (+3.2pp), and Acc@0.9 to 48.3% (+2.8pp). GRPO further reduces per-step IoU degradation by 5x, stabilizing the refinement trajectory. All training uses only 2,400 samples on a single GPU, demonstrating that spatial self-correction is a learnable capability that can be instilled at modest scale.",
+      "authors": [
+        "Animesh Tripathy",
+        "Aswanth Krishnan"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-06-11T10:27:29+00:00",
+      "link": "https://arxiv.org/pdf/2606.13156v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Proposes iterative visual feedback training for VLMs, relevant to visual language model training.",
+      "llm_evidence_cn": "提出基于迭代视觉反馈的VLM训练方法，与视觉语言模型训练需求相关。",
+      "llm_evidence": "提出基于迭代视觉反馈的VLM训练方法，与视觉语言模型训练需求相关。",
+      "canonical_evidence": "提出基于迭代视觉反馈的VLM训练方法，与视觉语言模型训练需求相关。",
+      "llm_tldr_en": "Iterative Visual Thinking trains VLMs to self-correct via visual feedback, contributing to visual language model training methodology.",
+      "llm_tldr_cn": "现有VLM在空间定位上缺乏自我修正机制。本文提出迭代视觉思考（IVT）框架，让模型预测边界框、观察渲染结果并迭代优化。两阶段训练方案填补了自我修正能力差距，推动了视觉语言模型训练技术的发展。",
+      "llm_tldr": "现有VLM在空间定位上缺乏自我修正机制。本文提出迭代视觉思考（IVT）框架，让模型预测边界框、观察渲染结果并迭代优化。两阶段训练方案填补了自我修正能力差距，推动了视觉语言模型训练技术的发展。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.10385v1",
+      "source": "arxiv",
+      "title": "Beyond Absolute Imitation: Anchored Residual Guidance for Privileged On-Policy Distillation",
+      "abstract": "On-policy distillation (OPD) has demonstrated strong empirical gains in enhancing complex reasoning in LLMs by aligning a student model with a teacher's predictive distribution over the student's own trajectories. An emerging variant, Privileged OPD, further strengthens this paradigm by employing a self-teacher model augmented with privileged information, such as oracle traces, to mitigate teacher-student capacity gaps while providing dense, answer-directed supervision. However, current methods treat privileged information as a monolithic imitation target, failing to disentangle locally reachable reasoning steps from future-conditioned oracle signals. Consequently, the student is encouraged to match a hindsight-biased distribution that often falls outside its local predictive support. This reachability mismatch incentivizes the student model to skip valid intermediate reasoning in favor of locally unsupported shortcuts. To resolve this, we introduce Anchored Residual On-Policy Distillation (AR-OPD), a dual-view framework that disentangles privileged supervision. Rather than enforcing strict full-view imitation, AR-OPD establishes a locally compatible anchor using a partially privileged teacher, isolating and injecting oracle foresight as a controlled residual to provide destination-directed guidance. Across diverse reasoning tasks, AR-OPD outperforms full privileged OPD by 2.3 points and SFT by 7.9 points. Crucially, this anchored residual mechanism reduces hindsight leakage by 21.7% and mitigates late-stage drift, yielding up to a 7.2-point advantage on challenging long-horizon trajectories exceeding 768 tokens.",
+      "authors": [
+        "Wenhao Zhang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-09T03:51:41+00:00",
+      "link": "https://arxiv.org/pdf/2606.10385v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "privileged on-policy distillation with anchored residual guidance for LLMs",
+      "llm_evidence_cn": "利用锚定残差引导的特权在线策略蒸馏用于大语言模型",
+      "llm_evidence": "利用锚定残差引导的特权在线策略蒸馏用于大语言模型",
+      "canonical_evidence": "利用锚定残差引导的特权在线策略蒸馏用于大语言模型",
+      "llm_tldr_en": "Proposes Anchored Residual Guidance for Privileged OPD, decoupling locally reachable steps from oracle signals to improve LLM reasoning alignment.",
+      "llm_tldr_cn": "本文针对特权在线策略蒸馏（Privileged OPD）中监督信号混叠的问题，提出锚定残差引导方法。通过解耦局部可达推理步与未来导向的预言信号，避免学生模型盲目匹配事后偏差分布，从而提升大语言模型复杂推理的对齐效果。该方法在多个基准上取得优势。",
+      "llm_tldr": "本文针对特权在线策略蒸馏（Privileged OPD）中监督信号混叠的问题，提出锚定残差引导方法。通过解耦局部可达推理步与未来导向的预言信号，避免学生模型盲目匹配事后偏差分布，从而提升大语言模型复杂推理的对齐效果。该方法在多个基准上取得优势。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.12072v1",
+      "source": "arxiv",
+      "title": "World Model Self-Distillation: Training World Models to Solve General Tasks",
+      "abstract": "Pretrained video generators are promising visual world models that exhibit emergent task-solving abilities; however, their reliance on detailed textual descriptions limits their direct use for planning and decision-making. Existing approaches either outsource this reasoning to language or vision-language models, or rely on supervised fine-tuning with paired task-execution videos, which are costly to collect and difficult to scale. We propose a scalable framework that elicits task-solving ability in such models by combining self-distillation with reinforcement learning. Given an unlabeled scene image, a vision-language model generates a candidate task and a detailed step-by-step solution. The solution conditions a pretrained video diffusion model, the Demonstrator; we distill its behavior into an Executor conditioned only on the image and a short task prompt. This transfers execution knowledge from caption-guided generation to instruction-conditioned task solving without curated task-video supervision. We further improve the Executor with reinforcement learning from VLM feedback, exploiting the asymmetry between judging whether a sampled video satisfies a task and generating the solution. Experiments on our proposed WorldTasks-Benchmark and the DreamGen robotics benchmark show that the Executor surpasses the Demonstrator under our VLM-based evaluation protocol and transfers competitively to robotic tasks.",
+      "authors": [
+        "Sebastian Stapf",
+        "Pablo Acuaviva Huertos",
+        "Aram Davtyan",
+        "Paolo Favaro"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-10T13:40:19+00:00",
+      "link": "https://arxiv.org/pdf/2606.12072v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Self-distillation with RL for video world models using VLM",
+      "llm_evidence_cn": "结合自蒸馏与强化学习训练视频世界模型",
+      "llm_evidence": "结合自蒸馏与强化学习训练视频世界模型",
+      "canonical_evidence": "结合自蒸馏与强化学习训练视频世界模型",
+      "llm_tldr_en": "World Model Self-Distillation combines self-distillation with reinforcement learning and VRMs to elicit task-solving ability in pretrained video generators without expensive supervision.",
+      "llm_tldr_cn": "预训练视频生成模型虽展现出涌现任务解决能力，但依赖详细文本描述限制了其直接用于规划决策。现有方法或借助语言模型推理，或需要昂贵的任务执行视频进行监督微调。本文提出世界模型自蒸馏框架，结合视觉语言模型生成候选任务与逐步解决方案，利用强化学习进行自我蒸馏。实验表明，该框架无需人工标注即可激发视频生成模型的任务解决能力，为世界模型的通用性提供了可扩展途径。",
+      "llm_tldr": "预训练视频生成模型虽展现出涌现任务解决能力，但依赖详细文本描述限制了其直接用于规划决策。现有方法或借助语言模型推理，或需要昂贵的任务执行视频进行监督微调。本文提出世界模型自蒸馏框架，结合视觉语言模型生成候选任务与逐步解决方案，利用强化学习进行自我蒸馏。实验表明，该框架无需人工标注即可激发视频生成模型的任务解决能力，为世界模型的通用性提供了可扩展途径。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.13680v1",
+      "source": "arxiv",
+      "title": "Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning",
+      "abstract": "Retrieval-augmented generation (RAG) has become a standard mechanism for grounding language models in external knowledge, yet conventional retrieval based on lexical or semantic similarity is poorly suited for complex reasoning tasks: a semantically similar problem may demand an entirely different solution strategy, while a superficially different problem may share the same underlying reasoning pattern. We propose Retrieval-Augmented Reinforcement Fine-Tuning (RA-RFT), a post-training framework that teaches language models to reason by analogy. RA-RFT uses gold-relevance distillation to train a retriever that ranks contexts by expected reasoning benefit rather than semantic overlap, and then fine-tunes the policy model via reinforcement fine-tuning methods with retrieved analogous demonstrations, so the model learns to leverage reasoning traces under verifiable outcome rewards. We further analyze the diversity of retrieved contexts and find that reasoning-aware retrieval surfaces complementary solution strategies that provide distinct reasoning scaffolds for individual problems. Across challenging mathematical reasoning benchmarks, RA-RFT consistently outperforms standard reinforcement fine-tuning methods. For example, it improves AIME 2025 average@32 accuracy by 7.1 and 2.8 points over GRPO for Qwen3-1.7B and Qwen3-4B respectively -- suggesting that reasoning-aware retrieval is a complementary axis of improvement and orthogonal to advances in reward design or training curricula.",
+      "authors": [
+        "Zilin Xiao",
+        "Qi Ma",
+        "Chun-cheng Jason Chen",
+        "Xintao Chen",
+        "Avinash Atreya",
+        "Hanjie Chen",
+        "Vicente Ordonez"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "published": "2026-06-11T17:59:52+00:00",
+      "link": "https://arxiv.org/pdf/2606.13680v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Uses gold-relevance distillation to train retriever, then fine-tunes policy via RL, combining distillation and RL for LLMs",
+      "llm_evidence_cn": "使用黄金相关性蒸馏训练检索器，再通过RL微调策略，结合了蒸馏和强化学习",
+      "llm_evidence": "使用黄金相关性蒸馏训练检索器，再通过RL微调策略，结合了蒸馏和强化学习",
+      "canonical_evidence": "使用黄金相关性蒸馏训练检索器，再通过RL微调策略，结合了蒸馏和强化学习",
+      "llm_tldr_en": "RA-RFT uses gold-relevance distillation to train a retriever for reasoning benefit, then fine-tunes the policy model via reinforcement fine-tuning, enabling analogy-based reasoning.",
+      "llm_tldr_cn": "论文提出RA-RFT框架，通过黄金相关性蒸馏训练检索器，使其能按预期推理收益排序上下文，而非语义相似度。随后使用强化微调优化策略模型，使其学会类比推理。实验表明，该方法在多个推理基准上显著优于传统RAG和纯RL方法，展示了蒸馏与RL结合的有效性。",
+      "llm_tldr": "论文提出RA-RFT框架，通过黄金相关性蒸馏训练检索器，使其能按预期推理收益排序上下文，而非语义相似度。随后使用强化微调优化策略模型，使其学会类比推理。实验表明，该方法在多个推理基准上显著优于传统RAG和纯RL方法，展示了蒸馏与RL结合的有效性。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Knowledge distillation techniques in reinforcement learning for LLMs",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.11854v1",
+      "source": "arxiv",
+      "title": "Fine-tuning Multi-modal LLMs with ART: Art-based Reinforcement Training",
+      "abstract": "There are two main Parameter-Efficient Fine-Tuning (PEFT) techniques for Large Language Models (LLMs). While Low-Rank Adaptation (LoRA) introduces additional weights between the LLM layers, Soft Prompting introduces additional fine-tuning-specific raw tokens to an LLM input. However, both require modification to the computational graphs of precompiled, preoptimized LLMs. As a result, neither is fully supported in high-throughput engines like vLLM. We propose fine-tuning with ART (Art-based Reinforcement Training). The method injects information into a frozen Multimodal Large Language Model (MLLM) by optimizing only its raw visual input, thus enabling the soft-token approach on pre-compiled computational graphs. It relies on backpropagation of gradients back into a plain pixel array and thus supports any fine-tuning objective. Moreover, the optimized visual input can be stylized as task-relevant computational artworks. The approach's effectiveness is confirmed for different sizes of a popular open Qwen architecture and for several textual benchmarks. Specifically, ART reaches accuracy competitive with LoRA across mathematics and structured-tool-use benchmarks.",
+      "authors": [
+        "Michal Chudoba",
+        "Sergey Alyaev",
+        "Petra Galuscakova",
+        "Tomasz Wiktorski"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "published": "2026-06-10T09:30:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.11854v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "fine-tuning multi-modal LLMs",
+      "llm_evidence_cn": "微调多模态大语言模型",
+      "llm_evidence": "微调多模态大语言模型",
+      "canonical_evidence": "微调多模态大语言模型",
+      "llm_tldr_en": "This paper proposes ART, a reinforcement training method that fine-tunes multimodal LLMs by optimizing only the raw visual input, enabling soft-prompt-like injection without modifying the computational graph.",
+      "llm_tldr_cn": "针对现有参数高效微调方法在vLLM等高性能引擎中不受支持的问题，本文提出ART（基于艺术的强化训练），通过仅优化冻结多模态大语言模型的原始视觉输入来注入信息，从而在预编译计算图上实现类似软提示的微调。实验表明，ART在多种多模态任务上有效，且无需修改模型结构。",
+      "llm_tldr": "针对现有参数高效微调方法在vLLM等高性能引擎中不受支持的问题，本文提出ART（基于艺术的强化训练），通过仅优化冻结多模态大语言模型的原始视觉输入来注入信息，从而在预编译计算图上实现类似软提示的微调。实验表明，ART在多种多模态任务上有效，且无需修改模型结构。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.16122v1",
+      "source": "arxiv",
+      "title": "Thinking with Visual Grounding",
+      "abstract": "Visual thinking should not only sound right; it should show its evidence. While recent vision-language models (VLMs) can produce natural-language reasoning traces, these traces often leave the supporting image regions implicit, making them hard to verify and difficult to supervise. We introduce visually grounded thinking, a reasoning process in which models interleave natural-language thoughts with explicit point or box groundings of the visual evidence used at each step. This lets the model express intermediate reasoning in language while grounding key objects in the image regions they refer to. To train this behavior, we construct a scalable synthesis pipeline that distills correct visual reasoning traces, extracts the visual objects required by the traces, grounds them with a SAM3-based agent, and derives aligned point and box supervision from the resulting masks. We further propose grounding-aware reinforcement learning, which combines answer correctness rewards with dense grounding rewards that score whether generated object references match the correct image evidence. Across two counting benchmarks and four spatial reasoning benchmarks, adding visually grounded thinking to Gemma3-4B-IT consistently improves performance over the original model and the non-grounded thinking baseline. On spatial reasoning, the visually grounded thinking 4B models match, and in some cases surpass, Gemma3-27B-IT from the same model family. Our analysis shows that point grounding is well suited to counting, while box grounding benefits most from explicit grounding rewards on spatial tasks. Overall, our results show that VLMs think better when their intermediate thoughts are tied to the image regions that make them true.",
+      "authors": [
+        "Junkai Zhang",
+        "Yihe Deng",
+        "Kai-Wei Chang",
+        "Wei Wang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-15T02:28:34+00:00",
+      "link": "https://arxiv.org/pdf/2606.16122v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "distillation for visual reasoning in VLMs",
+      "llm_evidence_cn": "视觉语言模型中的视觉推理蒸馏",
+      "llm_evidence": "视觉语言模型中的视觉推理蒸馏",
+      "canonical_evidence": "视觉语言模型中的视觉推理蒸馏",
+      "llm_tldr_en": "Thinking with Visual Grounding introduces visually grounded thinking, interleaving language reasoning with explicit image region groundings. A scalable synthesis pipeline distills correct visual reasoning traces, extracts objects, and grounds them using SAM3-based annotations to train VLMs.",
+      "llm_tldr_cn": "当前视觉语言模型（VLM）的推理轨迹缺乏对图像证据的显式指代，难以验证和监督。本文提出视觉接地推理，让模型在语言思考的同时输出点或框形式的视觉证据。通过构建可扩展的合成流水线，从正确的视觉推理轨迹中蒸馏所需物体，并使用SAM3接地的注释进行训练。该方法使VLM的推理过程可解释且可验证，显著提升在视觉问答等任务上的可信度。",
+      "llm_tldr": "当前视觉语言模型（VLM）的推理轨迹缺乏对图像证据的显式指代，难以验证和监督。本文提出视觉接地推理，让模型在语言思考的同时输出点或框形式的视觉证据。通过构建可扩展的合成流水线，从正确的视觉推理轨迹中蒸馏所需物体，并使用SAM3接地的注释进行训练。该方法使VLM的推理过程可解释且可验证，显著提升在视觉问答等任务上的可信度。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.14691v1",
+      "source": "arxiv",
+      "title": "CORA: Analyzing and bridging thinking-answer gap in Multimodal RLVR via Consistency-Oriented Reasoning Alignment",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has successfully elicited the reasoning capabilities of large language models, motivating its extension to multimodal scenarios. Existing methods primarily focus on improving the visual coverage of reasoning traces and mitigating visual hallucinations, but underestimate the semantic inconsistency between the reasoning process and the final answer. In this paper, we delve into thinking-answer inconsistency in RLVR for large vision-language models (LVLMs), showing thorough analyses of rollouts collected throughout Group Relative Policy Optimization (GRPO) training process and post-RLVR evaluation outputs that this issue persists during training and remains present during inference. Motivated by the analysis, we propose Consistency-Oriented Reasoning Alignment (CORA), which introduces thinking-answer semantic consistency into RLVR through a lightweight plug-and-play consistency reward model, and further incorporates Hybrid Reward Advantage Splitting (HRAS) to stably coordinate task and consistency optimization. Extensive experiments across representative multimodal reasoning benchmarks and mainstream LVLMs show that CORA improves task performance while effectively mitigating thinking-answer inconsistency, leading to more faithful reasoning traces.",
+      "authors": [
+        "Jiayue Cao",
+        "Zhicong Lu",
+        "Xuehan Sun",
+        "Wei Jia",
+        "Hongling Zheng",
+        "Changyuan Tian",
+        "Zichuan Lin",
+        "Wenqian Lv",
+        "Nayu Liu"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-06-12T17:54:59+00:00",
+      "link": "https://arxiv.org/pdf/2606.14691v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "uses GRPO (on-policy RL) for vision-language model reasoning alignment",
+      "llm_evidence_cn": "使用GRPO（在线策略强化学习）进行视觉语言模型推理对齐",
+      "llm_evidence": "使用GRPO（在线策略强化学习）进行视觉语言模型推理对齐",
+      "canonical_evidence": "使用GRPO（在线策略强化学习）进行视觉语言模型推理对齐",
+      "llm_tldr_en": "Identifies and mitigates thinking-answer inconsistency in multimodal RLVR for LVLMs using GRPO-based consistency-oriented reasoning alignment.",
+      "llm_tldr_cn": "本文研究了多模态强化学习可验证奖励（RLVR）中大视觉语言模型（LVLMs）的思考-答案不一致问题。通过分析GRPO训练过程中的rollouts，发现语义不一致持续存在。为此提出一致性导向推理对齐（CORA）方法，在保持视觉覆盖的同时强制推理与答案一致，从而提升多模态推理的可靠性。",
+      "llm_tldr": "本文研究了多模态强化学习可验证奖励（RLVR）中大视觉语言模型（LVLMs）的思考-答案不一致问题。通过分析GRPO训练过程中的rollouts，发现语义不一致持续存在。为此提出一致性导向推理对齐（CORA）方法，在保持视觉覆盖的同时强制推理与答案一致，从而提升多模态推理的可靠性。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy learning in vision language models",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.14010v1",
+      "source": "arxiv",
+      "title": "RT-VLA: Real-Time Vision-Language-Action Models via Knowledge Distillation",
+      "abstract": "Vision-Language-Action (VLA) models have shown strong potential for end-to-end autonomous driving by jointly modeling visual perception, language reasoning, explainability and action prediction. However, their large vision-language backbones and reasoning modules introduce substantial inference latency and thereby prevent their deployment in the unforgiving reality of the road networks. We propose RT-VLA, a lightweight, distilled VLA model that transfers the driving and reasoning capabilities of the state-of-the-art SimLingo model into a compact student through multi-level supervised distillation. RT-VLA preserves language-based reasoning and supports post-hoc explanation through offline language analysis of safety-critical driving moments without adding latency to real-time control. Compared to the SimLingo teacher, RT-VLA maintains competitive closed-loop driving and language reasoning performance while reducing inference time by 44.8X in vision-only mode and 7.9X in vision+language mode. These results suggest that supervised distillation is a practical approach for building real-time, explainable VLA-style autonomous driving models.",
+      "authors": [
+        "Xiangyu Huang",
+        "Zhenlin Hua",
+        "Han Zhou",
+        "Shounak Sural",
+        "Ragunathan Rajkumar"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-06-12T01:06:42+00:00",
+      "link": "https://arxiv.org/pdf/2606.14010v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "knowledge distillation for real-time VLA models",
+      "llm_evidence_cn": "用于实时视觉语言动作模型的知识蒸馏",
+      "llm_evidence": "用于实时视觉语言动作模型的知识蒸馏",
+      "canonical_evidence": "用于实时视觉语言动作模型的知识蒸馏",
+      "llm_tldr_en": "Proposes RT-VLA, a lightweight distilled VLA model for autonomous driving, transferring reasoning and driving capabilities via multi-level supervised distillation.",
+      "llm_tldr_cn": "该论文针对视觉语言动作（VLA）模型在自动驾驶中推理延迟大的问题，提出RT-VLA轻量蒸馏模型。通过多级监督蒸馏将大型SimLingo模型的能力压缩到紧凑的学生网络中。RT-VLA保留了语言推理能力并支持事后解释，在保证性能的同时大幅降低了推理延迟，推动了VLA模型在实时驾驶中的实际部署。",
+      "llm_tldr": "该论文针对视觉语言动作（VLA）模型在自动驾驶中推理延迟大的问题，提出RT-VLA轻量蒸馏模型。通过多级监督蒸馏将大型SimLingo模型的能力压缩到紧凑的学生网络中。RT-VLA保留了语言推理能力并支持事后解释，在保证性能的同时大幅降低了推理延迟，推动了VLA模型在实时驾驶中的实际部署。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.15134v1",
+      "source": "arxiv",
+      "title": "Beyond Scalar Distances: Semantic Attribute Gradients from Frozen MLLMs for Visual Embeddings",
+      "abstract": "Vision encoders for retrieval are typically trained with class-label supervision: each training pair reduces to a scalar that uniformly pushes the embedding apart or pulls it together, as if every visual attribute either differed or matched. A multimodal large language model (MLLM), shown the same pair, can articulate those attributes and use them to predict whether the images share a class. We propose \\textbf{SAGA}, a framework that turns this language-grounded, attribute-aware perception into a training signal for the encoder itself. Specifically, we use Group Relative Policy Optimization (GRPO) to reward the MLLM for correct predictions on the vision encoder's tokens. Since correct predictions require those tokens to expose the specific attributes that differ or match between the pair, the gradient pushes the encoder to encode them, replacing the uniform pair-level scalar with attribute-resolved supervision. An auxiliary attention-distillation loss anchors the encoder's embedding to tokens the MLLM attended to, and a standard metric-learning loss shapes the embedding geometry for nearest-neighbour retrieval. The MLLM is frozen throughout and discarded at inference, matching the deployment cost of a metric-learning baseline. SAGA improves Recall@1 by 3 to 6 points over state-of-the-art baselines on CUB-200-2011, Cars-196, FGVC-Aircraft, and iNaturalist Aves on zero-shot image retrieval.",
+      "authors": [
+        "Shubhang Bhatnagar",
+        "Dheeraj Baiju",
+        "Narendra Ahuja"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-13T05:50:40+00:00",
+      "link": "https://arxiv.org/pdf/2606.15134v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Uses GRPO (on-policy RL) to distill MLLM knowledge into vision encoder",
+      "llm_evidence_cn": "使用GRPO（on-policy强化学习）将MLLM知识蒸馏到视觉编码器",
+      "llm_evidence": "使用GRPO（on-policy强化学习）将MLLM知识蒸馏到视觉编码器",
+      "canonical_evidence": "使用GRPO（on-policy强化学习）将MLLM知识蒸馏到视觉编码器",
+      "llm_tldr_en": "SAGA uses Group Relative Policy Optimization (GRPO) to fine-tune vision encoders by rewarding a frozen MLLM for correct predictions on encoder tokens, effectively distilling semantic attribute awareness into visual embeddings.",
+      "llm_tldr_cn": "论文提出SAGA框架，通过Group Relative Policy Optimization（GRPO）将冻结的多模态大语言模型（MLLM）的语义属性感知蒸馏到视觉编码器中。该方法利用MLLM对图像对的描述作为训练信号，优化视觉嵌入。实验表明，SAGA显著提升了视觉检索和分类性能，提供了将语言知识融入视觉嵌入的高效途径。",
+      "llm_tldr": "论文提出SAGA框架，通过Group Relative Policy Optimization（GRPO）将冻结的多模态大语言模型（MLLM）的语义属性感知蒸馏到视觉编码器中。该方法利用MLLM对图像对的描述作为训练信号，优化视觉嵌入。实验表明，SAGA显著提升了视觉检索和分类性能，提供了将语言知识融入视觉嵌入的高效途径。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    }
+  ]
+}
