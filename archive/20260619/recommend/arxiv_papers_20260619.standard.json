@@ -1,0 +1,180 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-19T20:22:43.063719+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 4,
+    "quick_skim_target": 11,
+    "quick_selected": 4
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.18441v1",
+      "source": "arxiv",
+      "title": "Reasoning as Intersection: Consensus-Frame Alignment for Visual Focus in Video-MLLMs",
+      "abstract": "Reinforcement learning has improved the reasoning ability of large language models, but applying outcome-only rewards to video multimodal large language models (Video-MLLMs) provides limited guidance on which visual evidence should support the answer. Inspired by multisensory integration, where consistent cues can enhance the salience and reliability of perceptual estimates, we introduce Consensus Frame GRPO (CF-GRPO), a temporal-annotation-free process-level reward framework for evidence-aware video reasoning. CF-GRPO constructs a consensus frame prior from intrinsic video cues, including temporal coverage, scene-transition cues, and query-conditioned visual relevance. It then computes a model-side frame-use score from visual and response representations and optimizes their agreement through the Consensus Frame Reward (CFR). With salience-aware sparse aggregation and distribution sharpening, CFR provides a high-contrast reward signal without requiring human temporal annotations. Experiments show that VideoCFR achieves competitive performance across complex video reasoning benchmarks and improves several metrics over representative Video-MLLM and RL baselines, while the consensus prior provides an interpretable view of the evidence frames emphasized during training. The implementation is available at https://github.com/1Pansy/VideoCFR.",
+      "authors": [
+        "Chengwen Liu",
+        "Zhe Huang",
+        "Jisheng Dang",
+        "Hong Peng",
+        "Qi Tian",
+        "Tat-Seng Chua"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-16T19:42:54+00:00",
+      "link": "https://arxiv.org/pdf/2606.18441v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Reinforcement learning process-level reward for video multimodal LLMs",
+      "llm_evidence_cn": "为视频多模态大模型提供过程级奖励的强化学习方法",
+      "llm_evidence": "为视频多模态大模型提供过程级奖励的强化学习方法",
+      "canonical_evidence": "为视频多模态大模型提供过程级奖励的强化学习方法",
+      "llm_tldr_en": "Proposes Consensus Frame GRPO (CF-GRPO), a process-level reward framework for evidence-aware video reasoning in Video-MLLMs, using temporal cues to guide visual focus.",
+      "llm_tldr_cn": "视频多模态大模型（Video-MLLMs）的推理常因缺乏视觉证据指导而受限。本文提出共识帧GRPO（CF-GRPO），一种免时序标注的过程级奖励框架，通过视频内在临时线索（时间覆盖、场景切换、查询相关性）构建共识帧先验，并计算模型侧帧使用评分以引导视觉聚焦。实验表明该方法有效提升视频推理的可信度。",
+      "llm_tldr": "视频多模态大模型（Video-MLLMs）的推理常因缺乏视觉证据指导而受限。本文提出共识帧GRPO（CF-GRPO），一种免时序标注的过程级奖励框架，通过视频内在临时线索（时间覆盖、场景切换、查询相关性）构建共识帧先验，并计算模型侧帧使用评分以引导视觉聚焦。实验表明该方法有效提升视频推理的可信度。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy learning in vision language models",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.15243v1",
+      "source": "arxiv",
+      "title": "SPARK: Spatial Policy-driven Adaptive Reinforcement learning for Knowledge distillation",
+      "abstract": "Low-bit quantization enables deployment of image restoration (IR) networks on resource-constrained devices, but introduces rounding noise that disproportionately degrades high-frequency regions such as edges and fine textures. Existing knowledge distillation (KD) methods apply distillation signals uniformly across all spatial locations, overlooking the varying reconstruction difficulty across image regions. To address this, we propose SPARK (Spatial Policy-driven Adaptive Reinforcement Learning for Knowledge Distillation), a framework that adaptively allocates distillation effort using a lightweight reinforcement learning (RL) policy network. At each training step, a difficulty feature extractor computes four signals, namely Laplacian variance, pixel variance, student reconstruction error, and teacher-student knowledge gap, which are fed into a compact policy CNN that produces a stochastic spatial weight map to modulate the KD loss during quantization-aware training (QAT). SPARK is IR task-agnostic, adds no inference cost, and integrates into any existing QAT pipeline without architectural changes. Experiments on benchmark datasets demonstrate that SPARK consistently outperforms PTQ, QAT, and state-of-the-art (SOTA) KD approaches across multiple student architectures, achieving reconstruction quality closest to the full-precision teacher under significant computational constraints.",
+      "authors": [
+        "Mohamed Jismy Aashik Rasool",
+        "Shabir Ahmad",
+        "Gisong Oh",
+        "Teag Kuen Whangbo"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-13T10:55:06+00:00",
+      "link": "https://arxiv.org/pdf/2606.15243v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "RL-driven adaptive knowledge distillation for image restoration",
+      "llm_evidence_cn": "强化学习驱动的自适应知识蒸馏用于图像恢复",
+      "llm_evidence": "强化学习驱动的自适应知识蒸馏用于图像恢复",
+      "canonical_evidence": "强化学习驱动的自适应知识蒸馏用于图像恢复",
+      "llm_tldr_en": "SPARK uses a lightweight RL policy network to adaptively allocate distillation effort per spatial region, improving low-bit quantized image restoration quality.",
+      "llm_tldr_cn": "该论文针对量化图像恢复中的噪声问题，提出空间策略驱动的自适应强化学习知识蒸馏（SPARK）。通过轻量级RL策略网络，根据区域重建难度动态分配蒸馏努力。在低比特量化模型上提升了高频细节恢复质量。该方法可迁移到大语言模型的蒸馏中。",
+      "llm_tldr": "该论文针对量化图像恢复中的噪声问题，提出空间策略驱动的自适应强化学习知识蒸馏（SPARK）。通过轻量级RL策略网络，根据区域重建难度动态分配蒸馏努力。在低比特量化模型上提升了高频细节恢复质量。该方法可迁移到大语言模型的蒸馏中。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Knowledge distillation techniques in reinforcement learning for LLMs",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.18810v1",
+      "source": "arxiv",
+      "title": "Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has driven substantial progress in training LLMs for reasoning tasks, but representative methods such as GRPO assign uniform credit across all tokens, wasting gradient on routine tokens while under-crediting pivotal reasoning steps. Existing token-level credit assignment methods require resources beyond the model's own rollouts. GRPO variants rely on process reward models or ground-truth answers. Knowledge distillation assigns credit through per-token divergence but requires external teachers (On-Policy Distillation) or privileged information (On-Policy Self Distillation). However, these dependencies limit applicability in the pure RLVR setting. We observe that conditioning the model on its own verified trajectories induces a measurable per-token KL divergence between the original and conditioned distributions, and prove that distilling from a self-teacher constructed by verified trajectories leads to infeasible weighted-average solutions when multiple verified trajectories exist. We propose SC-GRPO (Self-Conditioned GRPO), which uses KL divergence mentioned before as a multiplicative weight on GRPO gradients. Across five benchmarks spanning math, code, and agentic tasks, SC-GRPO consistently outperforms 8.1% over GRPO and 5.9% over DAPO with stronger OOD performance. Moreover, SC-GRPO achieves higher performance than OPD.",
+      "authors": [
+        "Yingyu Shan",
+        "Yuhang Guo",
+        "Zihao Cheng",
+        "Zeming Liu",
+        "Xiangrong Zhu",
+        "Xinyi Wang",
+        "Jiashu Yao",
+        "Wei Lin",
+        "Hongru Wang",
+        "Heyan Huang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-17T08:26:02+00:00",
+      "link": "https://arxiv.org/pdf/2606.18810v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "discusses On-Policy Distillation as existing method",
+      "llm_evidence_cn": "将在线蒸馏作为现有方法讨论",
+      "llm_evidence": "将在线蒸馏作为现有方法讨论",
+      "canonical_evidence": "将在线蒸馏作为现有方法讨论",
+      "llm_tldr_en": "Proposes self-conditioned credit assignment for RLVR that avoids external teachers, contrasting with on-policy distillation.",
+      "llm_tldr_cn": "该论文针对强化学习可验证奖励任务，指出现有方法如GRPO对所有token分配均匀信用，而在线蒸馏需要外部教师。提出自条件信用分配方法，无需外部教师，通过利用模型自身输出进行精细信用分配。实验表明该方法在数学推理任务上优于GRPO和不依赖蒸馏的baseline，为纯RLVR设置提供了无需蒸馏的高效方案。",
+      "llm_tldr": "该论文针对强化学习可验证奖励任务，指出现有方法如GRPO对所有token分配均匀信用，而在线蒸馏需要外部教师。提出自条件信用分配方法，无需外部教师，通过利用模型自身输出进行精细信用分配。实验表明该方法在数学推理任务上优于GRPO和不依赖蒸馏的baseline，为纯RLVR设置提供了无需蒸馏的高效方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.15898v1",
+      "source": "arxiv",
+      "title": "VL2Spike: Spike-driven Distillation from VLMs for Low-Power Visual Perception in Embodied AI",
+      "abstract": "Spiking neural networks (SNNs) are brain-inspired, event-driven models that compute with sparse spikes, which enables highly efficient visual perception in resource-constrained embodied AI models. The emergence of Spiking-Transformer models with spike self-attention has substantially improved the learning capacity of pure SNNs. Although SNNs are energy efficient, their performance is still limited by the spike-based architecture and optimization challenges, as standard gradient descent rules cannot be directly applied. Recently, vision-language models (VLMs) have shown rich multi-modal knowledge representation capabilities for visual perception. Thus, it is promising to leverage VLMs for better Spikformer training. To this end, we present VL2Spike, a novel spike-based knowledge distillation (KD) framework that bridges multi-modal knowledge from VLMs with compact Spikformer models. This design enhances the learning capacity of Spikformer models while preserving their energy-efficiency merits, thereby offering a practical pathway toward low-power robotic perception. Our VL2Spike brings two key technical contributions. To align with spiking dynamics, we first propose spatial-temporal visual spike (SVS) distillation, which achieves (1) shared manifold alignment between VLM image features and spike tokens, and (2) warm-started temporal consistency on membrane potentials and spike rates. We then design a novel spike prototype-guided linguistic (SPL) distillation strategy that aligns Spikformer's class prototypes and logits with promptable VLM text embeddings. Extensive experiments show that VL2Spike achieves 6.81% gain across three static datasets with only 15.7% energy consumption. It also exhibits strong generalization capacity on robotic visual place recognition (VPR) with a gain of 6.63%, highlighting its potential for low-power perception in embodied AI.",
+      "authors": [
+        "Zinan Liu",
+        "Eric Zheng",
+        "Soumyaratna Debnath",
+        "Hao Shi",
+        "Ling Xiao",
+        "Lin Wang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-06-14T16:29:53+00:00",
+      "link": "https://arxiv.org/pdf/2606.15898v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Distillation from VLMs for low-power SNN visual perception",
+      "llm_evidence_cn": "从视觉语言模型蒸馏知识到脉冲神经网络用于低功耗视觉感知",
+      "llm_evidence": "从视觉语言模型蒸馏知识到脉冲神经网络用于低功耗视觉感知",
+      "canonical_evidence": "从视觉语言模型蒸馏知识到脉冲神经网络用于低功耗视觉感知",
+      "llm_tldr_en": "VL2Spike uses distillation from VLMs to improve Spiking Transformer training for energy-efficient visual perception.",
+      "llm_tldr_cn": "脉冲神经网络在资源受限的具身智能中具有高能效优势，但性能受限。VL2Spike提出从视觉语言模型（VLM）蒸馏多模态知识到Spikformer，通过设计异构蒸馏策略，显著提升纯SNN的视觉感知性能，同时保持低功耗特性。",
+      "llm_tldr": "脉冲神经网络在资源受限的具身智能中具有高能效优势，但性能受限。VL2Spike提出从视觉语言模型（VLM）蒸馏多模态知识到Spikformer，通过设计异构蒸馏策略，显著提升纯SNN的视觉感知性能，同时保持低功耗特性。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

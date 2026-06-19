@@ -6,46 +6,33 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-18
-- 运行时间：2026-06-18 21:44:29 UTC
+- 最新运行日期：2026-06-19
+- 运行时间：2026-06-19 20:24:50 UTC
 - 运行状态：成功
-- 本次总论文数：8
-- 精读区：5
-- 速读区：3
+- 本次总论文数：4
+- 精读区：0
+- 速读区：4
 
 ### 今日简报（AI）
-今日8篇论文聚焦自蒸馏技术在多模态推理、模型对齐与安全对齐中的前沿突破，其中两篇满分精读尤为亮眼。
-值得精读的Top方向：跨模态策略蒸馏（Visual-OPSD，10分）与可学习微反思轨迹自蒸馏（Learning from Your Own Mistakes，9分）分别从统一多模态推理和错误学习角度推动高效、鲁棒的模型优化。
-建议读者优先精读这两篇高分论文，深入理解自蒸馏在模型训练中的结构性改进思路，并对比速读中安全对齐类方法，构建系统视角。
-- 详情：[/202606/18/README](/202606/18/README)
+今日速读三篇论文，聚焦视频多模态推理、强化学习信用分配与知识蒸馏方向。最值得关注的是《Reasoning as Intersection》中基于共识帧对齐的视觉焦点方法，以及《Learning from Own Solutions》中自解信用分配强化学习。建议后续精读这两篇，理解其技术细节后尝试在相关任务中复现。
+- 详情：[/202606/19/README](/202606/19/README)
 
 ### 精读区论文标签
-1. [Visual-OPSD: Cross-Modal On-Policy Self-Distillation for Efficient Unified Multimodal Reasoning](/202606/18/2606.18974v1-visual-opsd-cross-modal-on-policy-self-distillation-for-efficient-unified-multimodal-reasoning)  
-   标签：评分：10.0/10、query:distillation
-   evidence：面向多模态推理的在线策略自蒸馏
-2. [Learning from Your Own Mistakes: Constructing Learnable Micro-Reflective Trajectories for Self-Distillation](/202606/18/2606.18844v1-learning-from-your-own-mistakes-constructing-learnable-micro-reflective-trajectories-for-self-distillation)  
-   标签：评分：9.0/10、query:distillation
-   evidence：基于轨迹增强的语言模型自蒸馏
-3. [Seeing Before Reasoning: Decoupling Perception and Reasoning for Shortcut-Resilient Multimodal On-Policy Self-Distillation](/202606/18/2606.19120v1-seeing-before-reasoning-decoupling-perception-and-reasoning-for-shortcut-resilient-multimodal-on-policy-self-distillation)  
-   标签：评分：9.0/10、query:distillation
-   evidence：多模态LLMs的在线自蒸馏
-4. [OPD-Evolver: Cultivating Holistic Agent Evolver via On-Policy Distillation](/202606/18/2606.17628v1-opd-evolver-cultivating-holistic-agent-evolver-via-on-policy-distillation)  
-   标签：评分：8.0/10、query:distillation
-   evidence：面向智能体演化的在线策略自蒸馏
-5. [Zone of Proximal Policy Optimization: Teacher in Prompts, Not Gradients](/202606/18/2606.18216v1-zone-of-proximal-policy-optimization-teacher-in-prompts-not-gradients)  
-   标签：评分：8.0/10、query:distillation
-   evidence：基于提示而非梯度的教师在策略蒸馏
+- 本次无精读推荐。
 
 ### 速读区论文标签
-1. [SHARD: Safe and Helpful Alignment via Self-Reframing Distillation](/202606/18/2606.15517v1-shard-safe-and-helpful-alignment-via-self-reframing-distillation)  
+1. [Reasoning as Intersection: Consensus-Frame Alignment for Visual Focus in Video-MLLMs](/202606/19/2606.18441v1-reasoning-as-intersection-consensus-frame-alignment-for-visual-focus-in-video-mllms)  
    标签：评分：7.0/10、query:distillation
-   evidence：使用自我重构蒸馏改进LLM对齐
-2. [Rethinking Reward Supervision: Rubric-Conditioned Self-Distillation](/202606/18/2606.19327v1-rethinking-reward-supervision-rubric-conditioned-self-distillation)  
+   evidence：为视频多模态大模型提供过程级奖励的强化学习方法
+2. [Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards](/202606/19/2606.18810v1-learning-from-own-solutions-self-conditioned-credit-assignment-for-reinforcement-learning-with-verifiable-rewards)  
    标签：评分：7.0/10、query:distillation
-   evidence：基于rubric条件自蒸馏结合强化学习，用于推理语言模型
-3. [Self-Questioning Vision-Language Models: Reinforcement Learning for Compositional Visual Reasoning](/202606/18/2606.15651v1-self-questioning-vision-language-models-reinforcement-learning-for-compositional-visual-reasoning)  
+   evidence：将在线蒸馏作为现有方法讨论
+3. [SPARK: Spatial Policy-driven Adaptive Reinforcement learning for Knowledge distillation](/202606/19/2606.15243v1-spark-spatial-policy-driven-adaptive-reinforcement-learning-for-knowledge-distillation)  
    标签：评分：6.0/10、query:distillation
-   evidence：使用GRPO进行视觉语言模型的组合视觉推理，属于on-policy学习
+   evidence：强化学习驱动的自适应知识蒸馏用于图像恢复
+4. [VL2Spike: Spike-driven Distillation from VLMs for Low-Power Visual Perception in Embodied AI](/202606/19/2606.15898v1-vl2spike-spike-driven-distillation-from-vlms-for-low-power-visual-perception-in-embodied-ai)  
+   标签：评分：6.0/10、query:distillation
+   evidence：从视觉语言模型蒸馏知识到脉冲神经网络用于低功耗视觉感知
 
 
 <div class="dpr-home-promo-card">
