@@ -6,33 +6,29 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-19
-- 运行时间：2026-06-19 20:24:50 UTC
+- 最新运行日期：2026-06-20
+- 运行时间：2026-06-20 20:38:33 UTC
 - 运行状态：成功
-- 本次总论文数：4
-- 精读区：0
-- 速读区：4
+- 本次总论文数：3
+- 精读区：1
+- 速读区：2
 
 ### 今日简报（AI）
-今日速读三篇论文，聚焦视频多模态推理、强化学习信用分配与知识蒸馏方向。最值得关注的是《Reasoning as Intersection》中基于共识帧对齐的视觉焦点方法，以及《Learning from Own Solutions》中自解信用分配强化学习。建议后续精读这两篇，理解其技术细节后尝试在相关任务中复现。
-- 详情：[/202606/19/README](/202606/19/README)
+今日阅读3篇论文，精读1篇关于多轮对话agent的策略蒸馏方法。最值得关注的是多轮对话的课程级turn-level引导方法以及视觉语言模型的数据标注工具。建议对多轮对话和视觉语言模型感兴趣的读者深入研读这两篇论文。
+- 详情：[/202606/20/README](/202606/20/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [On-Policy Distillation with Curriculum Turn-level Guidance for Multi-turn Agents](/202606/20/2606.15912v1-on-policy-distillation-with-curriculum-turn-level-guidance-for-multi-turn-agents)  
+   标签：评分：9.0/10、query:distillation
+   evidence：提出Guided-OPD，一种面向多轮智能体的on-policy蒸馏方法，直接针对大语言模型蒸馏。
 
 ### 速读区论文标签
-1. [Reasoning as Intersection: Consensus-Frame Alignment for Visual Focus in Video-MLLMs](/202606/19/2606.18441v1-reasoning-as-intersection-consensus-frame-alignment-for-visual-focus-in-video-mllms)  
+1. [From Bounding Boxes to Visual Reasoning: An On-Policy Data Annotation Tool for Vision-Language Models](/202606/20/2606.18846v1-from-bounding-boxes-to-visual-reasoning-an-on-policy-data-annotation-tool-for-vision-language-models)  
    标签：评分：7.0/10、query:distillation
-   evidence：为视频多模态大模型提供过程级奖励的强化学习方法
-2. [Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards](/202606/19/2606.18810v1-learning-from-own-solutions-self-conditioned-credit-assignment-for-reinforcement-learning-with-verifiable-rewards)  
-   标签：评分：7.0/10、query:distillation
-   evidence：将在线蒸馏作为现有方法讨论
-3. [SPARK: Spatial Policy-driven Adaptive Reinforcement learning for Knowledge distillation](/202606/19/2606.15243v1-spark-spatial-policy-driven-adaptive-reinforcement-learning-for-knowledge-distillation)  
+   evidence：面向视觉语言模型训练的在线策略数据标注工具
+2. [Integrating Reasoning and Generalization in Text-to-SQL via Self-Enhanced Fine-Tuning](/202606/20/2606.15598v1-integrating-reasoning-and-generalization-in-text-to-sql-via-self-enhanced-fine-tuning)  
    标签：评分：6.0/10、query:distillation
-   evidence：强化学习驱动的自适应知识蒸馏用于图像恢复
-4. [VL2Spike: Spike-driven Distillation from VLMs for Low-Power Visual Perception in Embodied AI](/202606/19/2606.15898v1-vl2spike-spike-driven-distillation-from-vlms-for-low-power-visual-perception-in-embodied-ai)  
-   标签：评分：6.0/10、query:distillation
-   evidence：从视觉语言模型蒸馏知识到脉冲神经网络用于低功耗视觉感知
+   evidence：使用自蒸馏推理轨迹增强基于大语言模型的Text-to-SQL
 
 
 <div class="dpr-home-promo-card">

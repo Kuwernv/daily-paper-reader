@@ -1,0 +1,146 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-20T20:36:18.875932+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [
+    {
+      "id": "2606.15912v1",
+      "source": "arxiv",
+      "title": "On-Policy Distillation with Curriculum Turn-level Guidance for Multi-turn Agents",
+      "abstract": "Multi-turn agents that plan, invoke tools, and interact with environments offer a promising paradigm for solving complex tasks, yet their capabilities typically rely on very large models whose inference cost is prohibitive in practice.On-Policy Distillation (OPD) is a natural recipe for transferring such capabilities to smaller students, but we find that it suffers a characteristic failure mode in this setting: small student errors compound across turns and push the trajectory out of the teacher's familiar state distribution, so the teacher's supervision becomes least reliable precisely where the student needs it most.We propose Guided On-Policy Distillation (Guided-OPD), a simple yet effective algorithm that mixes teacher- and student-generated turns within each rollout and schedules the teacher's intervention probability along a curriculum that decays to zero.Strong guidance keeps early trajectories close to the teacher distribution and is then gradually withdrawn to recover the purely on-policy regime used at inference.On ALFWorld, ScienceWorld, and WebShop, distilling Qwen3 students from a Qwen3-30B-A3B teacher, Guided-OPD improves Score by 21.1\\% and Success Rate by 25.5\\% over vanilla OPD on average, with larger gains on smaller students.",
+      "authors": [
+        "Gengsheng Li",
+        "Mao Zheng",
+        "Mingyang Song",
+        "Ruiqi Liu",
+        "Tianyu Yang",
+        "Jie Sun",
+        "Qiyong Zhong",
+        "Haiyun Guo",
+        "Junfeng Fang",
+        "Dan Zhang",
+        "Jinqiao Wang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-14T16:41:45+00:00",
+      "link": "https://arxiv.org/pdf/2606.15912v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Proposes Guided-OPD, an on-policy distillation method for multi-turn agents, directly addresses LLM distillation.",
+      "llm_evidence_cn": "提出Guided-OPD，一种面向多轮智能体的on-policy蒸馏方法，直接针对大语言模型蒸馏。",
+      "llm_evidence": "提出Guided-OPD，一种面向多轮智能体的on-policy蒸馏方法，直接针对大语言模型蒸馏。",
+      "canonical_evidence": "提出Guided-OPD，一种面向多轮智能体的on-policy蒸馏方法，直接针对大语言模型蒸馏。",
+      "llm_tldr_en": "Multi-turn agent capabilities from large models can be distilled via on-policy distillation, but student errors compound. Guided-OPD mixes teacher and student generated trajectories to stabilize training. Experiments show significant improvements over naive OPD.",
+      "llm_tldr_cn": "针对多轮智能体依赖大模型的高推理成本问题，论文指出On-Policy蒸馏（OPD）存在学生错误累积导致教师监督失效的缺陷。为此提出Guided On-Policy蒸馏（Guided-OPD），混合教师和学生生成的轨迹以缓解分布偏移。在多个多轮任务上，该方法显著优于原始OPD，有效将大模型能力迁移至小模型，为LLM蒸馏提供了实用方案。",
+      "llm_tldr": "针对多轮智能体依赖大模型的高推理成本问题，论文指出On-Policy蒸馏（OPD）存在学生错误累积导致教师监督失效的缺陷。为此提出Guided On-Policy蒸馏（Guided-OPD），混合教师和学生生成的轨迹以缓解分布偏移。在多个多轮任务上，该方法显著优于原始OPD，有效将大模型能力迁移至小模型，为LLM蒸馏提供了实用方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.18846v1",
+      "source": "arxiv",
+      "title": "From Bounding Boxes to Visual Reasoning: An On-Policy Data Annotation Tool for Vision-Language Models",
+      "abstract": "Vision-language models (VLMs) are rapidly advancing toward sophisticated grounded structured visual reasoning. Training models for such advanced capabilities demands a new genre of data that seamlessly unifies spatial coordinates, open-vocabulary descriptions, structured attributes, and topological relationships into a singular representation. However, existing data annotation tools fundamentally fail to meet these intricate demands, suffering from three systematic bottlenecks: limited expressiveness, severe annotation-training decoupling, and poor data reusability. To bridge this infrastructure gap, we introduce an open-source annotation tool, ScreenAnnotator. First, we define a unified annotation atom schema that binds spatial, semantic, and structural primitives into a single unit. Second, we implement an on-policy annotation loop embedded with a Bayesian Annotation Verifier (BAV). Finally, we design a template-driven multi-task data synthesis process dynamically transforms static atoms into diverse multi-dimensional reasoning tasks, eliminating redundant re-annotation. The on-policy loop drives the annotation accept rate to nearly 100% on flowcharts and 77% on GUI screenshots, while steadily reducing per-image annotation time as labeled data accumulate. In the flowchart scenario, fine-tuning a VLM yields 76.1% average accuracy, which is a 35.1% point absolute gain. Our code is available at: https://github.com/WnQinm/Annotator.",
+      "authors": [
+        "Like Zhang",
+        "Runliang Niu",
+        "Shiqi Wang",
+        "Xiyu Hu",
+        "Qianli Xing",
+        "Pan Wang",
+        "Qingzu He",
+        "Qi Wang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-17T09:25:59+00:00",
+      "link": "https://arxiv.org/pdf/2606.18846v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "on-policy data annotation tool for vision-language model training",
+      "llm_evidence_cn": "面向视觉语言模型训练的在线策略数据标注工具",
+      "llm_evidence": "面向视觉语言模型训练的在线策略数据标注工具",
+      "canonical_evidence": "面向视觉语言模型训练的在线策略数据标注工具",
+      "llm_tldr_en": "ScreenAnnotator provides an on-policy annotation tool for VLM training, unifying spatial coordinates, open-vocabulary descriptions, and structured attributes to bridge annotation-training decoupling.",
+      "llm_tldr_cn": "针对现有数据标注工具无法满足视觉语言模型高级视觉推理训练需求的问题，提出ScreenAnnotator在线策略标注工具。该工具采用统一标注原子模式，融合空间坐标、开放词汇描述和结构化属性，实现标注与训练过程耦合。实验表明其生成的标注数据能有效提升模型视觉推理能力，为在线策略蒸馏提供基础设施。",
+      "llm_tldr": "针对现有数据标注工具无法满足视觉语言模型高级视觉推理训练需求的问题，提出ScreenAnnotator在线策略标注工具。该工具采用统一标注原子模式，融合空间坐标、开放词汇描述和结构化属性，实现标注与训练过程耦合。实验表明其生成的标注数据能有效提升模型视觉推理能力，为在线策略蒸馏提供基础设施。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.15598v1",
+      "source": "arxiv",
+      "title": "Integrating Reasoning and Generalization in Text-to-SQL via Self-Enhanced Fine-Tuning",
+      "abstract": "Text-to-SQL aims to translate natural language questions into executable SQL queries over structured databases, enabling non-expert users to access data intuitively. While recent advances in large language models (LLMs) have shown promise in this task, existing LLM-based approaches often struggle to strike a balance between strong reasoning capabilities and robust generalization. To address these limitations, we propose CoTE-SQL to enhance the LLM-based text-to-SQL generation with three key innovations: (i) self-enhanced reasoning traces distilled from LLMs without human annotation, (ii) structured chain-of-thought (CoT) prompting with modular decomposition and examples retrieval, and (iii) error-aware revision based on SQL execution feedback. Extensive experiments on the Spider and Bird benchmarks demonstrate that CoTE-SQL achieves new state-of-the-art performance among methods built on open-source LLMs with comparable model sizes on Bird (53.39% EX / 59.02 VES) and strong results on Spider (79.60% EX / 77.19 VES), with especially significant gains on complex queries. Results highlight the effectiveness of combining self-enhancement, structured reasoning, and execution-time feedback within an LLM-based framework for text-to-SQL design.",
+      "authors": [
+        "Feng Lyu",
+        "Jinfeng Cen",
+        "Sijing Duan",
+        "Hao Wu",
+        "Shucheng Li",
+        "Weixu Zhang",
+        "Haolun Wu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-14T04:52:58+00:00",
+      "link": "https://arxiv.org/pdf/2606.15598v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "uses self-distilled reasoning traces to enhance LLM-based Text-to-SQL",
+      "llm_evidence_cn": "使用自蒸馏推理轨迹增强基于大语言模型的Text-to-SQL",
+      "llm_evidence": "使用自蒸馏推理轨迹增强基于大语言模型的Text-to-SQL",
+      "canonical_evidence": "使用自蒸馏推理轨迹增强基于大语言模型的Text-to-SQL",
+      "llm_tldr_en": "Proposes CoTE-SQL which uses self-distilled reasoning traces from LLMs to improve text-to-SQL generation, achieving better reasoning and generalization.",
+      "llm_tldr_cn": "本文提出CoTE-SQL方法，通过从大语言模型中自蒸馏推理轨迹，结合结构化思维链提示和错误感知修正，解决了Text-to-SQL任务中推理与泛化难以兼顾的问题。实验表明该方法在不依赖人工标注的情况下有效提升了模型性能，为大语言模型在专业任务上的蒸馏应用提供了新思路。",
+      "llm_tldr": "本文提出CoTE-SQL方法，通过从大语言模型中自蒸馏推理轨迹，结合结构化思维链提示和错误感知修正，解决了Text-to-SQL任务中推理与泛化难以兼顾的问题。实验表明该方法在不依赖人工标注的情况下有效提升了模型性能，为大语言模型在专业任务上的蒸馏应用提供了新思路。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
