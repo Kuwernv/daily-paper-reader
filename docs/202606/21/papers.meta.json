@@ -1,0 +1,69 @@
+{
+  "label": "2026-06-21",
+  "date": "2026-06-21",
+  "generated_at": "2026-06-21T21:12:56",
+  "count": 4,
+  "papers": [
+    {
+      "paper_id": "202606/21/2606.18307v1-drift-refining-instruction-data-via-on-policy-data-attribution",
+      "section": "deep",
+      "title_en": "DRIFT: Refining Instruction Data via On-Policy Data Attribution",
+      "authors": "Zefan Wang, Lincheng Li, Tianyu Yu, Yuan Yao",
+      "date": "2026-06-16",
+      "pdf": "https://arxiv.org/pdf/2606.18307v1",
+      "score": "9.0",
+      "evidence": "利用on-policy数据归因精炼大语言模型的指令数据",
+      "tldr": "针对监督微调数据分布优化中现有方法难以提升模型能力上限的问题，提出DRIFT方法，利用基于同策略影响力函数精炼训练数据。该方法通过模型自生成验证目标解决标准影响力函数的近邻鸿沟和梯度范数偏差，并采用轨迹正确性的符号加权和去偏机制，使用少量验证查询可靠地归因全数据集。在7B参数指令和推理模型上，DRIFT一致提升性能上限，优于现有数据筛选基线。",
+      "tags": "query:distillation",
+      "abstract_en": "Optimizing the training data distribution for Supervised Fine-Tuning (SFT) dictates the capability of Large Language Models (LLMs). While existing data curation methods excel at accelerating training under constrained budgets, they are less suited to elevating the capability upper bound. The challenge here is no longer to identify a smaller subset that preserves performance, but to refine the data distribution toward instances most capable of improving the final model. To address this problem, we explore instance-level data attribution using Influence Functions (IF). We identify that standard IF formulations struggle in this setting due to two structural limitations: a proximity gap caused by off-policy validation targets, and a severe bias towards gradient norm. We propose DRIFT (Data Refinement via On-Policy Influence Functions for Supervised Fine-Tuning). Instead of relying on external reference data, DRIFT utilizes the model's on-policy rollouts as validation targets, which empirically minimizes the parameter proximity gap and better aligns with the local neighborhood assumption of IF. It further applies signed weighting based on trajectory correctness and debiases influence scores against the gradient hacking issue, allowing a small set of validation queries to act as reliable anchors for attributing the full dataset. Experiments on 7B-parameter instruction and reasoning models show that DRIFT consistently raises the performance ceiling on both, outperforming existing data curation baselines.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/21/2606.19659v1-sage-opd-selective-agent-guided-intervention-for-multi-turn-on-policy-distillation",
+      "section": "deep",
+      "title_en": "SAGE-OPD: Selective Agent-Guided Intervention for Multi-Turn On-Policy Distillation",
+      "authors": "Yuhang Zhou, Lizhu Zhang, Yifan Wu, Mingyi Wang, Bo Peng, Jiayi Liu, Xiangjun Fan, Zhuokai Zhao",
+      "date": "2026-06-17",
+      "pdf": "https://arxiv.org/pdf/2606.19659v1",
+      "score": "9.0",
+      "evidence": "直接提出面向LLM智能体的在策略蒸馏框架",
+      "tldr": "多轮在线蒸馏(OPD)中，早期错误会沿轨迹累积，标准方式过度惩罚语义有效替代并强化局部退化。SAGE-OPD提出选择性干预框架：先观察环境反馈，由教师判断决定是否干预每轮学生响应；再用教师置信度加权token蒸馏，减少不可靠监督影响；最后通过损失归一化保持整体尺度。在ALFWorld任务上，未见成功率相对提升13.3%，消融实验验证各组件互补有效。",
+      "tags": "query:distillation",
+      "abstract_en": "On-policy distillation (OPD) improves student models by training them on trajectories induced by their own policy, making it a promising approach for mitigating exposure bias in agent training. However, most OPD studies focus on single-turn settings, while realistic LLM agents interact with environments over multiple turns. In this regime, early errors can alter future observations and compound across the trajectory, and standard dense token-level OPD becomes brittle, as it may over-penalize semantically valid alternatives, reinforce local degeneracies such as repeated actions, and propagate unreliable teacher supervision on off-distribution histories. We propose SAGE-OPD, a verifier-free selective intervention framework specifically designed for multi-turn OPD. Instead of applying teacher supervision uniformly across all turns, SAGE-OPD first observes environment feedback and uses teacher judgment to decide whether each student response should be skipped or intervened on. To further address compounding errors, SAGE-OPD weights token-level distillation by teacher confidence, reducing the influence of uncertain teacher distributions on corrupted or ambiguous histories. Finally, SAGE-OPD applies loss normalization to preserve the overall loss scale of standard OPD while retaining selective turn-level weighting. Experiments on agent tasks show that SAGE-OPD consistently improves over baselines, achieving up to a 13.3% relative improvement in ALFWorld unseen success rate over standard OPD. Ablation studies further demonstrate that turn-level intervention, teacher confidence weighting, and loss normalization provide complementary benefits. Our results suggest that effective multi-turn OPD should remain on-policy, but teacher supervision should be selectively allocated to turns where intervention is necessary and reliable.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/21/2606.16586v1-locus-local-visual-cue-search-for-enhancing-fine-grained-perception-in-multimodal-large-language-models",
+      "section": "quick",
+      "title_en": "LOCUS: Local Visual Cue Search for Enhancing Fine-Grained Perception in Multimodal Large Language Models",
+      "authors": "Zhou Tao, Fang Zhang, Zewen Ding, Shida Wang, Xiaokun Sun, YongXiang Hua, Haoyu Cao, Linli Xu",
+      "date": "2026-06-15",
+      "pdf": "https://arxiv.org/pdf/2606.16586v1",
+      "score": "7.0",
+      "evidence": "使用IoU奖励的on-policy强化学习框架训练多模态大语言模型",
+      "tldr": "多模态大模型在细粒度视觉感知上不可靠，因为关键证据被冗余视觉上下文淹没。提出LOCUS训练框架，通过可验证的代理任务教会模型内部化局部证据搜索：训练时提供局部裁剪作为视觉提示，优化模型基于IoU奖励恢复其在全图中的空间支持。推理时无需额外输入。实验证明LOCUS提升了细粒度感知、幻觉、理解等性能，注意力分析表明模型更聚焦任务相关区域。",
+      "tags": "query:distillation",
+      "abstract_en": "Multimodal Large Language Models (MLLMs) remain unreliable on fine-grained visual perception, even when high-resolution inputs preserve the necessary local details. We identify this limitation as visual context rot: decisive evidence may exist in the full image, yet fail to be reliably selected and used amid redundant visual context. We propose LOCUS (LOcal visual CUe Search), a training framework that teaches MLLMs to internalize local evidence search through a verifiable proxy task. During training, LOCUS provides a local crop as a visual cue and optimizes the model to recover its spatial support in the full image using an IoU-based reward. The visual cue is used only during training, leaving the standard image-question inference interface unchanged. Experiments across fine-grained perception, hallucination, general understanding, and reasoning benchmarks show that LOCUS improves localization-sensitive visual understanding while preserving broad capabilities. Attention analyses further indicate stronger focus on task-relevant evidence regions, suggesting that training-time visual cue search provides an effective route to internalized fine-grained evidence selection.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/21/2606.20477v1-scalable-training-of-spatially-grounded-2d-vision-language-models-for-radiology",
+      "section": "quick",
+      "title_en": "Scalable Training of Spatially Grounded 2D Vision-Language Models for Radiology",
+      "authors": "Yusuf Salcan, Simon Ging, Robin Schirrmeister, Philipp Arnold, Elmar Kotter, Behzad Bozorgtabar, Thomas Brox",
+      "date": "2026-06-18",
+      "pdf": "https://arxiv.org/pdf/2606.20477v1",
+      "score": "6.0",
+      "evidence": "放射学视觉语言模型的可扩展训练方法",
+      "tldr": "放射学视觉语言模型（VLM）依赖昂贵的人工空间标注。本文提出RefRad2D，一个包含120万对CT/MR图像-文本的大规模双语数据集，通过LLM和自动分割生成任务特定VQA与空间接地子集。训练的RadGrounder模型在报告生成、VQA和空间接地任务上表现优异，在外部基准上达到专业医疗VLM水平。添加临床数据改进开放VQA，且接地监督不损害语言质量，实现空间可验证输出。",
+      "tags": "query:distillation",
+      "abstract_en": "We study how to train visually grounded vision-language models (VLMs) for radiology without manual spatial annotations. We introduce RefRad2D, a large-scale bilingual (German/English) dataset of 1.2M CT and MR image-text pairs derived from clinical practice, with task-specific VQA and spatial grounding subsets generated automatically via LLM-based curation and automated segmentation. Trained on this data, our model RadGrounder jointly performs report generation, visual question answering, and spatial grounding via bounding-box detection or segmentation. On external VQA benchmarks (Slake, VQA-RAD), RadGrounder achieves competitive results with specialized medical VLMs. Adding our clinical data to the training mixture improves open-ended VQA over fine-tuning on the downstream datasets alone, showing the transferability of our dataset. Crucially, adding grounding supervision does not degrade language quality, enabling spatially verifiable outputs at no cost to VQA performance.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
