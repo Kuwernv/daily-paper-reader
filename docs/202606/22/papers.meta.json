@@ -1,0 +1,54 @@
+{
+  "label": "2026-06-22",
+  "date": "2026-06-22",
+  "generated_at": "2026-06-22T22:36:15",
+  "count": 3,
+  "papers": [
+    {
+      "paper_id": "202606/22/2606.17871v1-stepguard-guarding-web-navigation-via-single-step-calibration",
+      "section": "quick",
+      "title_en": "StepGuard: Guarding Web Navigation via Single-Step Calibration",
+      "authors": "Zhihao Cui, Yuchen Zhang, Xiyang Sun, Yaxiong Wang, Li Zhu, Jinpeng Hu, Liu Liu, Mengjia Li, Yujiao Wu",
+      "date": "2026-06-16",
+      "pdf": "https://arxiv.org/pdf/2606.17871v1",
+      "score": "7.0",
+      "evidence": "基于视觉语言模型的网页导航中的动态双策略优化在线学习",
+      "tldr": "Web导航任务中，现有方法因奖励不匹配和错误传播导致单步脆弱性。为此，提出StepGuard框架，包含动态双策略优化（DDPO）在导航和问答模式间动态切换缓解奖励冲突，以及置信度引导自适应导航反射（CANR）校准单步错误。实验表明，该方法在标准基准上取得新SOTA，显著提升导航和答案准确率。该工作为Web导航的单步校准提供了有效方案。",
+      "tags": "query:distillation",
+      "abstract_en": "Web navigation requires agents to follow natural language goals, interact with web pages, and produce accurate answers. While recent advances leverage vision-language models and reinforcement learning, existing methods still suffer from single-step fragility due to reward misalignment and error propagation. To tackle the reward entanglement, we design Dynamic Dual-Policy Optimization (DDPO), which dynamically switches between a navigation-first mode for exploration and an answer-first mode for question-answering to mitigate reward conflict. To calibrate the single-step error, we propose Confidence-Guided Adaptive Navigation Reflection (CANR), a mechanism that estimates per-step confidence, triggers reflection only when necessary, and uses contrastive rewards to encourage self-correction to calibrate the single-step inaccuracy. With the above as the main components, we finally develop our StepGuard, a new framework of Guarding Web Navigation via Single-Step Calibration. Experiments demonstrate that our approach significantly improves navigation and answer accuracy, setting new state-of-the-art performance on standard web navigation benchmarks.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/22/2606.19776v1-occ-vlm-occupancy-grounded-vision-language-model-for-indoor-scene-understanding",
+      "section": "quick",
+      "title_en": "Occ-VLM: Occupancy Grounded Vision Language Model for Indoor Scene Understanding",
+      "authors": "Jianing Li, Zhou Fang, Yijiang Liu, Li Du",
+      "date": "2026-06-18",
+      "pdf": "https://arxiv.org/pdf/2606.19776v1",
+      "score": "7.0",
+      "evidence": "用于占用率驱动的3D场景理解的视觉语言模型训练",
+      "tldr": "现有3D视觉语言模型通常依赖显式3D输入或额外几何编码器，导致3D几何感知与2D语义分离。本文提出Occ-VLM，仅使用带位姿的RGB图像和单一2D编码器，通过重建3D场景占用作为几何先验，将前景2D令牌与3D空间关联，再经大语言模型统一解码。在多项基准上，Occ-VLM实现了与3D输入VLM相当甚至更优的性能，同时具备精确的几何感知能力。该方法简化了3D理解流程，为室内场景理解提供了高效统一的解决方案。",
+      "tags": "query:distillation",
+      "abstract_en": "Recently, vision-language models (VLMs) have made significant progress in 3D scene understanding, driving advances in applications such as embodied intelligence and robotic vision. However, existing approaches typically either rely directly on explicit 3D inputs (e.g., point clouds or RGB-D sequences), or introduce an additional 3D geometry encoder to derive 3D-aware visual tokens from 2D images. Such designs structurally decouple 3D geometric perception from the rich 2D semantics learned via vision-language pre-training, hindering the development of a unified 3D vision-language representation. In this work, we propose Occ-VLM, a novel framework for 3D scene understanding that operates purely on posed RGB images and employs a single 2D vision encoder. Specifically, Occ-VLM reconstructs 3D scene occupancy as an auxiliary geometric prior, which is utilized to spatially associate foreground 2D tokens with 3D space. These tokens are then decoded by a Large Language Model (LLM) for unified scene understanding. Extensive experiments demonstrate that Occ-VLM achieves both accurate geometric perception and robust vision-language reasoning: it attains state-of-the-art performance on multi-view occupancy prediction, while performing on par with 3D-input VLMs on 3D Visual Question Answering (VQA) and 3D dense captioning benchmarks.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/22/2606.17678v1-see-first-answer-later-visual-evidence-pre-alignment-via-sufficiency-driven-rl",
+      "section": "quick",
+      "title_en": "See First, Answer Later: Visual Evidence Pre-Alignment via Sufficiency-Driven RL",
+      "authors": "Yilian Liu, Sicong Leng, Guoshun Nan, Junyi Zhu, Jiayu Huang, Minghao Sun, Xuancheng Zhu, Yisong Chen, Zexian Wei, Xiaofeng Tao",
+      "date": "2026-06-16",
+      "pdf": "https://arxiv.org/pdf/2606.17678v1",
+      "score": "6.0",
+      "evidence": "使用强化学习进行视觉语言模型训练中的视觉证据预对齐",
+      "tldr": "多模态大语言模型因预训练使用粗粒度描述，导致推理时忽视细致视觉证据。本文提出视觉证据预对齐（VEPA），在预训练和后训练之间插入基于充分性驱动的GRPO阶段，优化与问题相关的视觉描述。实验证明VEPA在视觉密集任务上一致提升，且获得的视觉基础能力可迁移至多种场景，无需额外任务训练。",
+      "tags": "query:distillation",
+      "abstract_en": "Multimodal large language models (MLLMs) integrate strong text reasoning with visual inputs, yet their responses can be inconsistent with the underlying images, indicating ineffective utilization of visual evidence during inference. The prevailing training paradigm relies on large-scale caption-based pretraining for general alignment, followed by supervised fine-tuning and reinforcement learning to enable instruction following and complex reasoning. However, such pretraining provides only weak visual grounding: short, coarse captions bias models toward salient objects while neglecting fine-grained visual evidence. In this paper, we introduce Visual Evidence Pre-Alignment (VEPA), an intermediate stage between pretraining and post-training that explores a novel sufficiency-driven objective with Group Relative Policy Optimization (GRPO) to optimize question-conditioned visual evidence descriptions. Extensive experiments across diverse benchmarks show that our VEPA consistently enhances performance on visually demanding evaluations and complements standard supervised post-training. Further analyses show that the income stems from strengthened, transferable visual grounding, rather than from additional task-specific training.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
