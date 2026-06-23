@@ -6,32 +6,44 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-22
-- 运行时间：2026-06-22 22:36:08 UTC
+- 最新运行日期：2026-06-23
+- 运行时间：2026-06-23 20:45:19 UTC
 - 运行状态：成功
-- 本次总论文数：3
-- 精读区：0
-- 速读区：3
+- 本次总论文数：8
+- 精读区：6
+- 速读区：2
 
 ### 今日简报（AI）
-1) 今日速读3篇论文，聚焦网页导航单步校准、室内场景理解与视觉推理预对齐。
-2) 最值得看的是《StepGuard》与《Occ-VLM》，前者以单步校准守护网页导航，后者用占用空间引导室内视觉语言理解，均获7分。
-3) 建议优先精读这两篇，并留意《See First, Answer Later》中基于充分性驱动的强化学习思路。
-- 详情：[/202606/22/README](/202606/22/README)
+今日精读6篇、速读2篇，聚焦视觉语言模型的自蒸馏与多模态感知推理解耦。最值得关注的是《Seeing Before Reasoning》提出感知与推理解耦增强抗捷径能力，以及《ReNIO》通过重加权负轨迹提升LLM蒸馏效果。建议优先精读这两篇10分论文以掌握前沿方法。
+- 详情：[/202606/23/README](/202606/23/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [Seeing Before Reasoning: Decoupling Perception and Reasoning for Shortcut-Resilient Multimodal On-Policy Self-Distillation](/202606/23/2606.19120v2-seeing-before-reasoning-decoupling-perception-and-reasoning-for-shortcut-resilient-multimodal-on-policy-self-distillation)  
+   标签：评分：10.0/10、query:distillation
+   evidence：提出视觉引导的在线策略自蒸馏方法用于多模态大模型，直接匹配要求1
+2. [ReNIO: Reweighting Negative Trajectory Importance for LLM On-Policy Distillation](/202606/23/2606.23104v1-renio-reweighting-negative-trajectory-importance-for-llm-on-policy-distillation)  
+   标签：评分：10.0/10、query:distillation
+   evidence：直接面向大语言模型的on-policy蒸馏方法
+3. [Prefix-Guided On-Policy Distillation: Mining Golden Trajectories from Rollouts](/202606/23/2606.21994v1-prefix-guided-on-policy-distillation-mining-golden-trajectories-from-rollouts)  
+   标签：评分：9.0/10、query:distillation
+   evidence：提出前缀引导的在线策略蒸馏方法，用于大语言模型推理，直接匹配要求6
+4. [Improving Reasoning in Vision-Language Models via Perception Verified Self-Training](/202606/23/2606.22158v1-improving-reasoning-in-vision-language-models-via-perception-verified-self-training)  
+   标签：评分：9.0/10、query:distillation
+   evidence：感知验证的视觉语言模型自训练
+5. [On the Position Bias of On-Policy Distillation](/202606/23/2606.22600v1-on-the-position-bias-of-on-policy-distillation)  
+   标签：评分：9.0/10、query:distillation
+   evidence：分析在线蒸馏中的位置偏差
+6. [TALAS: Teacher-Anchored Layer Alignment with Adaptive Sharpness-Aware Minimization for Embedding Distillation](/202606/23/2606.21851v1-talas-teacher-anchored-layer-alignment-with-adaptive-sharpness-aware-minimization-for-embedding-distillation)  
+   标签：评分：8.0/10、query:distillation
+   evidence：通过教师锚定层对齐实现大语言模型的知识蒸馏
 
 ### 速读区论文标签
-1. [StepGuard: Guarding Web Navigation via Single-Step Calibration](/202606/22/2606.17871v1-stepguard-guarding-web-navigation-via-single-step-calibration)  
+1. [ASCII Art Turns LLMs into VLA Controllers](/202606/23/2606.21470v1-ascii-art-turns-llms-into-vla-controllers)  
    标签：评分：7.0/10、query:distillation
-   evidence：基于视觉语言模型的网页导航中的动态双策略优化在线学习
-2. [Occ-VLM: Occupancy Grounded Vision Language Model for Indoor Scene Understanding](/202606/22/2606.19776v1-occ-vlm-occupancy-grounded-vision-language-model-for-indoor-scene-understanding)  
+   evidence：通过将视觉观察转换为ASCII文本来训练VLA控制器，并使用DAgger进行on-policy改进
+2. [Data Selection Through Iterative Self-Filtering for Vision-Language Settings](/202606/23/2606.23611v1-data-selection-through-iterative-self-filtering-for-vision-language-settings)  
    标签：评分：7.0/10、query:distillation
-   evidence：用于占用率驱动的3D场景理解的视觉语言模型训练
-3. [See First, Answer Later: Visual Evidence Pre-Alignment via Sufficiency-Driven RL](/202606/22/2606.17678v1-see-first-answer-later-visual-evidence-pre-alignment-via-sufficiency-driven-rl)  
-   标签：评分：6.0/10、query:distillation
-   evidence：使用强化学习进行视觉语言模型训练中的视觉证据预对齐
+   evidence：视觉语言模型训练中的迭代自过滤数据选择
 
 
 <div class="dpr-home-promo-card">

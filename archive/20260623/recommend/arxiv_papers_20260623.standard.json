@@ -1,0 +1,328 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-23T20:40:55.507893+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [
+    {
+      "id": "2606.19120v2",
+      "source": "arxiv",
+      "title": "Seeing Before Reasoning: Decoupling Perception and Reasoning for Shortcut-Resilient Multimodal On-Policy Self-Distillation",
+      "abstract": "On-policy self-distillation (OPSD) trains a model on its own rollouts and uses a frozen copy to provide dense token-level targets conditioned on a reference target. This works well for LLM reasoning, but a direct extension to multimodal large language models (MLLMs) can create a shortcut: the privileged target may guide tokens mainly based on the text reference target rather than the image. We propose ViGOS, a visually grounded OPSD framework for MLLM post-training. The student first writes a visual description and then reasons toward the final answer. For valid rollouts, an image-only perception teacher supervises the description, while a privileged reasoning teacher supervises the reasoning and final answer on the same student prefix. A reference teacher is used only for invalid rollouts to recover the output format. Across general vision-language, expert reasoning, visual math, spatial grounding, and visual-language-prior benchmarks, ViGOS keeps the main benefits of OPSD and improves image-grounded behavior in shortcut-prone settings.",
+      "authors": [
+        "Sihan Wang",
+        "Xiyao Liu",
+        "Lianqing Liu",
+        "Zhi Han"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "published": "2026-06-17T14:33:38+00:00",
+      "link": "https://arxiv.org/pdf/2606.19120v2",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "Proposes visually grounded on-policy self-distillation for multimodal LLMs, directly matching on-policy distillation for vision-language models",
+      "llm_evidence_cn": "提出视觉引导的在线策略自蒸馏方法用于多模态大模型，直接匹配要求1",
+      "llm_evidence": "提出视觉引导的在线策略自蒸馏方法用于多模态大模型，直接匹配要求1",
+      "canonical_evidence": "提出视觉引导的在线策略自蒸馏方法用于多模态大模型，直接匹配要求1",
+      "llm_tldr_en": "ViGOS introduces visually grounded on-policy self-distillation for MLLMs, decoupling perception and reasoning to prevent shortcut learning from text-only targets.",
+      "llm_tldr_cn": "该论文发现直接将在线策略自蒸馏扩展到多模态大模型会导致捷径：教师仅根据文本参考目标指导令牌。为此提出ViGOS框架，让学生先生成视觉描述再推理，利用纯视觉感知教师监督描述部分，特权推理教师监督推理部分。实验证明该方法有效抑制了捷径，提升了多模态推理的鲁棒性，为视觉语言模型在线策略蒸馏提供了关键改进。",
+      "llm_tldr": "该论文发现直接将在线策略自蒸馏扩展到多模态大模型会导致捷径：教师仅根据文本参考目标指导令牌。为此提出ViGOS框架，让学生先生成视觉描述再推理，利用纯视觉感知教师监督描述部分，特权推理教师监督推理部分。实验证明该方法有效抑制了捷径，提升了多模态推理的鲁棒性，为视觉语言模型在线策略蒸馏提供了关键改进。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.23104v1",
+      "source": "arxiv",
+      "title": "ReNIO: Reweighting Negative Trajectory Importance for LLM On-Policy Distillation",
+      "abstract": "On-policy distillation (OPD) improves LLM reasoning by training a student model on its own generated outputs, but standard OPD treats all student-generated outputs (SGOs) equally regardless of their informativeness. We observe a consistent asymmetry in controlled filtering experiments: in both OPD and on-policy self distillation (OPSD), training only on incorrect SGOs outperforms training only on correct ones. Our further analysis suggests that models trained on correct-only SGOs tend to generate shorter reasoning traces and show weaker reflection behavior, while incorrect SGOs better preserve exploratory reasoning near the model's capability boundary. To exploit this signal without requiring full answer-containing rollouts, we introduce ReNIO, which Reweights Negative trajectory Importance for LLM On-policy distillation. By using the student-to-teacher probability ratio, ReNIO identifies pivotal tokens leading to wrong reasoning traces and aggregates their information into a normalized sample weight, inherently assigning larger weights to likely negative trajectories without observing the correctness of final-answer. Since Re-NIO only uses prefix-conditioned token probabilities, it preserves OPD's prefix training advantage over full-rollout reinforcement learning. Across both mathematical reasoning and code generation tasks, ReNIO improves both OPD and OPSD, with representative relative gains of up to 8.90% for Qwen3-1.7B and 10.00% for R1-Distill-Qwen-7B on mathematical reasoning benchmarks. Code repo: https://github.com/BDML-lab/ReNIO.",
+      "authors": [
+        "Chen Lin",
+        "Kedi Chen",
+        "Wei Zhang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-22T09:46:35+00:00",
+      "link": "https://arxiv.org/pdf/2606.23104v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "directly addresses on-policy distillation for large language models",
+      "llm_evidence_cn": "直接面向大语言模型的on-policy蒸馏方法",
+      "llm_evidence": "直接面向大语言模型的on-policy蒸馏方法",
+      "canonical_evidence": "直接面向大语言模型的on-policy蒸馏方法",
+      "llm_tldr_en": "ReNIO reweights negative trajectories in on-policy distillation for LLMs, discovering that incorrect outputs better preserve exploratory reasoning and proposing a method to leverage this without full answer rollouts.",
+      "llm_tldr_cn": "当前on-policy蒸馏对所有学生生成输出一视同仁，忽略了不同输出的信息量差异。本文发现仅用错误输出训练反而优于仅用正确输出，表明错误输出能更好地保留探索性推理。为此提出ReNIO，无需完整答案即可对负轨迹进行重要性重加权。实验表明该方法有效提升了LLM的推理性能。",
+      "llm_tldr": "当前on-policy蒸馏对所有学生生成输出一视同仁，忽略了不同输出的信息量差异。本文发现仅用错误输出训练反而优于仅用正确输出，表明错误输出能更好地保留探索性推理。为此提出ReNIO，无需完整答案即可对负轨迹进行重要性重加权。实验表明该方法有效提升了LLM的推理性能。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.21994v1",
+      "source": "arxiv",
+      "title": "Prefix-Guided On-Policy Distillation: Mining Golden Trajectories from Rollouts",
+      "abstract": "On-policy distillation (OPD) improves reasoning models by applying dense teacher supervision on student-sampled trajectories. However, scaling OPD to long-horizon mathematical reasoning exposes a reliability and efficiency problem: standard OPD assigns every sampled candidate the same long rollout budget, even though some trajectories may quickly become weakly aligned with the teacher and provide less useful supervision. Prior analyses suggest that successful OPD depends on local teacher-student compatibility, which can be measured by top-k overlap on student-visited prefixes. When this overlap is low, continuing to generate or train on long suffixes may waste computation and introduce noisy learning signal. To address this, we introduce Prefix-Guided On-Policy Distillation (PG-OPD), a simple rollout-allocation framework that uses fixed-length prefixes to estimate trajectory value before expensive long-horizon generation. PG-OPD first decodes every sampled candidate to the same prefix length, computes teacher-student top-k overlap within an early probe window of that prefix, and selectively continues high-overlap candidates to a fixed long length. Low-overlap candidates stop at the fixed prefix, avoiding unnecessary suffix generation. Across diverse teacher-student combinations on AMC, AIME, and HMMT benchmarks, PG-OPD improves average accuracy by up to 4.80 points while reducing training time by up to 2.46x. These results suggest that prefix-level compatibility provides a practical signal for directing OPD computation toward trajectories that remain learnable from the teacher.",
+      "authors": [
+        "Qingfei Zhao",
+        "Huan Song",
+        "Shuyu Tian",
+        "Jiawei Shao",
+        "Xuelong Li"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-20T11:18:34+00:00",
+      "link": "https://arxiv.org/pdf/2606.21994v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Proposes prefix-guided on-policy distillation for LLM reasoning, directly matching on-policy distillation methods for LLMs",
+      "llm_evidence_cn": "提出前缀引导的在线策略蒸馏方法，用于大语言模型推理，直接匹配要求6",
+      "llm_evidence": "提出前缀引导的在线策略蒸馏方法，用于大语言模型推理，直接匹配要求6",
+      "canonical_evidence": "提出前缀引导的在线策略蒸馏方法，用于大语言模型推理，直接匹配要求6",
+      "llm_tldr_en": "Prefix-Guided On-Policy Distillation improves LLM reasoning by mining golden trajectories from student rollouts, reducing wasted computation and noise in long-horizon tasks.",
+      "llm_tldr_cn": "该论文针对在线策略蒸馏在长程数学推理中存在的计算浪费和噪声问题，提出前缀引导的在线策略蒸馏方法，通过检测学生路径与教师的前缀兼容性，提前终止低质量路径，从而高效挖掘黄金轨迹。实验表明该方法在保留教师监督质量的同时显著提升训练效率，为大规模推理模型蒸馏提供了实用优化方案。",
+      "llm_tldr": "该论文针对在线策略蒸馏在长程数学推理中存在的计算浪费和噪声问题，提出前缀引导的在线策略蒸馏方法，通过检测学生路径与教师的前缀兼容性，提前终止低质量路径，从而高效挖掘黄金轨迹。实验表明该方法在保留教师监督质量的同时显著提升训练效率，为大规模推理模型蒸馏提供了实用优化方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.22158v1",
+      "source": "arxiv",
+      "title": "Improving Reasoning in Vision-Language Models via Perception Verified Self-Training",
+      "abstract": "Achieving human-like reasoning in Vision-Language Models (VLMs) remains a long-standing challenge. Recent approaches leverage Chain-of-Thought (CoT) rationales generated by human annotators or proprietary models to improve reasoning, which is costly and difficult to scale. Self-training offers a promising alternative by using models own outputs as supervision. However, existing methods often suffer from visual hallucinations -- where rationales describe non-existent visual content, and language shortcuts -- where predictions rely on textual priors rather than true visual grounding, as rationales are typically filtered only by answer correctness without verifying visual perception. To address this limitation, we propose a perception-verified self-training framework that enforces visually grounded reasoning. First, our method employs a CoT template (caption-reasoning-conclusion) that disentangles perception from reasoning, enabling independent verification of visual understanding. To compensate for the absence of ground-truth captions, we propose PerceptEval, an unsupervised method that evaluates caption quality based on its alignment with visual and textual elements present in the image. Using caption verification together with answer correctness, we partition the data into three subsets: easy (correct caption and conclusion), medium (correct caption but incorrect conclusion), and hard (incorrect caption). Building on this partitioning, we design a two-stage curriculum learning strategy. In Stage 1, the model is trained on easy examples and subsequently in Stage 2, medium samples are incorporated through a caption-guided reasoning enhancement procedure that regenerates reasoning conditioned on verified captions. Only regenerated samples with the correct conclusions are retained.",
+      "authors": [
+        "Sourabh Sharma",
+        "Sonam Gupta",
+        "Sadbhawna Thakur"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-20T17:33:07+00:00",
+      "link": "https://arxiv.org/pdf/2606.22158v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "perception-verified self-training for VLMs",
+      "llm_evidence_cn": "感知验证的视觉语言模型自训练",
+      "llm_evidence": "感知验证的视觉语言模型自训练",
+      "canonical_evidence": "感知验证的视觉语言模型自训练",
+      "llm_tldr_en": "This paper improves VLM reasoning by using self-training with perception verification to ensure rationales are visually grounded, reducing hallucinations and language shortcuts.",
+      "llm_tldr_cn": "该论文提出一种感知验证的自训练方法，通过利用模型自身输出作为监督信号，并引入视觉感知验证机制来确保推理链条的视觉正确性，从而有效减少视觉幻觉和语言捷径问题。实验表明该方法在多个VLM推理基准上提升了性能，且具有较好的可扩展性。该工作为低成本提升VLM推理能力提供了新思路。",
+      "llm_tldr": "该论文提出一种感知验证的自训练方法，通过利用模型自身输出作为监督信号，并引入视觉感知验证机制来确保推理链条的视觉正确性，从而有效减少视觉幻觉和语言捷径问题。实验表明该方法在多个VLM推理基准上提升了性能，且具有较好的可扩展性。该工作为低成本提升VLM推理能力提供了新思路。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.22600v1",
+      "source": "arxiv",
+      "title": "On the Position Bias of On-Policy Distillation",
+      "abstract": "On-Policy Distillation (OPD) improves the learning efficiency of standard reinforcement learning through dense, token-level supervision from teachers. In the standard KL objective of OPD, token-level losses are uniformly averaged, implying equal weights for all tokens. However, we discover that not all tokens are created equal: as student rollouts grow longer, they deviate further from the teacher's distribution, leading to degraded supervision quality at later positions. As a result, OPD using only the first 30% of tokens can perform comparably to using all tokens, whereas OPD using only the last 30% of tokens barely learns anything. In this work, we provide a principled understanding of this issue through the lens of constrained optimization. Based on these insights, we derive Importance-Weighted On-Policy Distillation (IW-OPD), in which the weight assigned to each token depends on the accumulated discrepancy between the student's and teacher's distributions, naturally upweighting earlier tokens and downweighting later ones with larger deviations. We show that IW-OPD converges significantly faster than OPD, with better learning efficiency, and achieves better final performance than standard OPD in both same-size and cross-scale settings, improving performance up to 6.9 points on AIME-2025.",
+      "authors": [
+        "Yan Xie",
+        "Sijie Zhu",
+        "Tiansheng Wen",
+        "Bo Chen",
+        "Yifei Wang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-21T17:20:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.22600v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "analyzes position bias in on-policy distillation",
+      "llm_evidence_cn": "分析在线蒸馏中的位置偏差",
+      "llm_evidence": "分析在线蒸馏中的位置偏差",
+      "canonical_evidence": "分析在线蒸馏中的位置偏差",
+      "llm_tldr_en": "Reveals that on-policy distillation suffers from position bias: early tokens dominate learning while later tokens are detrimental, and proposes a principled solution.",
+      "llm_tldr_cn": "在线蒸馏(OPD)通过密集的token级监督提升强化学习效率，但本文发现其存在严重的位置偏差：学生轨迹越长，后期token的监督质量越差，仅使用前30%token即可达到全量效果。通过约束优化理论解释该现象并提出改进方法，为OPD的实际部署提供了重要指导。",
+      "llm_tldr": "在线蒸馏(OPD)通过密集的token级监督提升强化学习效率，但本文发现其存在严重的位置偏差：学生轨迹越长，后期token的监督质量越差，仅使用前30%token即可达到全量效果。通过约束优化理论解释该现象并提出改进方法，为OPD的实际部署提供了重要指导。",
+      "llm_tags": [
+        "query:distillation:composite"
+      ],
+      "matched_query_tag": "query:distillation:composite",
+      "matched_query_text": "Papers central to 查找On-Policy Distillation相关的视觉语言大模型论文, especially work that connects or combines: on-policy distillation technique for vision and language models; large language model distillation; reinforcement learning from human feedback distillation; visual language model training; on-policy learning in vision language models; On policy distillation methods for large language models; Knowledge distillation techniques in reinforcement learning for LLMs; Improving language model via on policy distillation; On policy distillation for vision language models.",
+      "matched_requirement_id": "req-composite-distillation",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.21851v1",
+      "source": "arxiv",
+      "title": "TALAS: Teacher-Anchored Layer Alignment with Adaptive Sharpness-Aware Minimization for Embedding Distillation",
+      "abstract": "Knowledge Distillation (KD) has established itself as a pivotal technique for compressing large pre-trained language models. However, existing methods that force a student to strictly mimic the teacher's sentence embeddings or internal features often incur prohibitive computational costs and yield suboptimal performance due to the inherent capacity gap. To address these challenges, we propose TALAS (Teacher-Anchored Layer Alignment with Sharpness-aware minimization), a unified framework that synergizes hierarchical (multi-layer) alignment with robust optimization. First, we introduce a Teacher-Anchored mechanism that selectively distills final sentence embeddings only into the student's upper layers, thereby reducing overhead while respecting capacity constraints. Second, we bridge the semantic gap in lower layers via Layer-Aligned Self-Distillation, which propagates knowledge top-down using internal geometric relational constraints in the embedding space. Finally, to prevent the student from memorizing point-wise teacher noise, we integrate Adaptive Sharpness-Aware Minimization (ASAM) into the training objective, guiding the model towards flat minima for enhanced generalization. Empirical results on standard sentence embedding benchmarks demonstrate that TALAS consistently outperforms strong distillation baselines while achieving superior training efficiency in terms of computational cost and memory footprint.",
+      "authors": [
+        "Quoc Phong Dao",
+        "Hoang Son Nguyen",
+        "Pham Khanh Chi",
+        "Linh Ngo Van",
+        "Nguyen Thi Ngoc Diep",
+        "Thien Huu Nguyen",
+        "Trung Le"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-06-20T03:17:29+00:00",
+      "link": "https://arxiv.org/pdf/2606.21851v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "knowledge distillation for large language models via teacher-anchored layer alignment",
+      "llm_evidence_cn": "通过教师锚定层对齐实现大语言模型的知识蒸馏",
+      "llm_evidence": "通过教师锚定层对齐实现大语言模型的知识蒸馏",
+      "canonical_evidence": "通过教师锚定层对齐实现大语言模型的知识蒸馏",
+      "llm_tldr_en": "TALAS improves embedding distillation for large pre-trained language models by selectively aligning teacher's final embeddings to student's upper layers with sharpness-aware minimization.",
+      "llm_tldr_cn": "该论文针对现有知识蒸馏方法迫使学生严格模仿教师嵌入导致计算成本高且性能不佳的问题，提出TALAS框架。通过教师锚定机制仅将最终句子嵌入蒸馏到学生高层，并引入自适应锐度感知最小化提升泛化能力。实验表明TALAS在压缩语言模型时性能优于现有方法。",
+      "llm_tldr": "该论文针对现有知识蒸馏方法迫使学生严格模仿教师嵌入导致计算成本高且性能不佳的问题，提出TALAS框架。通过教师锚定机制仅将最终句子嵌入蒸馏到学生高层，并引入自适应锐度感知最小化提升泛化能力。实验表明TALAS在压缩语言模型时性能优于现有方法。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.21470v1",
+      "source": "arxiv",
+      "title": "ASCII Art Turns LLMs into VLA Controllers",
+      "abstract": "Vision--Language--Action (VLA) controllers are often built by extending vision--language models (VLMs) with action supervision, relying on multimodal backbones with large data and compute requirements. We demonstrate that a text-only large language model (LLM) can be adapted into a VLA-style controller when visual observations are rendered into a text input using an ASCII representation. This ASCII-as-vision interface enables existing training and deployment stacks for LLMs to efficiently condition on visual state, follow natural-language instructions, and produce constrained, executable actions. We fine-tune and compare multiple LLMs and VLMs across model families and scales, using both expert demonstrations from a planning-based teacher, as well as DAgger for iterative improvement. In a 2D manipulation benchmark, in both simulation and on a physical manipulator, the resulting controllers can identify task-relevant entities and plan feasible action sequences. Our results suggest that ASCII rendering can serve as a lightweight, interpretable modality bridge from images to text, complementing conventional VLA pipelines, and opening directions for VLA research with text-only backbones.",
+      "authors": [
+        "Yitao Jiang",
+        "Roy Xing",
+        "Luyang Zhao",
+        "Brian Plancher",
+        "Muhao Chen",
+        "Devin Balkcom"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-06-19T14:19:59+00:00",
+      "link": "https://arxiv.org/pdf/2606.21470v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "trains VLA controllers by converting visual observations to ASCII text, using DAgger for on-policy improvement",
+      "llm_evidence_cn": "通过将视觉观察转换为ASCII文本来训练VLA控制器，并使用DAgger进行on-policy改进",
+      "llm_evidence": "通过将视觉观察转换为ASCII文本来训练VLA控制器，并使用DAgger进行on-policy改进",
+      "canonical_evidence": "通过将视觉观察转换为ASCII文本来训练VLA控制器，并使用DAgger进行on-policy改进",
+      "llm_tldr_en": "Converts visual observations to ASCII text to adapt text-only LLMs into VLA controllers, using expert demonstrations and DAgger for iterative improvement, demonstrating efficient vision-language-action training.",
+      "llm_tldr_cn": "该论文提出将视觉观察渲染为ASCII文本，使纯文本LLM能够低成本地转化为视觉-语言-动作（VLA）控制器。通过专家演示和DAgger（一种on-policy模仿学习方法）进行迭代微调，在机器人任务中取得了有竞争力的性能。该方法避免了多模态骨干网络的高计算需求，为视觉语言模型训练提供了轻量级替代方案，但并非直接的知识蒸馏技术。",
+      "llm_tldr": "该论文提出将视觉观察渲染为ASCII文本，使纯文本LLM能够低成本地转化为视觉-语言-动作（VLA）控制器。通过专家演示和DAgger（一种on-policy模仿学习方法）进行迭代微调，在机器人任务中取得了有竞争力的性能。该方法避免了多模态骨干网络的高计算需求，为视觉语言模型训练提供了轻量级替代方案，但并非直接的知识蒸馏技术。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.23611v1",
+      "source": "arxiv",
+      "title": "Data Selection Through Iterative Self-Filtering for Vision-Language Settings",
+      "abstract": "The availability of large amounts of clean data is paramount to training neural networks. However, at large scales, manual oversight is impractical, resulting in sizeable datasets that can be very noisy. Attempts to mitigate this obstacle to producing performant vision-language models have so far involved heuristics, curated reference datasets, and using pre-trained models. Here we propose a novel, bootstrapped method in which a CLIP model is trained on an evolving, self-selected dataset. This evolving dataset constitutes a balance of filtered, highly probable clean samples as well as diverse samples from the entire distribution. Our proposed Self-Filtering method iterates between training the model and selecting a subsequently improved data mixture. Training on vision-language datasets filtered by the proposed approach improves downstream performance without the need for additional data or pre-trained models.",
+      "authors": [
+        "Andrei Liviu Nicolicioiu",
+        "Sarvjeet Singh Ghotra",
+        "Morgane M. Moss",
+        "Aaron Courville"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-22T17:11:15+00:00",
+      "link": "https://arxiv.org/pdf/2606.23611v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "iterative self-filtering for vision-language model training",
+      "llm_evidence_cn": "视觉语言模型训练中的迭代自过滤数据选择",
+      "llm_evidence": "视觉语言模型训练中的迭代自过滤数据选择",
+      "canonical_evidence": "视觉语言模型训练中的迭代自过滤数据选择",
+      "llm_tldr_en": "Proposes a bootstrapped data selection method for CLIP training in vision-language settings, iteratively filtering clean samples and diverse data to improve model performance without manual oversight.",
+      "llm_tldr_cn": "该论文针对视觉语言模型训练中数据噪声问题，提出一种自举式迭代自过滤方法，在训练CLIP模型时动态选择干净样本和多样性数据，平衡过滤与多样性，无需人工监督。实验表明该方法能有效提升模型性能。",
+      "llm_tldr": "该论文针对视觉语言模型训练中数据噪声问题，提出一种自举式迭代自过滤方法，在训练CLIP模型时动态选择干净样本和多样性数据，平衡过滤与多样性，无需人工监督。实验表明该方法能有效提升模型性能。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
