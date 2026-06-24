@@ -6,44 +6,49 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-23
-- 运行时间：2026-06-23 20:45:19 UTC
+- 最新运行日期：2026-06-24
+- 运行时间：2026-06-24 21:00:33 UTC
 - 运行状态：成功
-- 本次总论文数：8
+- 本次总论文数：9
 - 精读区：6
-- 速读区：2
+- 速读区：3
 
 ### 今日简报（AI）
-今日精读6篇、速读2篇，聚焦视觉语言模型的自蒸馏与多模态感知推理解耦。最值得关注的是《Seeing Before Reasoning》提出感知与推理解耦增强抗捷径能力，以及《ReNIO》通过重加权负轨迹提升LLM蒸馏效果。建议优先精读这两篇10分论文以掌握前沿方法。
-- 详情：[/202606/23/README](/202606/23/README)
+今日推荐9篇论文，精读聚焦在线策略蒸馏的位置偏差，速读涵盖图像文字生成、历史记忆压缩与多模态RLVR视觉捷径。
+最值得精读的是9分论文《On the Position Bias of On-Policy Distillation》，其揭示的偏差机制对理解蒸馏性能至关重要；速读中6分论文《When Does a Video-Language Model Stop Watching?》探讨奖励强度对视觉捷径的调控，也值得关注。
+建议优先精读位置偏差论文，同时留意多模态奖励设计如何影响模型行为，可结合速读中的视觉捷径研究加深理解。
+- 详情：[/202606/24/README](/202606/24/README)
 
 ### 精读区论文标签
-1. [Seeing Before Reasoning: Decoupling Perception and Reasoning for Shortcut-Resilient Multimodal On-Policy Self-Distillation](/202606/23/2606.19120v2-seeing-before-reasoning-decoupling-perception-and-reasoning-for-shortcut-resilient-multimodal-on-policy-self-distillation)  
-   标签：评分：10.0/10、query:distillation
-   evidence：提出视觉引导的在线策略自蒸馏方法用于多模态大模型，直接匹配要求1
-2. [ReNIO: Reweighting Negative Trajectory Importance for LLM On-Policy Distillation](/202606/23/2606.23104v1-renio-reweighting-negative-trajectory-importance-for-llm-on-policy-distillation)  
-   标签：评分：10.0/10、query:distillation
-   evidence：直接面向大语言模型的on-policy蒸馏方法
-3. [Prefix-Guided On-Policy Distillation: Mining Golden Trajectories from Rollouts](/202606/23/2606.21994v1-prefix-guided-on-policy-distillation-mining-golden-trajectories-from-rollouts)  
+1. [On the Position Bias of On-Policy Distillation](/202606/24/2606.22600v1-on-the-position-bias-of-on-policy-distillation)  
    标签：评分：9.0/10、query:distillation
-   evidence：提出前缀引导的在线策略蒸馏方法，用于大语言模型推理，直接匹配要求6
-4. [Improving Reasoning in Vision-Language Models via Perception Verified Self-Training](/202606/23/2606.22158v1-improving-reasoning-in-vision-language-models-via-perception-verified-self-training)  
+   evidence：研究在线策略蒸馏中的位置偏差问题
+2. [On the Position Bias of On-Policy Distillation](/202606/24/2606.22600v2-on-the-position-bias-of-on-policy-distillation)  
    标签：评分：9.0/10、query:distillation
-   evidence：感知验证的视觉语言模型自训练
-5. [On the Position Bias of On-Policy Distillation](/202606/23/2606.22600v1-on-the-position-bias-of-on-policy-distillation)  
+   evidence：针对大语言模型在线蒸馏的位置偏差研究
+3. [The Professor: Multi-Teacher Unsupervised Prompt Distillation for Vision-Language Models](/202606/24/2606.23897v1-the-professor-multi-teacher-unsupervised-prompt-distillation-for-vision-language-models)  
    标签：评分：9.0/10、query:distillation
-   evidence：分析在线蒸馏中的位置偏差
-6. [TALAS: Teacher-Anchored Layer Alignment with Adaptive Sharpness-Aware Minimization for Embedding Distillation](/202606/23/2606.21851v1-talas-teacher-anchored-layer-alignment-with-adaptive-sharpness-aware-minimization-for-embedding-distillation)  
+   evidence：针对视觉语言模型的多教师无监督提示蒸馏
+4. [AsyncOPD: How Stale Can On-Policy Distillation Be?](/202606/24/2606.24143v1-asyncopd-how-stale-can-on-policy-distillation-be)  
+   标签：评分：9.0/10、query:distillation
+   evidence：针对大语言模型的在策略蒸馏，研究异步训练中的陈旧性问题
+5. [Scaling Laws for Task-Specific LLM Distillation](/202606/24/2606.24747v1-scaling-laws-for-task-specific-llm-distillation)  
+   标签：评分：9.0/10、query:distillation
+   evidence：任务特定大语言模型蒸馏的缩放定律
+6. [Beyond Trajectory Imitation: Strategy-Guided Policy Optimization for LLM Reasoning](/202606/24/2606.24064v1-beyond-trajectory-imitation-strategy-guided-policy-optimization-for-llm-reasoning)  
    标签：评分：8.0/10、query:distillation
-   evidence：通过教师锚定层对齐实现大语言模型的知识蒸馏
+   evidence：通过策略优化蒸馏大语言模型的推理策略
 
 ### 速读区论文标签
-1. [ASCII Art Turns LLMs into VLA Controllers](/202606/23/2606.21470v1-ascii-art-turns-llms-into-vla-controllers)  
+1. [Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models](/202606/24/2606.19944v1-timage-a-generative-text-in-image-paradigm-for-fine-tuning-vision-language-models)  
    标签：评分：7.0/10、query:distillation
-   evidence：通过将视觉观察转换为ASCII文本来训练VLA控制器，并使用DAgger进行on-policy改进
-2. [Data Selection Through Iterative Self-Filtering for Vision-Language Settings](/202606/23/2606.23611v1-data-selection-through-iterative-self-filtering-for-vision-language-settings)  
-   标签：评分：7.0/10、query:distillation
-   evidence：视觉语言模型训练中的迭代自过滤数据选择
+   evidence：通过生成式文本嵌入图像范式微调视觉语言模型
+2. [Compressing Observation History into Agent Memory: Distilling Transformers into Recurrent Transformers](/202606/24/2606.21562v1-compressing-observation-history-into-agent-memory-distilling-transformers-into-recurrent-transformers)  
+   标签：评分：6.0/10、query:distillation
+   evidence：将Transformer蒸馏为循环Transformer
+3. [When Does a Video-Language Model Stop Watching? Reward Strength Controls the Formation and Reversal of Visual Shortcuts in Multimodal RLVR](/202606/24/2606.22043v1-when-does-a-video-language-model-stop-watching-reward-strength-controls-the-formation-and-reversal-of-visual-shortcuts-in-multimodal-rlvr)  
+   标签：评分：6.0/10、query:distillation
+   evidence：基于可验证奖励的强化学习用于视觉语言模型，研究在线策略训练动态
 
 
 <div class="dpr-home-promo-card">

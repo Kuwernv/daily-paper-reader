@@ -1,0 +1,375 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-24T20:55:19.030993+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [
+    {
+      "id": "2606.22600v1",
+      "source": "arxiv",
+      "title": "On the Position Bias of On-Policy Distillation",
+      "abstract": "On-Policy Distillation (OPD) improves the learning efficiency of standard reinforcement learning through dense, token-level supervision from teachers. In the standard KL objective of OPD, token-level losses are uniformly averaged, implying equal weights for all tokens. However, we discover that not all tokens are created equal: as student rollouts grow longer, they deviate further from the teacher's distribution, leading to degraded supervision quality at later positions. As a result, OPD using only the first 30% of tokens can perform comparably to using all tokens, whereas OPD using only the last 30% of tokens barely learns anything. In this work, we provide a principled understanding of this issue through the lens of constrained optimization. Based on these insights, we derive Importance-Weighted On-Policy Distillation (IW-OPD), in which the weight assigned to each token depends on the accumulated discrepancy between the student's and teacher's distributions, naturally upweighting earlier tokens and downweighting later ones with larger deviations. We show that IW-OPD converges significantly faster than OPD, with better learning efficiency, and achieves better final performance than standard OPD in both same-size and cross-scale settings, improving performance up to 6.9 points on AIME-2025.",
+      "authors": [
+        "Yan Xie",
+        "Sijie Zhu",
+        "Tiansheng Wen",
+        "Bo Chen",
+        "Yifei Wang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-21T17:20:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.22600v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "studies position bias in on-policy distillation for reinforcement learning",
+      "llm_evidence_cn": "研究在线策略蒸馏中的位置偏差问题",
+      "llm_evidence": "研究在线策略蒸馏中的位置偏差问题",
+      "canonical_evidence": "研究在线策略蒸馏中的位置偏差问题",
+      "llm_tldr_en": "Investigates the position bias in On-Policy Distillation (OPD) for RL, showing that token quality degrades at later positions; proposes a principled approach to mitigate the bias and improve learning efficiency.",
+      "llm_tldr_cn": "在线策略蒸馏（OPD）通过密集的token级监督提升强化学习效率，但现有方法对所有token等权处理。本文发现token质量随位置后移而下降：仅使用前30%的token即可达到与全序列相当的性能，而后30%几乎无效。为此，从约束优化视角提出一种位置自适应加权策略，有效缓解位置偏差，显著提升OPD的学习效率和最终性能。",
+      "llm_tldr": "在线策略蒸馏（OPD）通过密集的token级监督提升强化学习效率，但现有方法对所有token等权处理。本文发现token质量随位置后移而下降：仅使用前30%的token即可达到与全序列相当的性能，而后30%几乎无效。为此，从约束优化视角提出一种位置自适应加权策略，有效缓解位置偏差，显著提升OPD的学习效率和最终性能。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.22600v2",
+      "source": "arxiv",
+      "title": "On the Position Bias of On-Policy Distillation",
+      "abstract": "On-Policy Distillation (OPD) improves the learning efficiency of standard reinforcement learning through dense, token-level supervision from teachers. In the standard KL objective of OPD, token-level losses are uniformly averaged, implying equal weights for all tokens. However, we discover that not all tokens are created equal: as student rollouts grow longer, they deviate further from the teacher's distribution, leading to degraded supervision quality at later positions. As a result, OPD using only the first 30% of tokens can perform comparably to using all tokens, whereas OPD using only the last 30% of tokens barely learns anything. In this work, we provide a principled understanding of this issue through the lens of constrained optimization. Based on these insights, we derive Importance-Weighted On-Policy Distillation (IW-OPD), in which the weight assigned to each token depends on the accumulated discrepancy between the student's and teacher's distributions, naturally upweighting earlier tokens and downweighting later ones with larger deviations. We show that IW-OPD converges significantly faster than OPD, with better learning efficiency, and achieves better final performance than standard OPD in both same-size and cross-scale settings, improving performance up to 6.9 points on AIME-2025.",
+      "authors": [
+        "Yan Xie",
+        "Sijie Zhu",
+        "Tiansheng Wen",
+        "Bo Chen",
+        "Yifei Wang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-21T17:20:21+00:00",
+      "link": "https://arxiv.org/pdf/2606.22600v2",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "study of position bias in on-policy distillation for LLMs",
+      "llm_evidence_cn": "针对大语言模型在线蒸馏的位置偏差研究",
+      "llm_evidence": "针对大语言模型在线蒸馏的位置偏差研究",
+      "canonical_evidence": "针对大语言模型在线蒸馏的位置偏差研究",
+      "llm_tldr_en": "Discovers and analyzes position bias in on-policy distillation for LLMs, where later tokens receive degraded supervision, and proposes a principled solution.",
+      "llm_tldr_cn": "在线蒸馏（OPD）中，标准KL损失均匀平均所有token，但研究发现学生rollout越长，后期token的教师监督质量越差。仅用前30% token即可达到全量效果，后30%几乎学不到。本文通过约束优化视角理解该问题，并推导出改进方法，提升OPD效率。",
+      "llm_tldr": "在线蒸馏（OPD）中，标准KL损失均匀平均所有token，但研究发现学生rollout越长，后期token的教师监督质量越差。仅用前30% token即可达到全量效果，后30%几乎学不到。本文通过约束优化视角理解该问题，并推导出改进方法，提升OPD效率。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.23897v1",
+      "source": "arxiv",
+      "title": "The Professor: Multi-Teacher Unsupervised Prompt Distillation for Vision-Language Models",
+      "abstract": "Prompt distillation compresses large vision-language models (VLMs) such as CLIP into lightweight student models by matching teacher predictions on unlabeled domain images. PromptKD (CVPR 2024) established this paradigm with a single PromptSRC-finetuned ViT-L/14 teacher and a ViT-B/16 student. We propose TheProfessor, a multi-teacher extension that distills from a fixed two-teacher ensemble: a domain-finetuned PromptSRC ViT-L/14 teacher and a zero-shot EVA-CLIP-L/14 teacher whose logits are pre-computed per dataset. We evaluate single-teacher PromptKD, equal-probability ensembling, and confidence-weighted ensembling on four base-to-novel datasets: Caltech-101, DTD, UCF101, and EuroSAT. In a 12-run single-seed sweep, confidence-weighted ensembling improves average HM from 87.52 to 89.28 (+1.77 points), while equal averaging improves average HM to 88.88 (+1.37 points). Gains are dataset dependent: they are negligible on Caltech-101 (+0.16 HM for confidence weighting), modest on UCF101 (+0.62), and largest on domain-shifted EuroSAT (+5.78). These results update our earlier Caltech-only analysis and show that multi-teacher prompt distillation is most useful when the second teacher contributes complementary supervision under domain shift.",
+      "authors": [
+        "Ahmad Algadhi",
+        "Ahmed Alzuhair",
+        "Omar Alkhulaif",
+        "Muzammil Behzad"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-06-22T19:53:41+00:00",
+      "link": "https://arxiv.org/pdf/2606.23897v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "multi-teacher unsupervised prompt distillation for vision-language models",
+      "llm_evidence_cn": "针对视觉语言模型的多教师无监督提示蒸馏",
+      "llm_evidence": "针对视觉语言模型的多教师无监督提示蒸馏",
+      "canonical_evidence": "针对视觉语言模型的多教师无监督提示蒸馏",
+      "llm_tldr_en": "Proposes TheProfessor, a multi-teacher extension of prompt distillation for VLMs, using a fixed two-teacher ensemble with confidence-weighted ensembling to improve student model performance.",
+      "llm_tldr_cn": "本文针对视觉语言模型（VLM）的提示蒸馏任务，提出多教师扩展方法TheProfessor。该方法利用一个领域微调教师和一个零样本教师组成固定集成，通过置信度加权集成蒸馏到轻量学生模型。在四个基准数据集上的实验表明，置信度加权集成优于单教师蒸馏和等概率集成。",
+      "llm_tldr": "本文针对视觉语言模型（VLM）的提示蒸馏任务，提出多教师扩展方法TheProfessor。该方法利用一个领域微调教师和一个零样本教师组成固定集成，通过置信度加权集成蒸馏到轻量学生模型。在四个基准数据集上的实验表明，置信度加权集成优于单教师蒸馏和等概率集成。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.24143v1",
+      "source": "arxiv",
+      "title": "AsyncOPD: How Stale Can On-Policy Distillation Be?",
+      "abstract": "On-policy distillation (OPD) trains a student on its own rollouts guided by teacher feedback and is becoming increasingly important for large language model (LLM) post-training. Like reinforcement learning (RL), however, OPD faces an on-policy systems bottleneck, as rollouts can dominate training time for reasoning workloads. Asynchronous training pipelines can alleviate this bottleneck by decoupling rollout generation from learner updates, but doing so introduces stale-policy data. While prior work has studied stale data in asynchronous RL, its effects in OPD remain underexplored. We present the first systematic study of staleness in asynchronous OPD, focusing on a practical setting where teacher feedback is implemented through local KL losses and full-vocabulary teacher logits are too expensive to store or transfer, necessitating finite teacher-score caches. We first show that KL direction changes the stale-data problem: teacher-weighted forward KL is more robust to stale rollouts, whereas student-weighted reverse KL is vulnerable. Second, for this vulnerable reverse-KL case, we study whether methods designed to stabilize asynchronous RL can mitigate OPD staleness. In our experiments, they do not improve over a simpler OPD-specific surrogate: recomputing the reverse-KL signal under the current student at learner time. Third, we analyze how finite teacher-score caches create a bias-variance tradeoff for sparse and sampled reverse-KL OPD estimators. This motivates multi-sample Monte Carlo (MC), which preserves MC correctability while reducing one-sample variance. Finally, we present and open-source AsyncOPD, a fully asynchronous OPD training pipeline built from these estimator choices. Experiments show that AsyncOPD improves training throughput by $1.6\\times$ to $3.8\\times$ over strict synchronous training while reaching comparable accuracy.",
+      "authors": [
+        "Wonjun Kang",
+        "Kevin Galim",
+        "Seunghyuk Oh",
+        "Minjun Kang",
+        "Sanghyun Park",
+        "Donghoon Kim",
+        "Minjae Lee",
+        "Minseo Kim",
+        "Rishabh Tiwari",
+        "Yuchen Zeng",
+        "Hyung Il Koo",
+        "Kangwook Lee"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-23T04:50:49+00:00",
+      "link": "https://arxiv.org/pdf/2606.24143v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "On-policy distillation for large language models, studying staleness in asynchronous training",
+      "llm_evidence_cn": "针对大语言模型的在策略蒸馏，研究异步训练中的陈旧性问题",
+      "llm_evidence": "针对大语言模型的在策略蒸馏，研究异步训练中的陈旧性问题",
+      "canonical_evidence": "针对大语言模型的在策略蒸馏，研究异步训练中的陈旧性问题",
+      "llm_tldr_en": "First systematic study of staleness in asynchronous on-policy distillation (OPD) for LLMs, focusing on teacher feedback via local KL loss, revealing critical insights for performance.",
+      "llm_tldr_cn": "在策略蒸馏（OPD）在LLM后训练中日益重要，但面临在线数据生成的学习瓶颈。本文首次系统研究异步OPD中的陈旧性效应，在教师反馈采用局部KL散度损失的全词汇教师设置下，分析陈旧策略数据对训练的影响。实验揭示了陈旧程度与性能之间的关键关系，为设计高效异步OPD流水线提供了指导。",
+      "llm_tldr": "在策略蒸馏（OPD）在LLM后训练中日益重要，但面临在线数据生成的学习瓶颈。本文首次系统研究异步OPD中的陈旧性效应，在教师反馈采用局部KL散度损失的全词汇教师设置下，分析陈旧策略数据对训练的影响。实验揭示了陈旧程度与性能之间的关键关系，为设计高效异步OPD流水线提供了指导。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.24747v1",
+      "source": "arxiv",
+      "title": "Scaling Laws for Task-Specific LLM Distillation",
+      "abstract": "Large Language Models (LLMs) achieve strong performance across a growing range of domains, yet their scale poses deployment challenges in applications where latency and cost constraints are critical. This paper derives empirical scaling laws for domain-specific LLM compression, quantifying how in-domain and general knowledge performance scale with dataset size, compression ratio, supervision format, and iterative pruning schedule. Using quantitative finance as our application domain, we compare logit-based and LoRA-based distillation under iterative structural pruning, introducing a blended chain-of-thought supervision loss that stabilizes KL-divergence distillation over reasoning traces. In-domain task quality degrades predictably under compression while general-knowledge benchmarks collapse well before the same point; supervision format is the key driver of this tradeoff, with chain-of-thought supervision actively recovering general knowledge that pruning erases. We release the headline dataset FinHeadlineMix, scaling law results, and practical recommendations to provide a reusable framework for domain-specific compression decisions.",
+      "authors": [
+        "Lavinia Ghita",
+        "Dhruv Desai",
+        "Ioana Boier"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CE"
+      ],
+      "published": "2026-06-23T16:09:57+00:00",
+      "link": "https://arxiv.org/pdf/2606.24747v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "scaling laws for task-specific LLM distillation",
+      "llm_evidence_cn": "任务特定大语言模型蒸馏的缩放定律",
+      "llm_evidence": "任务特定大语言模型蒸馏的缩放定律",
+      "canonical_evidence": "任务特定大语言模型蒸馏的缩放定律",
+      "llm_tldr_en": "Derives empirical scaling laws for domain-specific LLM distillation, comparing logit and LoRA methods under structural pruning.",
+      "llm_tldr_cn": "大语言模型部署受限于延迟和成本，需要压缩。该论文针对特定领域（如金融）推导出LLM蒸馏的缩放定律，量化了数据集大小、压缩比、监督格式和迭代剪枝的影响。提出混合思维链监督损失来稳定KL散度蒸馏。实验表明领域内任务性能随压缩可预测地下降，而通用知识保持良好。",
+      "llm_tldr": "大语言模型部署受限于延迟和成本，需要压缩。该论文针对特定领域（如金融）推导出LLM蒸馏的缩放定律，量化了数据集大小、压缩比、监督格式和迭代剪枝的影响。提出混合思维链监督损失来稳定KL散度蒸馏。实验表明领域内任务性能随压缩可预测地下降，而通用知识保持良好。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.24064v1",
+      "source": "arxiv",
+      "title": "Beyond Trajectory Imitation: Strategy-Guided Policy Optimization for LLM Reasoning",
+      "abstract": "Distilling reasoning capabilities from strong to weak language models typically involves imitating specific solution trajectories, effectively transferring what to answer rather than how to reason. This trajectory-level imitation encourages memorization of instance-specific steps rather than acquisition of transferable problem-solving skills, limiting generalization to novel problems. We propose Strategy-Guided Policy Optimization (SGPO), which replaces instance-level trajectory imitation with reusable strategy distillation. SGPO extracts structured strategy descriptions from strong-model responses and, for each problem, constructs both autonomous and strategy-guided trajectories to enable direct comparison of the model's behavior with and without strategic guidance. The framework then addresses two key questions. For how to distill, a token-level forward-KL objective selectively transfers the distributional shift induced by strategy conditioning into the unguided policy, with proximal constraints ensuring stability. For when to distill, adaptive instance-level weighting strengthens guidance when autonomous exploration falls short and reduces it as the model's own competence grows. Experiments on four mathematical benchmarks across two model families show that SGPO consistently outperforms SFT, on-policy RL, and hybrid-policy baselines, improving the average score by 2.2 points over the strongest baseline on Qwen2.5-7B-Instruct. Analysis reveals that the forward-KL objective provides an inherently selective distillation signal that outperforms direct trajectory imitation, and that strategy distillation exhibits complementary scaling with base model capability.",
+      "authors": [
+        "Tianyuan Shi",
+        "Canbin Huang",
+        "Bei Li",
+        "Xin Chen",
+        "Xiaojun Quan",
+        "Jingang Wang",
+        "Qifan Wang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-06-23T02:14:12+00:00",
+      "link": "https://arxiv.org/pdf/2606.24064v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "Distillation of reasoning strategies for large language models via policy optimization",
+      "llm_evidence_cn": "通过策略优化蒸馏大语言模型的推理策略",
+      "llm_evidence": "通过策略优化蒸馏大语言模型的推理策略",
+      "canonical_evidence": "通过策略优化蒸馏大语言模型的推理策略",
+      "llm_tldr_en": "Proposes Strategy-Guided Policy Optimization (SGPO) that distills reusable strategies instead of trajectory imitation for LLM reasoning, improving generalization.",
+      "llm_tldr_cn": "现有知识蒸馏通过模仿推理轨迹转移“答案”而非“推理方式”，导致泛化差。本文提出SGPO，从强模型响应中提取结构化策略描述，并构建自主与策略引导的轨迹对比学习，实现策略级蒸馏。实验结果表明，SGPO在多个推理数据集上显著优于轨迹模仿，且策略可迁移至新问题。",
+      "llm_tldr": "现有知识蒸馏通过模仿推理轨迹转移“答案”而非“推理方式”，导致泛化差。本文提出SGPO，从强模型响应中提取结构化策略描述，并构建自主与策略引导的轨迹对比学习，实现策略级蒸馏。实验结果表明，SGPO在多个推理数据集上显著优于轨迹模仿，且策略可迁移至新问题。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.19944v1",
+      "source": "arxiv",
+      "title": "Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models",
+      "abstract": "Multimodal Large Language Models (MLLMs) often lose track of the right image regions during fine-grained spatial reasoning, because a textual query rarely carries any explicit geometric anchor into the pixel domain. Prevailing remedies either rewire the model's weights or pad the prompt with verbose instructions, yet neither reliably pins the language to the correct visual coordinates without eroding the backbone's general competence. We introduce Timage, a paradigm that recasts multimodal understanding as an alignment problem solved at the input: the query is drawn, as a typeset overlay, onto the image itself. The placement and appearance of this overlay are produced by a Constrained Schrödinger Bridge (cSB), an entropic optimal-transport sampler that factorizes layout synthesis into two coupled stochastic stages. The first stage, Region Search, transports noise toward query-aligned image zones while obeying a hard occlusion barrier that protects salient foreground content; the second stage, Appearance Shaping, sizes the glyphs through an ``ink-budget'' regularizer so that the rendered text stays legible and visually balanced. The resulting overlay behaves as an explicit attention beacon that channels the model's focus along spatial semantics. On the VMCBench suite, Timage paired with a modest 7B backbone clearly overtakes far larger proprietary systems as well as parameter-tuned baselines. The study positions deliberate input reconstruction as a powerful, architecture-neutral lever for strengthening multimodal reasoning.",
+      "authors": [
+        "Yifeng Wu",
+        "Huimin Huang",
+        "Ruiluo Wu",
+        "Chunyi Lin",
+        "Guanhua Chen",
+        "Xian Wu",
+        "Wang Song",
+        "Ruize Han"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-18T08:40:41+00:00",
+      "link": "https://arxiv.org/pdf/2606.19944v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "fine-tuning vision-language models via generative text-in-image paradigm",
+      "llm_evidence_cn": "通过生成式文本嵌入图像范式微调视觉语言模型",
+      "llm_evidence": "通过生成式文本嵌入图像范式微调视觉语言模型",
+      "canonical_evidence": "通过生成式文本嵌入图像范式微调视觉语言模型",
+      "llm_tldr_en": "Timage proposes a novel text-in-image overlay method using Constrained Schrodinger Bridge to improve spatial reasoning in MLLMs without weight rewiring.",
+      "llm_tldr_cn": "针对多模态大语言模型在细粒度空间推理中因文本查询缺乏几何锚定而丢失正确图像区域的问题，现有修改权重或增补指令的方法均不可靠且损害通用能力。本文提出Timage范式，将文本查询以排印覆盖层形式直接绘制到图像上，并利用约束薛定谔桥（cSB）优化覆盖位置与外观，在输入层面实现语言与视觉的精确对齐。实验表明，Timage在多个空间推理基准上显著提升了定位精度，同时保持了模型在通用任务上的原有能力，为无需修改模型权重的多模态增强提供了一种高效方案。",
+      "llm_tldr": "针对多模态大语言模型在细粒度空间推理中因文本查询缺乏几何锚定而丢失正确图像区域的问题，现有修改权重或增补指令的方法均不可靠且损害通用能力。本文提出Timage范式，将文本查询以排印覆盖层形式直接绘制到图像上，并利用约束薛定谔桥（cSB）优化覆盖位置与外观，在输入层面实现语言与视觉的精确对齐。实验表明，Timage在多个空间推理基准上显著提升了定位精度，同时保持了模型在通用任务上的原有能力，为无需修改模型权重的多模态增强提供了一种高效方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.21562v1",
+      "source": "arxiv",
+      "title": "Compressing Observation History into Agent Memory: Distilling Transformers into Recurrent Transformers",
+      "abstract": "Transformers are AI's workhorse with strong performance in modeling sequential data, but their computational cost becomes prohibitive when processing long sequences. We target long-horizon streaming vision and robotics applications like map-free pose estimation, where it is particularly impractical to store and maintain a history of observations. Recurrent Transformers address this limitation by maintaining fixed-size memory but their performance lags behind that of transformers operating over the full observation history. We argue that this gap does not stem from architectural limitations, but from differences in how these models learn to compress past information. Without access to an observation history, recurrent models must explicitly decide what to retain in memory at each step, a significantly harder learning problem. In this work, we propose a distillation approach that transfers the compression strategy of a classical full-history transformer to a recurrent variant. We enable this by designing a teacher model that explicitly compresses its observation history into a fixed-size bottleneck representation. By directly supervising the student's memory with this bottleneck representation, we align the two compression mechanisms. We show that this approach allows to train a recurrent latent robotic memory with linear-time complexity while substantially narrowing the performance gap to full-history transformers.",
+      "authors": [
+        "Philippe Weinzaepfel",
+        "Christian Wolf",
+        "Bülent Mert Sariyildiz",
+        "Guillaume Bono",
+        "Gianluca Monaci"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-06-19T15:58:36+00:00",
+      "link": "https://arxiv.org/pdf/2606.21562v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "distillation of transformers into recurrent transformers",
+      "llm_evidence_cn": "将Transformer蒸馏为循环Transformer",
+      "llm_evidence": "将Transformer蒸馏为循环Transformer",
+      "canonical_evidence": "将Transformer蒸馏为循环Transformer",
+      "llm_tldr_en": "Distills Transformers into Recurrent Transformers to compress observation history for long-horizon streaming tasks, addressing memory constraints while preserving performance.",
+      "llm_tldr_cn": "本文针对长序列任务中存储观测历史成本高的问题，提出将Transformer模型蒸馏为循环Transformer的方法。通过蒸馏，循环模型学会了如何压缩过去信息，在保持固定大小记忆的同时，性能接近全历史Transformer。实验表明该方法在流式视觉和机器人应用中有效。",
+      "llm_tldr": "本文针对长序列任务中存储观测历史成本高的问题，提出将Transformer模型蒸馏为循环Transformer的方法。通过蒸馏，循环模型学会了如何压缩过去信息，在保持固定大小记忆的同时，性能接近全历史Transformer。实验表明该方法在流式视觉和机器人应用中有效。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.22043v1",
+      "source": "arxiv",
+      "title": "When Does a Video-Language Model Stop Watching? Reward Strength Controls the Formation and Reversal of Visual Shortcuts in Multimodal RLVR",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) is increasingly applied to large vision-language models (LVLMs), yet outcome-only optimization can drive a model to stop attending to the video and instead exploit linguistic priors -- a failure we call a visual shortcut. While the existence of such perception bypass is by now documented, how it forms, whether it can be undone, and when intervention still helps remain open. We treat the strength of a grounding penalty, lambda, as a control knob and characterize the formation-reversal dynamics of visual shortcuts along the training time axis. On a held-out, out-of-distribution diagnostic set, we find: (i) a sharp onset -- shortcut reliance emerges abruptly over a narrow window of optimization steps and is robust across random seeds; (ii) a monotone dose-response -- increasing lambda progressively suppresses the shortcut, and at an intermediate dose the trajectory first forms and then reverses the shortcut, exposing a hysteresis-like asymmetry between acquiring and removing it; and (iii) a critical intervention window -- applying the penalty before onset arrests shortcut formation, whereas the same penalty applied after consolidation is markedly less effective. Together these results recast visual-shortcut collapse not as a binary defect but as a controllable, time-dependent, and asymmetric process, with direct implications for when and how strongly to regularize multimodal RLVR.",
+      "authors": [
+        "Zekun Xu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-06-20T13:48:19+00:00",
+      "link": "https://arxiv.org/pdf/2606.22043v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "reinforcement learning with verifiable rewards for large vision-language models on-policy training dynamics",
+      "llm_evidence_cn": "基于可验证奖励的强化学习用于视觉语言模型，研究在线策略训练动态",
+      "llm_evidence": "基于可验证奖励的强化学习用于视觉语言模型，研究在线策略训练动态",
+      "canonical_evidence": "基于可验证奖励的强化学习用于视觉语言模型，研究在线策略训练动态",
+      "llm_tldr_en": "This paper studies how reward strength controls the formation and reversal of visual shortcuts in multimodal RLVR revealing sharp onset and recovery phases.",
+      "llm_tldr_cn": "针对基于可验证奖励的强化学习（RLVR）训练大型视觉语言模型时，模型可能停止关注视频输入而利用语言先验形成视觉捷径的问题，本文将接地惩罚强度λ作为控制旋钮，系统刻画了视觉捷径沿训练时间轴的形成与逆转动态。在分布外诊断集上发现：捷径在训练初期突然形成，且在特定阶段可通过增大惩罚部分逆转。该发现揭示了RLVR训练中感知退化的关键时间窗口，为设计干预策略提供了依据，有助于提升多模态RLVR的稳健性。",
+      "llm_tldr": "针对基于可验证奖励的强化学习（RLVR）训练大型视觉语言模型时，模型可能停止关注视频输入而利用语言先验形成视觉捷径的问题，本文将接地惩罚强度λ作为控制旋钮，系统刻画了视觉捷径沿训练时间轴的形成与逆转动态。在分布外诊断集上发现：捷径在训练初期突然形成，且在特定阶段可通过增大惩罚部分逆转。该发现揭示了RLVR训练中感知退化的关键时间窗口，为设计干预策略提供了依据，有助于提升多模态RLVR的稳健性。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy learning in vision language models",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
