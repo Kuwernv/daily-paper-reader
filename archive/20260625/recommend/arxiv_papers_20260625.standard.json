@@ -1,0 +1,313 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-25T22:01:09.255086+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [
+    {
+      "id": "2606.23087v1",
+      "source": "arxiv",
+      "title": "FlowTrain: Flow-Based Decoupled Training for Industrial-Grade Vision-Language Models",
+      "abstract": "Industrial-grade distributed training of vision-language models (VLMs) remains far less efficient than that of unimodal LLMs. Existing solutions either follow a monolithic design that assigns uniform parallelism to heterogeneous modules or adopt a disaggregated deployment that separates modules while executing them as a batch-synchronized pipeline. In this paper, we highlight that the above solutions are still not sufficient, and VLM training can be further decoupled. To this end, we present FlowTrain, a flow-based decoupled training framework that reformulates VLM training as a producer-consumer dataflow coordinated through a unified memory pool. The encoder and backbone can progress independently over a global virtual address space. Since this execution decoupling fundamentally changes the optimization objective of allocation and scheduling, FlowTrain further introduces a heterogeneous parallel allocator that assigns module-specific parallelism strategies by solving a throughput matching problem. The dynamic packing scheduler is used to construct balanced microbatches at runtime according to the actual LLM-side computation cost. Extensive experiments on real-world workloads show that FlowTrain achieves over 50% MFU and up to 1.7x throughput improvement, narrowing the efficiency gap to LLM-only training.",
+      "authors": [
+        "Zhida Jiang",
+        "Zhaolong Xing",
+        "Yang Pei",
+        "Xiaolong Chen",
+        "Yuanhang Xiao",
+        "Chengzhi Huang",
+        "Xiyu Liu",
+        "Haopeng Liu",
+        "Qingyuan Sang",
+        "Lingfeng Zhou",
+        "Jiaxing Wang",
+        "Zicheng Zhang",
+        "Wenzhe Wang",
+        "Xinyu Liu",
+        "Yan Li",
+        "Zhen Chen",
+        "Ke Zhang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-22T09:33:44+00:00",
+      "link": "https://arxiv.org/pdf/2606.23087v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Industrial-grade VLM training framework with decoupled producer-consumer dataflow",
+      "llm_evidence_cn": "工业级VLM训练框架，采用生产者-消费者数据流解耦",
+      "llm_evidence": "工业级VLM训练框架，采用生产者-消费者数据流解耦",
+      "canonical_evidence": "工业级VLM训练框架，采用生产者-消费者数据流解耦",
+      "llm_tldr_en": "FlowTrain introduces a flow-based decoupled training framework for vision-language models, reformulating VLM training as a producer-consumer dataflow with a unified memory pool, enabling independent progress of encoder and backbone for higher efficiency.",
+      "llm_tldr_cn": "FlowTrain针对工业级视觉语言模型（VLM）分布式训练效率低的问题，提出基于流的解耦训练框架。该框架将VLM训练重塑为生产者-消费者数据流，通过统一内存池协调编码器与骨干网络的独立进度。实验表明该方法显著提升了训练效率，克服了传统同步流水线的瓶颈。",
+      "llm_tldr": "FlowTrain针对工业级视觉语言模型（VLM）分布式训练效率低的问题，提出基于流的解耦训练框架。该框架将VLM训练重塑为生产者-消费者数据流，通过统一内存池协调编码器与骨干网络的独立进度。实验表明该方法显著提升了训练效率，克服了传统同步流水线的瓶颈。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.25319v1",
+      "source": "arxiv",
+      "title": "V-Zero: Answer-Label-Free On-Policy Distillation with Contrastive Evidence Gating for Fine-Grained Visual Reasoning",
+      "abstract": "Fine-grained visual reasoning requires multimodal large language models (MLLMs) to identify task-relevant visual evidence and ground their reasoning in local image regions. Existing agentic methods typically rely on reinforcement learning with verifiable rewards or supervised fine-tuning on large-scale annotated reasoning traces, leading to costly exploration, hand-designed verification rules, or heavy dependence on textual supervision. A natural way to avoid such external answer labels is to learn from trajectories sampled by the student itself, which points to On-Policy Distillation (OPD). To understand what OPD can and cannot provide for visual reasoning, we revisit it as negative-free stop-gradient alignment. This perspective shows that, although OPD provides effective token-level correction, its ceiling is constrained by the absence of trajectory-level discrimination. Motivated by these observations, we propose V-Zero, an answer-label-free framework for visual reasoning with contrastive evidence gating. V-Zero uses no annotated textual answer labels; instead, during training it pairs a question-relevant regional crop with a negative visual view to evaluate student-sampled trajectories and gate dense token-level distillation. Experiments on multiple visual reasoning benchmarks show that V-Zero consistently improves fine-grained visual reasoning while preserving strong generalization. Notably, V-Zero is more than 5$\\times$ faster than previous supervised fine-tuning methods and more than 10$\\times$ faster than reinforcement learning baselines. Code and dataset will be released at https://github.com/eVI-group-SCU/V-Zero",
+      "authors": [
+        "Haoxiang Sun",
+        "Zhihang Yi",
+        "Langxuan Deng",
+        "Yuhao Zhou",
+        "Peiqi Jia",
+        "Jian Zhao",
+        "Li Yuan",
+        "Jiancheng Lv",
+        "Tao Wang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-24T02:32:38+00:00",
+      "link": "https://arxiv.org/pdf/2606.25319v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Explicitly proposes answer-label-free on-policy distillation for fine-grained visual reasoning",
+      "llm_evidence_cn": "明确提出无答案标签的在线策略蒸馏方法，用于细粒度视觉推理",
+      "llm_evidence": "明确提出无答案标签的在线策略蒸馏方法，用于细粒度视觉推理",
+      "canonical_evidence": "明确提出无答案标签的在线策略蒸馏方法，用于细粒度视觉推理",
+      "llm_tldr_en": "Proposes V-Zero, an on-policy distillation method that uses contrastive evidence gating to enable multimodal LLMs to perform fine-grained visual reasoning without external answer labels, demonstrating effectiveness and efficiency.",
+      "llm_tldr_cn": "针对多模态大模型在细粒度视觉推理中依赖外部答案标签的问题，提出V-Zero方法，采用在线策略蒸馏（On-Policy Distillation）结合对比证据门控机制，让学生模型从自身采样的轨迹中学习，无需人工标注的推理轨迹或验证规则。实验表明，V-Zero有效提升了视觉定位与推理能力，同时大幅降低训练成本，为无标签视觉推理提供了新范式。",
+      "llm_tldr": "针对多模态大模型在细粒度视觉推理中依赖外部答案标签的问题，提出V-Zero方法，采用在线策略蒸馏（On-Policy Distillation）结合对比证据门控机制，让学生模型从自身采样的轨迹中学习，无需人工标注的推理轨迹或验证规则。实验表明，V-Zero有效提升了视觉定位与推理能力，同时大幅降低训练成本，为无标签视觉推理提供了新范式。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.25442v1",
+      "source": "arxiv",
+      "title": "PolicyAlign: Direct Policy-Based Safety Alignment for Large Language Models",
+      "abstract": "Safety alignment of large language models (LLMs) typically depends on high-quality supervision data, such as safe demonstrations or preference pairs. However, in real-world deployment, emerging safety requirements are often specified as natural-language policies, while corresponding supervision data may be costly, delayed, or unavailable. This creates a mismatch between rapidly evolving safety policies and conventional data-driven alignment methods. To address this, we propose PolicyAlign, a simple yet effective framework for directly aligning LLMs with safety policies. Given a safety policy, PolicyAlign first synthesizes policy-violating instructions and then performs on-policy self-distillation to internalize policy-guided behavior. To improve training stability and data efficiency, we further introduce Policy-Sensitive Filtering, which selects instructions where the policy induces the largest behavioral shift. Experiments across multiple models show that PolicyAlign consistently improves safety while maintaining low over-refusal and preserving general capabilities. PolicyAlign also generalizes to medical, legal, and financial safety scenarios, highlighting its potential as a scalable and maintainable approach to policy-based LLM safety alignment. The code is released at https://github.com/Qwen-Applications/PolicyAlign.",
+      "authors": [
+        "Chang Wu",
+        "Junfeng Fang",
+        "Houcheng Jiang",
+        "Kai Tang",
+        "Pengyu Cheng",
+        "Xiaoxi Jiang",
+        "Guanjun Jiang",
+        "Xiang Wang"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-06-24T06:10:33+00:00",
+      "link": "https://arxiv.org/pdf/2606.25442v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Performs on-policy self-distillation to align LLMs with safety policies",
+      "llm_evidence_cn": "采用策略自蒸馏使LLM与安全策略对齐",
+      "llm_evidence": "采用策略自蒸馏使LLM与安全策略对齐",
+      "canonical_evidence": "采用策略自蒸馏使LLM与安全策略对齐",
+      "llm_tldr_en": "PolicyAlign performs on-policy self-distillation to align LLMs with natural-language safety policies by synthesizing policy-violating instructions and internalizing policy-guided behavior, eliminating the need for supervised data.",
+      "llm_tldr_cn": "PolicyAlign针对新兴安全策略难以快速获得监督数据的问题，提出直接基于策略对齐框架。它首先合成违反策略的指令，然后通过策略自蒸馏让模型内化策略引导的行为。该方法无需高质量安全演示或偏好对，仅需自然语言策略描述即可实现对齐，实验中在多种安全对齐任务上表现出色。",
+      "llm_tldr": "PolicyAlign针对新兴安全策略难以快速获得监督数据的问题，提出直接基于策略对齐框架。它首先合成违反策略的指令，然后通过策略自蒸馏让模型内化策略引导的行为。该方法无需高质量安全演示或偏好对，仅需自然语言策略描述即可实现对齐，实验中在多种安全对齐任务上表现出色。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Improving language model via on policy distillation",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.25800v1",
+      "source": "arxiv",
+      "title": "ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models",
+      "abstract": "Effective online adaptation of vision-language-action (VLA) models remains challenging, as sparse rewards provide weak supervision for high-dimensional autoregressive action policies. Although self-distillation can in principle provide denser training signals, we find that text-based privileged teachers conditioned on demonstrations, retrieved experiences, or high-level plans are ineffective for VLA adaptation, exposing a modality gap between symbolic guidance and low-level robot actions. We propose ROAD-VLA, an advantage-guided self-distillation framework that constructs a proximal teacher directly in action space by perturbing action-token logits with calibrated advantage estimates. This converts sparse rewards into dense token-level supervision while keeping the teacher close to the current policy. We further derive a policy-improvement lower bound under calibrated advantages and accurate teacher matching. Across seven robotic manipulation environments with in-distribution and out-of-distribution shifts, ROADVLA outperforms PPO in nearly all settings, demonstrating robust online VLA adaptation.",
+      "authors": [
+        "Kejing Wang",
+        "Toan Nguyen",
+        "Minh Hoang Nguyen",
+        "Simon Khan",
+        "Flora D. Salim"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "published": "2026-06-24T13:17:59+00:00",
+      "link": "https://arxiv.org/pdf/2606.25800v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "advantage-guided self-distillation for online adaptation of vision-language-action models",
+      "llm_evidence_cn": "基于优势引导的自蒸馏用于视觉-语言-动作模型的在线适应",
+      "llm_evidence": "基于优势引导的自蒸馏用于视觉-语言-动作模型的在线适应",
+      "canonical_evidence": "基于优势引导的自蒸馏用于视觉-语言-动作模型的在线适应",
+      "llm_tldr_en": "Proposes ROAD-VLA, an advantage-guided self-distillation framework for online adaptation of VLA models, constructing a proximal teacher in action space with calibrated advantage estimates.",
+      "llm_tldr_cn": "该论文针对视觉-语言-动作（VLA）模型在线适应困难、稀疏奖励无法有效指导高维自回归动作策略的问题，提出了ROAD-VLA框架。该方法通过优势估计校准动作token logits，在动作空间中构建近端教师，实现密集的自蒸馏信号。实验证明，ROAD-VLA在机器人操作任务上显著提升了在线适应效率，优于使用文本型特权教师的基线方法。",
+      "llm_tldr": "该论文针对视觉-语言-动作（VLA）模型在线适应困难、稀疏奖励无法有效指导高维自回归动作策略的问题，提出了ROAD-VLA框架。该方法通过优势估计校准动作token logits，在动作空间中构建近端教师，实现密集的自蒸馏信号。实验证明，ROAD-VLA在机器人操作任务上显著提升了在线适应效率，优于使用文本型特权教师的基线方法。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.26006v1",
+      "source": "arxiv",
+      "title": "FORCE: Efficient VLA Reinforcement Fine-Tuning via Value-Calibrated Warm-up and Self-Distillation",
+      "abstract": "Vision-Language-Action (VLA) models are often constrained by the imitation ceiling imposed by sub-optimal data. While Reinforcement Learning (RL) fine-tuning can surpass this limit, it is notoriously sample inefficient. This challenge arises from two core issues: (1) catastrophic initial unlearning due to an unstable Q-function and (2) inefficient policy updates caused by low-quality exploration data, often forcing a reliance on costly human interventions. We introduce FORCE, a 3-stage framework that stabilizes fine-tuning by tackling both issues. FORCE first incorporates a Value-Calibrated Warm-Up phase, utilizing on-policy rollouts to mitigate the distributional shift of the Q-function. Subsequently, during the online stage, this calibrated Q-function acts as a filter for both the policy's own action proposals and expert data, ensuring only high-value actions are used for the policy update. We evaluate FORCE on various simulation and real-world tasks, and the result shows that FORCE achieves a 79% absolute improvement in success rates and outperform prior RL methods by 10%, while accelerating training by 32.5%. Critically, it mitigates the common success rate drop and achieves this robust performance without human intervention, marking a significant step towards deploying capable and autonomous robotic agents.",
+      "authors": [
+        "Shuyi Zhang",
+        "Yunfan Lou",
+        "Hongyang Cheng",
+        "Yichen Guo",
+        "Chuyao Fu",
+        "Yaoxu Lyu",
+        "Xiaojie Zhang",
+        "Haoran Li",
+        "Pengwei Wang",
+        "Zhongyuan Wang",
+        "Shanghang Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-06-24T16:23:18+00:00",
+      "link": "https://arxiv.org/pdf/2606.26006v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "self-distillation with on-policy rollouts for VLA",
+      "llm_evidence_cn": "针对VLA模型的在线策略自蒸馏",
+      "llm_evidence": "针对VLA模型的在线策略自蒸馏",
+      "canonical_evidence": "针对VLA模型的在线策略自蒸馏",
+      "llm_tldr_en": "FORCE introduces value-calibrated warm-up using on-policy rollouts and self-distillation to stabilize reinforcement fine-tuning of VLA models, overcoming catastrophic forgetting and sample inefficiency.",
+      "llm_tldr_cn": "视觉-语言-动作（VLA）模型常因次优数据受限于模仿上限。尽管强化学习（RL）微调可以突破此限制，但面临样本效率低下的问题。FORCE提出三阶段框架：首先采用价值校准预热阶段，利用在线策略展开来缓解Q函数的分布偏移；然后通过自蒸馏技术从历史策略中提炼知识，以提升策略更新质量；实验表明该方法有效防止了初始灾难性遗忘，并显著提高了微调性能和样本效率。该工作为VLA模型的RL微调提供了稳定高效的解决方案。",
+      "llm_tldr": "视觉-语言-动作（VLA）模型常因次优数据受限于模仿上限。尽管强化学习（RL）微调可以突破此限制，但面临样本效率低下的问题。FORCE提出三阶段框架：首先采用价值校准预热阶段，利用在线策略展开来缓解Q函数的分布偏移；然后通过自蒸馏技术从历史策略中提炼知识，以提升策略更新质量；实验表明该方法有效防止了初始灾难性遗忘，并显著提高了微调性能和样本效率。该工作为VLA模型的RL微调提供了稳定高效的解决方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.26091v1",
+      "source": "arxiv",
+      "title": "On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity",
+      "abstract": "On-policy self-distillation achieves strong pass@1 accuracy by using a single model as both teacher and student, with the teacher conditioned on a correct demonstration to provide dense token-level feedback. We show that this could come at a hidden cost: rollout diversity decreases and pass@k curves flatten (i.e., generating more rollouts fails to improve accuracy). We trace this to compounding biases in the design of self-distillation with sampled demonstrations. The teacher scores each student rollout while conditioned on a sampled correct rollout, channeling its feedback through the model's own biases. We theoretically analyze the optimal self-distillation policy and show that it tilts the base distribution by a pointwise conditional mutual information score between the student's rollout and the correct rollout used as context. Unlike the ideal optimal on-policy reinforcement learning (RL), which preserves probability ratios among equally correct rollouts, self-distillation can amplify existing probability gaps, concentrating mass on already-dominant modes. On a controlled graph path-finding task and science question-answering benchmarks, self-distilled models match or exceed RL on average performance but exhibit substantially lower functional and semantic diversity, failing on out-of-distribution settings that require diverse strategies.",
+      "authors": [
+        "Andrei Liviu Nicolicioiu",
+        "Mohammad Pezeshki",
+        "Aaron Courville"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-06-24T17:59:02+00:00",
+      "link": "https://arxiv.org/pdf/2606.26091v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "analyzes on-policy self-distillation and its impact on output diversity",
+      "llm_evidence_cn": "分析在线自我蒸馏对输出多样性的影响",
+      "llm_evidence": "分析在线自我蒸馏对输出多样性的影响",
+      "canonical_evidence": "分析在线自我蒸馏对输出多样性的影响",
+      "llm_tldr_en": "Shows that on-policy self-distillation with sampled demonstrations reduces output diversity, flattening pass@k curves, and provides theoretical analysis.",
+      "llm_tldr_cn": "该论文揭示了在线自我蒸馏在提升pass@1的同时，会降低输出多样性，导致pass@k曲线变平。通过理论分析，指出采样演示带来的复合偏差是主因。该发现对设计更平衡的蒸馏方法具有重要意义。",
+      "llm_tldr": "该论文揭示了在线自我蒸馏在提升pass@1的同时，会降低输出多样性，导致pass@k曲线变平。通过理论分析，指出采样演示带来的复合偏差是主因。该发现对设计更平衡的蒸馏方法具有重要意义。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.23843v1",
+      "source": "arxiv",
+      "title": "HANCLIP: A Family of Hyperbolic Angular Negation Vision Language Models",
+      "abstract": "Vision-Language Models (VLMs) are typically pre-trained on large-scale image-text datasets to capture semantic correspondences between visual content and natural language. However, they remain surprisingly brittle to negation: models often rely on shallow word co-occurrence and are easily distracted by misleading or irrelevant textual cues, even when their overall retrieval or classification performance is strong. Moreover, directly finetuning on negation data can interfere with previously acquired knowledge, causing noticeable degradation on standard vision-language benchmarks. To tackle these issues, this work introduces HANCLIP (Hyperbolic + Angular + Negation), a family of VLMs that explicitly restructures the embedding space to encode \"what an image is not\" alongside \"what it is.\" HANCLIP is trained on a compact set of 20,000 image-text quadruplets and combines a hyperbolic formulation, which models hierarchical semantic relations and asymmetries, with an angular triplet objective that drives systematic separation between negated descriptions and their corresponding positives. This geometry-aware design strengthens negation sensitivity while preserving the global structure of pretrained representations, rather than overwriting them. Extensive experiments across multiple vision-language tasks show that HANCLIP delivers consistent gains on the negation-focused NegBench benchmark, while maintaining competitive or improved performance on standard classification and image-text retrieval benchmarks. The framework is model-agnostic and can be plugged into CLIP, LongCLIP, SmartCLIP, and HiMo-CLIP without large-scale retraining, demonstrating that a carefully designed geometric objective can substantially extend the reasoning capabilities of existing VLMs using only modest additional data.",
+      "authors": [
+        "Hoang-Bao Le",
+        "Aiden Durrant",
+        "Thai Son Mai",
+        "Binh T. Nguyen",
+        "Liting Zhou",
+        "Cathal Gurrin"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.IR"
+      ],
+      "published": "2026-06-22T18:25:37+00:00",
+      "link": "https://arxiv.org/pdf/2606.23843v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "VLM family with structured embedding space for negation",
+      "llm_evidence_cn": "通过结构化嵌入空间处理否定的VLM家族",
+      "llm_evidence": "通过结构化嵌入空间处理否定的VLM家族",
+      "canonical_evidence": "通过结构化嵌入空间处理否定的VLM家族",
+      "llm_tldr_en": "HANCLIP restructures the VLM embedding space using hyperbolic and angular constraints to handle negation explicitly, improving robustness to misleading cues without degrading standard benchmarks.",
+      "llm_tldr_cn": "视觉语言模型对否定表达脆弱，直接微调又会遗忘旧知识。HANCLIP通过在双曲空间中引入角度约束，将图像包含什么和不包含什么在嵌入空间中显式分离。实验表明，该方法在保持标准检索任务性能的同时，显著提升了模型对否定文本的理解能力。为构建更鲁棒的VLM提供了新思路。",
+      "llm_tldr": "视觉语言模型对否定表达脆弱，直接微调又会遗忘旧知识。HANCLIP通过在双曲空间中引入角度约束，将图像包含什么和不包含什么在嵌入空间中显式分离。实验表明，该方法在保持标准检索任务性能的同时，显著提升了模型对否定文本的理解能力。为构建更鲁棒的VLM提供了新思路。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
