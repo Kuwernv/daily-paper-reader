@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-09-12 <!--dpr-date:20260912-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202609/12/2609.07137v1-flow3d-opd-multi-teacher-on-policy-distillation-for-3d-geometry-generation-with-flow-matching-diffusion-transformer" data-sidebar-item="{&quot;title&quot;: &quot;Flow3D-OPD: Multi-Teacher On-Policy Distillation for 3D Geometry Generation with Flow-Matching Diffusion Transformer&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2609.07137v1-flow3d-opd-multi-teacher-on-policy-distillation-for-3d-geometry-generation-with-flow-matching-diffusion-transformer&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;distillation&quot;}], &quot;evidence&quot;: &quot;受LLM在线策略蒸馏启发的多教师蒸馏&quot;}">Flow3D-OPD: Multi-Teacher On-Policy Distillation for 3D Geometry Generation with Flow-Matching Diffusion Transformer</a>
   * 2026-09-11 <!--dpr-date:20260911-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202609/11/2609.11699v1-negative-self-distillation-learning-to-reason-by-avoiding-flaws" data-sidebar-item="{&quot;title&quot;: &quot;Negative Self-Distillation: Learning to Reason by Avoiding Flaws&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2609.11699v1-negative-self-distillation-learning-to-reason-by-avoiding-flaws&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;distillation&quot;}], &quot;evidence&quot;: &quot;面向大模型推理改进的在策略自蒸馏&quot;}">Negative Self-Distillation: Learning to Reason by Avoiding Flaws</a>

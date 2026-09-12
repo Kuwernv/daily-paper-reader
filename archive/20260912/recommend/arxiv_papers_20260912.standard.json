@@ -1,0 +1,61 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-09-12T21:45:36.777358+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 0,
+    "quick_skim_target": 11,
+    "quick_selected": 0
+  },
+  "deep_dive": [
+    {
+      "id": "2609.07137v1",
+      "source": "arxiv",
+      "title": "Flow3D-OPD: Multi-Teacher On-Policy Distillation for 3D Geometry Generation with Flow-Matching Diffusion Transformer",
+      "abstract": "Recent image-to-3D generation models built on flow-matching diffusion Transformers (DiT) can produce high-fidelity meshes, yet their post-training strategy remains largely unexplored. There exist several critical bottlenecks in reinforcement learning: the inherent difficulty of defining comprehensive rewards for 3D geometric quality, and the gradient interference that arises when jointly optimizing heterogeneous objectives. Inspired by the practicability of on-policy distillation (OPD) in large language models and image generation, we propose \\textbf{Flow3D-OPD}, a two-stage post-training framework that introduces multi-teacher distillation into 3D geometry generation. In the first stage, we utilize the semi-policy to enhance the foundational capability of the pretrained model and then design an agentic verifier for 3D geometric quality evaluation. Based on the verifier, we could cultivate domain-specialized teacher models via direct preference optimization (DPO). In the second stage, we consolidate heterogeneous expertise into a unified student model through on-policy distillation with hard task-routing sampling and gradient accumulation, which could mitigate the gradient interference in joint optimization. Without relying on elaborate modifications, our straightforward yet effective design achieves consistent improvements across all geometric quality dimensions and surpasses all teacher models in the average metric. Extensive experiments demonstrate that our approach provides an effective paradigm for reinforcement learning in 3D generation.",
+      "authors": [
+        "Zhiwei Ning",
+        "Zhen Zhou",
+        "Puhua Jiang",
+        "Xintong Han",
+        "Gengming Zhang",
+        "Jie Yang",
+        "Zhonglong Zheng",
+        "Yuanjie Zheng",
+        "Wei Liu",
+        "Chunchao Guo"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-09-07T07:36:52+00:00",
+      "link": "https://arxiv.org/pdf/2609.07137v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "multi-teacher on-policy distillation inspired by OPD in LLMs",
+      "llm_evidence_cn": "受LLM在线策略蒸馏启发的多教师蒸馏",
+      "llm_evidence": "受LLM在线策略蒸馏启发的多教师蒸馏",
+      "canonical_evidence": "受LLM在线策略蒸馏启发的多教师蒸馏",
+      "llm_tldr_en": "Inspired by on-policy distillation in LLMs and image generation, this paper proposes Flow3D-OPD, a two-stage multi-teacher on-policy distillation framework for 3D geometry generation that mitigates gradient interference.",
+      "llm_tldr_cn": "针对流匹配扩散Transformer的图像到3D生成缺乏有效后训练策略、强化学习奖励难以定义且异质目标联合优化存在梯度干扰的问题，本文受大语言模型与图像生成中在线策略蒸馏OPD的启发，提出两阶段多教师在线策略蒸馏框架Flow3D-OPD。该框架将多教师蒸馏引入3D几何生成，缓解梯度干扰并提升生成质量，表明在线策略蒸馏可有效拓展至3D生成后训练。",
+      "llm_tldr": "针对流匹配扩散Transformer的图像到3D生成缺乏有效后训练策略、强化学习奖励难以定义且异质目标联合优化存在梯度干扰的问题，本文受大语言模型与图像生成中在线策略蒸馏OPD的启发，提出两阶段多教师在线策略蒸馏框架Flow3D-OPD。该框架将多教师蒸馏引入3D几何生成，缓解梯度干扰并提升生成质量，表明在线策略蒸馏可有效拓展至3D生成后训练。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": []
+}
