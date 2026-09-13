@@ -6,21 +6,19 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-09-12
-- 运行时间：2026-09-12 21:46:21 UTC
+- 最新运行日期：2026-09-13
+- 运行时间：2026-09-13 21:07:25 UTC
 - 运行状态：成功
-- 本次总论文数：1
-- 精读区：1
+- 本次总论文数：0
+- 精读区：0
 - 速读区：0
 
 ### 今日简报（AI）
-今天精读1篇8.0分论文，聚焦Flow3D-OPD用多教师在线策略蒸馏提升流匹配扩散Transformer的3D几何生成。最值得关注的是多教师蒸馏与流匹配扩散Transformer的结合，为高质量3D生成提供了新训练思路。普通读者可先了解扩散模型如何生成3D形状，再关注该方向的后续开源与复现进展。
-- 详情：[/202609/12/README](/202609/12/README)
+> 今日无新推荐，系统未产出可展示论文。
+- 详情：[/202609/13/README](/202609/13/README)
 
 ### 精读区论文标签
-1. [Flow3D-OPD: Multi-Teacher On-Policy Distillation for 3D Geometry Generation with Flow-Matching Diffusion Transformer](/202609/12/2609.07137v1-flow3d-opd-multi-teacher-on-policy-distillation-for-3d-geometry-generation-with-flow-matching-diffusion-transformer)  
-   标签：评分：8.0/10、query:distillation
-   evidence：受LLM在线策略蒸馏启发的多教师蒸馏
+- 本次无精读推荐。
 
 ### 速读区论文标签
 - 本次无速读推荐。
