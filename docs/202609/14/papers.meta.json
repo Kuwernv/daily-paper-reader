@@ -1,0 +1,39 @@
+{
+  "label": "2026-09-14",
+  "date": "2026-09-14",
+  "generated_at": "2026-09-14T22:45:37",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202609/14/2609.06967v1-re-calibrated-contrastive-loss-for-transformation-aware-prompt-conditioning-in-vision-language-models",
+      "section": "quick",
+      "title_en": "Re-calibrated Contrastive Loss for Transformation-Aware Prompt Conditioning in Vision-Language Models",
+      "authors": "Seungmin Oh, Seunghun Kang, Jongbin Ryu",
+      "date": "2026-09-07",
+      "pdf": "https://arxiv.org/pdf/2609.06967v1",
+      "score": "6.0",
+      "evidence": "视觉-语言模型迁移学习与重校准对比损失",
+      "tldr": "视觉-语言模型迁移学习需保持泛化性，但现有方法忽视数据特性，将同类样本视为不同实例，且图像变换与文本提示独立处理，导致学习困难。本文提出变换感知提示条件与重校准对比损失：用固定文本描述符标识图像变换，实现变换级一致性而不改变类别语义；损失函数缓解软目标交叉熵中正梯度稀释问题。在分布偏移、迁移学习和少样本实验中均取得一致提升，能更有效学习域特定特征。",
+      "tags": "query:distillation",
+      "abstract_en": "Ensuring effective transfer learning for vision-language models without compromising their generalization performance is crucial. However, many existing methods overlook data characteristics and simply reuse the training strategies adopted during pre-training. Specifically, they treat same-class samples as distinct instances and transform images independently of their paired text prompts, which makes model learning more difficult. We address these limitations through transformation-aware prompt conditioning and a re-calibrated contrastive loss. Fixed text descriptors identify the transformations applied to paired images, providing transformation-level consistency without altering class semantics. This design aligns the image and text branches at the transformation level, enabling richer representations while preserving the models' ability to generalize. In addition, our loss function mitigates positive-gradient dilution in soft-target cross-entropy when each anchor has multiple valid positives. During transfer, our approach treats same-class samples as positives rather than distinct instances, enabling the model to learn domain-specific features more effectively. Experiments across distribution shift, transfer learning, and few-shot settings demonstrate consistent improvements over existing approaches. Source code for our method is available at https://github.com/SoongE/ReCalCon.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202609/14/2609.12419v1-mintrl-off-policy-intervention-can-boost-on-policy-rl",
+      "section": "quick",
+      "title_en": "MInTRL: Off-policy Intervention can boost On-policy RL",
+      "authors": "Mingyu Chen, Yefan Tao, Gerald Friedland, Xuezhou Zhang, Chris Kong",
+      "date": "2026-09-11",
+      "pdf": "https://arxiv.org/pdf/2609.12419v1",
+      "score": "6.0",
+      "evidence": "结合离策略干预的大模型策略内强化学习",
+      "tldr": "可验证奖励的RL通常采用同策略训练，数据贴近当前策略却限制探索；监督微调等异策略方法能引入外部知识，但会带来分布偏移。MInTRL在同策略rollout中引入稀疏局部干预：裁判策略周期性检查输出，用短修正替换错误后缀后立即交还控制权，从而扩展探索前沿。训练采用序列级优势回归目标，无需重要性采样。在数学与代码基准上，MInTRL持续优于同策略和异策略基线，且中等干预强度最佳，表明最小干预能有效增强同策略RL。",
+      "tags": "query:distillation",
+      "abstract_en": "Reinforcement learning with verifiable rewards is typically performed on-policy, keeping training data close to the current policy but limiting learning to trajectories that the policy can discover itself. Off-policy methods such as supervised fine-tuning, on the other hand, can leverage external knowledge beyond the base model's capabilities, but may suffer from large distribution shift. The key challenge is thus to expand exploration without sacrificing learnability. In this work, we introduce Minimal Intervention Reinforcement Learning (MInTRL), which expands the exploration frontier through sparse, local interventions in otherwise on-policy rollouts. During generation, a judge-intervention policy periodically reviews the current policy's output, replaces erroneous suffixes with short corrections, and immediately returns control to the policy. During training, MInTRL adopts a sequence-level advantage-regression objective that eliminates the need for importance sampling. We show that sparse, local interventions can substantially improve coverage beyond finite-budget on-policy sampling while preserving the overall on-policy nature of the resulting trajectories. Across math and code benchmarks, MInTRL consistently outperforms standard on-policy and off-policy baselines. Ablations show that MInTRL remains effective with self-intervention and across different judge policies, while performance peaks at moderate intervention intensity, highlighting the importance of intervening minimally. These results establish minimal intervention as an effective paradigm for enhancing on-policy RL.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

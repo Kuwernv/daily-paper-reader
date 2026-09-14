@@ -1,0 +1,95 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-09-14T22:44:23.163967+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2609.06967v1",
+      "source": "arxiv",
+      "title": "Re-calibrated Contrastive Loss for Transformation-Aware Prompt Conditioning in Vision-Language Models",
+      "abstract": "Ensuring effective transfer learning for vision-language models without compromising their generalization performance is crucial. However, many existing methods overlook data characteristics and simply reuse the training strategies adopted during pre-training. Specifically, they treat same-class samples as distinct instances and transform images independently of their paired text prompts, which makes model learning more difficult. We address these limitations through transformation-aware prompt conditioning and a re-calibrated contrastive loss. Fixed text descriptors identify the transformations applied to paired images, providing transformation-level consistency without altering class semantics. This design aligns the image and text branches at the transformation level, enabling richer representations while preserving the models' ability to generalize. In addition, our loss function mitigates positive-gradient dilution in soft-target cross-entropy when each anchor has multiple valid positives. During transfer, our approach treats same-class samples as positives rather than distinct instances, enabling the model to learn domain-specific features more effectively. Experiments across distribution shift, transfer learning, and few-shot settings demonstrate consistent improvements over existing approaches. Source code for our method is available at https://github.com/SoongE/ReCalCon.",
+      "authors": [
+        "Seungmin Oh",
+        "Seunghun Kang",
+        "Jongbin Ryu"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-09-07T03:04:38+00:00",
+      "link": "https://arxiv.org/pdf/2609.06967v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "VLM transfer learning with re-calibrated contrastive loss and prompt conditioning",
+      "llm_evidence_cn": "视觉-语言模型迁移学习与重校准对比损失",
+      "llm_evidence": "视觉-语言模型迁移学习与重校准对比损失",
+      "canonical_evidence": "视觉-语言模型迁移学习与重校准对比损失",
+      "llm_tldr_en": "VLM transfer learning often treats same-class samples as distinct and transforms images independently of text. This paper proposes transformation-aware prompt conditioning and a re-calibrated contrastive loss, improving transfer without sacrificing generalization.",
+      "llm_tldr_cn": "视觉-语言模型迁移学习常直接复用预训练策略，忽略同类样本的变换关系，将图像与配对文本独立处理，增加学习难度。本文提出变换感知提示条件与重校准对比损失，利用固定文本描述符标识图像变换，在变换级别保持一致性而不改变类语义。实验表明该方法能对齐图像与文本变换信息，在不损害泛化性能的前提下提升迁移学习效果，为视觉-语言模型训练提供了更贴合数据特性的对比学习方案。",
+      "llm_tldr": "视觉-语言模型迁移学习常直接复用预训练策略，忽略同类样本的变换关系，将图像与配对文本独立处理，增加学习难度。本文提出变换感知提示条件与重校准对比损失，利用固定文本描述符标识图像变换，在变换级别保持一致性而不改变类语义。实验表明该方法能对齐图像与文本变换信息，在不损害泛化性能的前提下提升迁移学习效果，为视觉-语言模型训练提供了更贴合数据特性的对比学习方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2609.12419v1",
+      "source": "arxiv",
+      "title": "MInTRL: Off-policy Intervention can boost On-policy RL",
+      "abstract": "Reinforcement learning with verifiable rewards is typically performed on-policy, keeping training data close to the current policy but limiting learning to trajectories that the policy can discover itself. Off-policy methods such as supervised fine-tuning, on the other hand, can leverage external knowledge beyond the base model's capabilities, but may suffer from large distribution shift. The key challenge is thus to expand exploration without sacrificing learnability. In this work, we introduce Minimal Intervention Reinforcement Learning (MInTRL), which expands the exploration frontier through sparse, local interventions in otherwise on-policy rollouts. During generation, a judge-intervention policy periodically reviews the current policy's output, replaces erroneous suffixes with short corrections, and immediately returns control to the policy. During training, MInTRL adopts a sequence-level advantage-regression objective that eliminates the need for importance sampling. We show that sparse, local interventions can substantially improve coverage beyond finite-budget on-policy sampling while preserving the overall on-policy nature of the resulting trajectories. Across math and code benchmarks, MInTRL consistently outperforms standard on-policy and off-policy baselines. Ablations show that MInTRL remains effective with self-intervention and across different judge policies, while performance peaks at moderate intervention intensity, highlighting the importance of intervening minimally. These results establish minimal intervention as an effective paradigm for enhancing on-policy RL.",
+      "authors": [
+        "Mingyu Chen",
+        "Yefan Tao",
+        "Gerald Friedland",
+        "Xuezhou Zhang",
+        "Chris Kong"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-09-11T04:13:32+00:00",
+      "link": "https://arxiv.org/pdf/2609.12419v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "on-policy RL for LLMs augmented with off-policy intervention",
+      "llm_evidence_cn": "结合离策略干预的大模型策略内强化学习",
+      "llm_evidence": "结合离策略干预的大模型策略内强化学习",
+      "canonical_evidence": "结合离策略干预的大模型策略内强化学习",
+      "llm_tldr_en": "MInTRL expands the exploration frontier of on-policy RL with verifiable rewards through sparse local interventions in rollouts, bridging on-policy and off-policy knowledge for LLMs.",
+      "llm_tldr_cn": "针对在策略强化学习只能利用当前策略可发现轨迹、而离策略方法虽能引入外部知识却存在分布偏移的问题，本文提出最小干预强化学习MInTRL。方法在原本在策略的采样过程中，由裁判干预策略周期性审阅输出并进行稀疏、局部替换，从而在保持可学习性的同时扩展探索前沿。实验表明该方法能有效利用超出基座模型能力的外部知识并提升可验证奖励RL效果。该工作揭示了在策略与离策略知识融合的机制，与通过策略内方法改进语言模型的思路紧密相关。",
+      "llm_tldr": "针对在策略强化学习只能利用当前策略可发现轨迹、而离策略方法虽能引入外部知识却存在分布偏移的问题，本文提出最小干预强化学习MInTRL。方法在原本在策略的采样过程中，由裁判干预策略周期性审阅输出并进行稀疏、局部替换，从而在保持可学习性的同时扩展探索前沿。实验表明该方法能有效利用超出基座模型能力的外部知识并提升可验证奖励RL效果。该工作揭示了在策略与离策略知识融合的机制，与通过策略内方法改进语言模型的思路紧密相关。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Improving language model via on policy distillation",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
