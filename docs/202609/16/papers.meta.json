@@ -1,0 +1,39 @@
+{
+  "label": "2026-09-16",
+  "date": "2026-09-16",
+  "generated_at": "2026-09-16T22:17:19",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202609/16/2609.13296v1-harnessing-image-question-dependence-for-better-vlm-test-time-reinforcement-learning",
+      "section": "quick",
+      "title_en": "Harnessing Image Question Dependence for Better VLM Test-time Reinforcement Learning",
+      "authors": "Xinrui He, Ting-Wei Li, Junting Wang, Mengting Ai, Xinyu He, Hanghang Tong, Jingrui He",
+      "date": "2026-09-09",
+      "pdf": "https://arxiv.org/pdf/2609.13296v1",
+      "score": "7.0",
+      "evidence": "面向视觉语言模型的测试时强化学习与同策略自生成信号",
+      "tldr": "测试时强化学习可让VLM适应无标注目标数据，但其自生成学习信号可靠性有限。作者分析发现，共识奖励的增益多来自答案归一化，且难纠正图像-问题联合使用不足导致的错误。为此提出TTIQ，通过图像/问题消融下的token似然变化估计依赖，并融合校准置信度构造响应级奖励与token级信用。八个VQA数据集上各规模均最优，且可跨模型家族和数据集泛化。",
+      "tags": "query:distillation",
+      "abstract_en": "Test-time reinforcement learning can adapt vision-language models (VLMs) to unlabeled target data, but its effectiveness is fundamentally limited by the reliability of self-generated learning signals. To assess the reliability of consensus-based learning signals, we analyze VLM test-time reinforcement learning across diverse VQA datasets and model sizes, revealing two limitations. First, gains from consensus-based test-time training largely come from answer normalization rather than content correction. Second, many initial VLM responses are incorrect due to the model's limited ability to jointly use the image and the question; consensus rewards derived from these outputs may preserve the resulting grounding errors rather than correct them. Motivated by these, we propose TTIQ, a test-time reinforcement learning framework that harnesses image-question dependence for better vlm adaptation. TTIQ teacher-forces each sampled response under the original image-question pair and its image- and question-ablated variants, using the resulting token-level likelihood changes to estimate dependence on each input. It combines image and question dependence with calibrated confidence to construct a response-level reward that favors jointly grounded responses, and uses the token-level signals to assign greater positive policy credit to tokens supported by both inputs. This design favors responses that are jointly grounded in the image and the question and sufficiently confident, rather than merely popular. Experiments across eight VQA datasets and multiple VLM sizes show that TTIQ achieves the best average performance at every model scale. It further generalizes across VLM families, while models trained on one dataset improve performance on unseen datasets without further training.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202609/16/2609.14648v1-optimizing-sparse-outcomes-through-dense-behavioral-signals-via-value-guided-preference-distillation",
+      "section": "quick",
+      "title_en": "Optimizing Sparse Outcomes Through Dense Behavioral Signals via Value-Guided Preference Distillation",
+      "authors": "Ziyi Zhu, Daniel R. Cahn, Thomas D. Hull, Caitlin A. Stamatis, Olivier Tieleman, Guilherme B. Freire, Jinghong Chen",
+      "date": "2026-09-13",
+      "pdf": "https://arxiv.org/pdf/2609.14648v1",
+      "score": "6.0",
+      "evidence": "强化学习中由价值模型引导的偏好蒸馏",
+      "tldr": "多轮对话对齐常被简化为匹配单轮人类偏好，但直接优化长期结果效果差且易 reward hacking。本文将其建模为多目标强化学习，训练多头价值模型预测多时间跨度的用户行为向量。方法用密集辅助行为信号做信用分配，并以参考锚定偏好优化将多目标价值偏好蒸馏进策略。实验表明蒸馏策略以远低算力匹配在线 RL，A/B 测试显著提升长期留存与正向治疗过程指标。",
+      "tags": "query:distillation",
+      "abstract_en": "Aligning multi-turn dialogue agents is usually framed as matching turn-level human preferences, yet direct optimization of long-term outcomes is often ineffective and prone to reward hacking. We formulate long-horizon dialogue optimization as a multi-objective reinforcement learning problem and train a multi-head value model that predicts a vector of observed user behaviors across multiple look-ahead horizons. Our findings demonstrate that a scalarized composite of dense auxiliary behavioral signals enables effective credit assignment and optimization of sparse outcomes. However, optimizing unconstrained single-objective proxies might induce policy degradations that are harmful when the agent is exposed to real users. To identify these failure modes prior to deployment, we establish a safety framework combining counterfactual user simulation with a validated dialogue-level outcome model to evaluate preference weightings and policy optimization methods. Finally, we demonstrate that distilling multi-objective value preferences into the policy via reference-anchored preference optimization matches on-policy online RL at a small fraction of its compute budget. Live A/B testing confirms that our distilled policy significantly improves long-term user retention, while simultaneously enhancing the positive behaviors and therapeutic-process markers.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

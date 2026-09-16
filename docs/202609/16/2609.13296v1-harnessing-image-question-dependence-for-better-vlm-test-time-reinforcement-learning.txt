@@ -1,0 +1,569 @@
+Title: Harnessing Image Question Dependence for Better VLM Test-time Reinforcement Learning
+
+URL Source: https://arxiv.org/pdf/2609.13296v1
+
+Published Time: Tue, 15 Sep 2026 00:06:19 GMT
+
+Number of Pages: 13
+
+Markdown Content:
+# Harnessing Image Question Dependence for Better VLM Test-time Reinforcement Learning 
+
+## Xinrui He, Ting-Wei Li, Junting Wang, Mengting Ai, Xinyu He, Hanghang Tong, Jingrui He University of Illinois Urbana-Champaign Champaign, IL, USA 
+
+# Abstract 
+
+Test-time reinforcement learning can adapt vision-language mod-els (VLMs) to unlabeled target data, but its effectiveness is fundamentally limited by the reliability of self-generated learn-ing signals. To assess the reliability of consensus-based learn-ing signals, we analyze VLM test-time reinforcement learning across diverse VQA datasets and model sizes, revealing two limitations. First, gains from consensus-based test-time training largely come from answer normalization rather than content correction. Second, many initial VLM responses are incorrect due to the model’s limited ability to jointly use the image and the question; consensus rewards derived from these outputs may preserve the resulting grounding errors rather than correct them. Motivated by these, we propose TTIQ, a test-time reinforcement learning framework that harnesses image-question dependence for better vlm adaptation. TTIQ teacher-forces each sampled response under the original image-question pair and its image-and question-ablated variants, using the resulting token-level likelihood changes to estimate dependence on each input. It combines image and question dependence with calibrated con-fidence to construct a response-level reward that favors jointly grounded responses, and uses the token-level signals to assign greater positive policy credit to tokens supported by both inputs. This design favors responses that are jointly grounded in the image and the question and sufficiently confident, rather than merely popular. Experiments across eight VQA datasets and multiple VLM sizes show that TTIQ achieves the best average performance at every model scale. It further generalizes across VLM families, while models trained on one dataset improve performance on unseen datasets without further training. 
+
+# 1 Introduction 
+
+Vision–language models (VLMs) have achieved remarkable progress on multimodal understanding and reasoning tasks, in-cluding visual question answering over natural images, docu-ments, and complex scenes Goyal et al. [2017], Mathew et al. [2021]. Despite their strong zero-shot capabilities, most VLMs remain static after deployment Shu et al. [2022], as adapting to new domains or distribution shifts typically requires costly target-domain annotations and supervised fine-tuning. Test-time reinforcement learning offers a complementary approach by up-dating a pretrained generative model directly on unlabeled target 
+
+(a) Composition of exact-match corrections. 
+
+(b) Changes in exact match and answer containment. 
+
+Figure 1: Analysis of where the gains of TTRV[Singh et al., 2026] come from across the eight-task evaluation. In (a), an exact-match correction is considered form-only when the Base response already contains an acceptable ground-truth span; 72.3% of the corrections fall into this category. In (b), TTRV improves exact match across model scales, while ground-truth answer containment decreases. inputs using learning signals available at inference time [Wei et al., 2025, Zuo et al., 2026]. The central challenge is therefore how to construct a reliable learning signal without access to ground-truth answers. Recent work has explored this challenge largely by deriving rewards from answer consensus across sampled outputs. Rep-resentative methods include TTRL [Zuo et al., 2026], which treats the majority-vote answer as a pseudo-label for test-time reinforcement learning, while TTRV [Singh et al., 2026] extends this principle to VLMs using response-frequency rewards and an entropy term over the empirical answer distribution. How-ever, recent studies show that majority-vote supervision can amplify confirmation bias, favor already-solvable examples, and suppress minority correct signals [Wang et al., 2026, Lin et al., 2026]. These concerns are especially relevant to open-ended VQA, where answers are generated freely. Since TTRV eval-uates its design by standardizing tasks into a multiple-choice format, it remains unclear whether consensus-based test-time reinforcement learning in the more challenging free-form set-ting corrects answer content or mainly normalizes answer form. More fundamentally, although TTRV applies output-consensus rewards to VLMs, its reward remains modality-agnostic, relying on statistics over generated answers without explicitly incorpo-rating multimodal information. 1arXiv:2609.13296v1 [cs.CV] 9 Sep 2026 incorrect correct                  
+
+> Where the errors come from
+> Q only I only Neither I + Q
+> How many giraffes are standing near each other?
+> Base Three giraffes are standing near each other in an enclosed area. ✗
+> TTRV 3✗
+> TTIQ 4✓
+> GT 4
+> What are the jars sitting on top of?
+> Base Tea cups. ✗
+> TTRV Cups. ✗
+> TTIQ Stove ✓
+> GT stove
+
+Figure 2: Left: Incorrect pre-update responses across eight tasks, grouped by dependence on the question only, the image only, neither input, or both inputs. Numbers indicate the percentage lacking joint image–question dependence. Right: Example pre-dictions from Base, TTRV, and TTIQ, together with the ground-truth answer. To characterize these gaps, we first conduct an in-depth anal-ysis across diverse datasets and VLM scales, summarized here and detailed in Section 3.1. Our analysis reveals two recurring limitations. First, the gains of consensus-based VLM test-time reinforcement learning largely come from answer normal-ization rather than content correction. As shown in Figure 1, across model scales, most apparent corrections are form-only: exact-match accuracy improves even as ground-truth answer con-tainment slightly decreases; Second, most VLM errors exhibit insufficient joint use of the image and the question, which consensus rewards may then inherit. As shown in Figure 2, we examine the sampled responses used to construct consensus rewards and find that most incorrect responses lack dependence on at least one input. When such errors recur across rollouts, consensus may treat them as reliable signals and reinforce rather than correct them. To address these challenges, we propose TTIQ, a test-time reinforcement learning method for VLMs that rewards responses according to their joint dependence on the image and the ques-tion, rather than agreement among sampled outputs. As illus-trated in Figure 3, TTIQ teacher-forces each sampled response under the original input and its image- and question-ablated variants, and uses the resulting likelihood changes to estimate dependence on each input. At the response level , it combines these dependence signals with calibrated confidence to reward grounded and reliable responses. At the token level , it assigns greater positive policy credit to tokens supported by both inputs. This design shifts the learning signal from output popularity toward responses that are jointly grounded in the image and the question and sufficiently confident. Our contributions are: • We analyze consensus-based VLM test-time reinforcement learning across diverse VQA datasets and models, show-ing that its gains largely come from answer normalization rather than content correction, while many initial errors reflect limited joint use of the image and the question and can be preserved by consensus-based rewards. • We introduce TTIQ, the first test-time reinforcement learn-ing method for generative VLMs to explicitly incorporate visual grounding into its training signal. It estimates im-age and question dependence through image and question ablations, and uses these signals for response-level reward construction and token-level credit assignment. • Extensive experiments show TTIQ achieves the best aver-age performance at every evaluated model scale. It gen-eralizes across VLM families, and models trained on one dataset consistently improve performance on unseen datasets without further training. 
+
+# 2 Problem Setup 
+
+Let x denote an image, q a question, and πθ (y | x, q ) an au-toregressive vision–language model. At test time, the pretrained model receives a small unlabeled support set 
+
+U = {(xj , q j )}Jj=1 , (1) drawn from the target task distribution. Ground-truth answers are not available during adaptation. At each training iteration, a frozen model πθold samples N
+
+responses for each support example: 
+
+yi = ( yi, 1, . . . , y i,T i ), (2) 
+
+yi ∼ πθold (· | x, q ), i = 1 , . . . , N. (3) The goal is to update πθ through reinforcement learning using rewards constructed solely from the unlabeled support set and sampled responses, thereby improving performance on the target task. 
+
+# 3 Method 
+
+In this section, we first analyze consensus-based VLM test-time training to motivate joint image–question dependence (Sec-tion 3.1). We then present our method, including the response-level reward (Section 3.2), joint-token credit assignment (Sec-tion 3.3), and GRPO-based update (Section 3.4). 
+
+## 3.1 Limitations of Output-Consensus Signal 
+
+Consensus gains largely come from answer normalization. 
+
+We first examine what consensus-based VLM test-time train-ing changes in model behavior and performance. Across the 24 full-test model–dataset settings in our main evaluation, cover-ing eight VQA datasets and three VLM scales, we define an exact-match correction as a prediction for which Base is exact-match incorrect but TTRV is exact-match correct. We identify 4,131 such corrections in total. As shown in Figure 1, 72.3% are form-only corrections, meaning that the Base response al-ready contains a ground-truth answer span, while TTRV mainly adjusts the answer boundary or canonical form to satisfy exact matching. Consistent with this finding, TTRV improves macro 2𝒏 rollouts       
+
+> What is the license plate number?
+> Image
+> 𝒙
+> Question
+> 𝒒
+> Unlabeled sample from target task
+> Pre-trained VLM
+> 𝜋 !
+> Update
+> Clipped group-relative policy
+> ℒ"#$%& (𝜃)
+> Test-Time Policy Update
+> The original rollouts
+> generate
+> … … …
+> Output likelihoods
+> Two Ablated Teacher-Forced Forward for Each Rollout
+> 𝒒
+> What is the license plate number?
+> 𝒙
+> Teacher VLM
+> 𝜃 %)*
+> y!
+> 𝑦 "
+> 𝑦 #
+> 𝑦 $%!
+> 𝑦 $
+> …
+> Image dependence
+> 𝜹 𝒊 𝑰
+> Question dependence
+> 𝜹 𝒊 𝑸
+> 𝒊 -th rollout
+> Token-Level Credit
+> … … … … … … Token credit 𝒘 𝒊
+> Response-Level Reward
+> Rank across rollouts Rewards
+> … … … … … …
+> 4𝑰 𝒊
+> 𝑸 𝒊
+> Normalization
+> 𝑪 𝒊
+> Capped mean
+> min 𝑹 𝒊
+
+X
+
+> … … … … … … … … … … … … … … … … … … … … … … … …
+> Token-level Advantages
+> 𝑨 , ∈ ℛ 𝒏×𝑻
+> Image-ablated ( 𝑥̅, 𝑞 )
+> What is the license plate number?
+> Question-ablated ( 𝑥, 𝑞 $)
+> image question confidence
+> … … … … … … … …
+> −−
+> 𝒍 𝒊
+> 𝒍 𝒊
+> … … … …
+> 𝒍 𝒊 ¬
+> 𝒍 𝒊 ¬
+> … … … … … … … …
+> 𝛿 1
+> 𝛿 2
+> min
+> 3
+
+Figure 3: Overview of TTIQ. Given an unlabeled image–question pair, the VLM samples multiple responses. Each response is teacher-forced under image-ablated and question-ablated inputs to estimate token-level image and question dependence. These signals are used to construct a response-level reward and token-level credit assignment, followed by a test-time GRPO update. exact-match accuracy by 3.36 points, whereas ground-truth an-swer containment decreases by 0.41 points. Figure 2 (right) provides representative examples. TTRV converts “A car” to “Car,” compresses an incorrect count of three giraffes into “3,” and simplifies “Tea cups” to “Cups.” These results show that much of the measured improvement comes from answer nor-malization rather than new content correction. The responses become easier to match without becoming more semantically correct. More examples are provided in Appendix D. 
+
+Consensus is constrained by VLM’s initial failures. We next examine a more fundamental limitation of output-consensus supervision. Because consensus rewards are derived from the model’s own sampled responses, their effectiveness is limited by the quality of those responses. When the initial responses are incorrect, agreement among them may preserve the error rather than improve the model’s underlying capability. This concern is particularly relevant for VLM errors, as prior work shows that when generating responses, models tends to rely heavily on language priors while underusing visual evidence [Asadi et al., 2026, Lee et al., 2025]. We conduct a diagnostic with InternVL2.5-4B using 200 examples from each of eight datasets and four rollouts per example, yielding 6,400 responses. For each response, we keep its tokens fixed and compare their likelihoods under the original input, a zero-image input, and a question-masked input. A sustained likelihood drop after ablat-ing an input indicates dependence on that input. As shown in Figure 2, 69.0% of incorrect responses lack dependence on at least one input. This finding identifies limited joint use of the image and the question as one of the major sources of VLM errors. 
+
+## 3.2 Response Reward from Image–Question De-pendence 
+
+Based on the findings, we propose a training reward based on joint image–question dependence. Given a sampled response 
+
+yi = ( yi, 1, . . . , y i,T i ), where i indexes responses and t indexes tokens, we score the same fixed token sequence under three inputs: the original image–question pair, a zero-image input ¯x,and a question-masked input ¯q. To construct ¯x, we replace the pixel tensor with an all-zero tensor of the same shape, while retaining the visual-token layout. To construct ¯q, we replace only the question content tokens with the tokenizer’s padding token, while preserving the sequence length. We hold the response fixed to isolate how much each input supports that response. The corresponding token log-likelihoods are 
+
+ℓi,t = log πθold (yi,t | x, q, y i,<t ) ,ℓ¬Ii,t = log πθold (yi,t | ¯x, q, y i,<t ) ,ℓ¬Qi,t = log πθold (yi,t | x, ¯q, y i,<t ) .
+
+(4) We define token-level image and question dependence as 
+
+δIi,t = ℓi,t − ℓ¬Ii,t , δQi,t = ℓi,t − ℓ¬Qi,t . (5) Because the response is fixed, each ablated condition requires only one teacher-forced forward pass, without additional autore-gressive decoding. A positive likelihood difference indicates that the corresponding input increases the likelihood assigned to that response token. 
+
+Aggregating token dependence. A useful response should depend on an input across its entire answer, rather than through only a few isolated tokens. For the i-th response of length Ti
+
+and modality m ∈ { I, Q }, let 
+
+ki =
+
+ Ti
+
+2
+
+
+
+, Lmi = Low ki (δmi ),
+
+where Low k(·) returns the indices of the k smallest finite values. We aggregate this token-level vector into two response-level statistics that capture the response’s overall dependence and sustained dependence: 
+
+dmi = 1
+
+TiTiX
+
+> t=1
+
+δmi,t , smi = 1
+
+ki
+
+X
+
+> t∈L mi
+
+δmi,t . (6) The mean dmi captures overall dependence level, while the lower-half average smi measures whether that dependence is sustained across the response rather than concentrated in a few tokens. 3Raw likelihood changes can vary in scale with response con-tent and model confidence. We therefore compare responses using within-group ranks. For a rollout group G containing n
+
+valid responses, let ρG (zi) ∈ [0 , n − 1] denote the zero-based average rank of zi. We define 
+
+RG (zi) = 2 ρG (zi)
+
+n − 1 − 1. (7) This transformation maps the lowest-ranked response to −1 and the highest-ranked response to 1, while preserving the relative ordering of responses. We next apply this rank transformation to the response-level dependence scores. The response-level image and question dependence scores are then 
+
+Ii = RG
+
+ RG (dIi ) + RG (sIi ) ,Qi = RG
+
+
+
+RG (dQi ) + RG (sQi )
+
+
+
+. (8) 
+
+Minimum-bottleneck reward. Image and question depen-dence scores measure how each input supports a response. We additionally measure the model’s confidence score in the re-sponse using its length-normalized likelihood under the original input: 
+
+Ci = RG
+
+"
+
+exp 1
+
+TiTiX
+
+> t=1
+
+ℓi,t 
+
+!# 
+
+. (9) The exponential converts the mean token log-likelihood into a length-normalized sequence probability, with a higher Ci indi-cating stronger model confidence for the complete response. We incorporate confidence score through 
+
+Ccap  
+
+> i,λ
+
+= (1 − λ) + λC i, λ ∈ [0 , 1] , (10) Here, λ controls how strongly confidence score is allowed to limit the reward. When λ = 0 , the cap is fixed at 1 and con-fidence has no effect; increasing λ allows a low-confidence response to impose a stronger upper bound. The final response level reward is 
+
+Ri = RG
+
+
+
+min 
+
+n
+
+Ii, Q i, C cap 
+
+> i,λ
+
+o 
+
+. (11) The minimum forms a bottleneck: a response receives a high reward only when it depends strongly on both the image and the question and is sufficiently confident. High confidence cannot independently increase the reward, whereas low confidence can constrain it. 
+
+## 3.3 Joint-Token Credit Assignment 
+
+The above response-level reward determines whether a sampled response should be reinforced or suppressed, but it does not dis-tinguish the contributions of individual tokens. A positively re-warded response may contain grounded answer tokens together with generic templates, formatting phrases, or unsupported ex-planations. Applying the same positive advantage to every token would reinforce all of them equally. We therefore redistribute positive credit according to token level image–question depen-dence. For negatively rewarded responses, however, we retain the full response-level penalty for every token so that no part of a disfavored response is exempted from suppression. We first standardize the response rewards using the mean and standard deviation within each rollout group to obtain the response-level advantage Ai = ( Ri − μR)/(σR + ϵ). For each token, let P Ii (t) and P Qi (t) denote the percentile ranks of its image and question dependence scores, respectively. We define its joint support as 
+
+gi,t = min 
+
+n
+
+P Ii (t), P Qi (t)
+
+o
+
+. (12) We normalize gi,t into a positive credit weight wi,t whose mean within each response equals one. This changes how positive credit is distributed across tokens without changing the total positive credit assigned to the response. The resulting token-level joint-token advantage is 
+
+eAi,t =
+
+(
+
+wi,t Ai, Ai > 0,Ai, Ai ≤ 0. (13) For preferred responses, tokens with stronger joint support re-ceive more positive credit. For a disfavored response, every token retains the same negative response-level advantage and is suppressed uniformly. 
+
+## 3.4 Test-Time Policy Update 
+
+We optimize the model with the standard clipped GRPO objec-tive [Shao et al., 2024], replacing the uniform response-level advantage with eAi,t from Eq. (13). For each generated token, the policy ratio under the original input is 
+
+ri,t (θ) = πθ (yi,t | x, q, y i,<t )
+
+πθold (yi,t | x, q, y i,<t ) . (14) The training objective is 
+
+L(θ) = − Ei,t 
+
+"
+
+min 
+
+(ri,t (θ) eAi,t ,
+
+clip( ri,t (θ), 1 − ε, 1 + ε) eAi,t 
+
+)# 
+
++ βLKL .
+
+(15) The policy ratio is always evaluated using the original input; the ablated inputs are used only to construct the response reward and token-level credit assignment. 
+
+Training efficiency. Relative to standard GRPO, TTIQ adds only two teacher-forced scoring passes, one for each controlled input ablation. Because the response sequence is fixed, all token likelihoods are computed in parallel without additional autore-gressive decoding. Appendix B provides detailed training-time comparisons and analyzes how the number of training examples affects performance and runtime. 
+
+# 4 Experimental Results 
+
+## 4.1 Experiment Setup 
+
+Datasets and Baselines. We evaluate TTIQ on eight VQA tasks: InfoVQA Mathew et al. [2022], TextVQA Singh et al. 4Method InfoVQA TextVQA GQA-Rel. GQA-Attr ST-VQA MathVerse-VD COCO-QA-N CLEVR-H Mean LLaMA-3.2-11B 46.36 62.59 2.76 14.72 61.55 8.72 36.38 24.19 32.16 LLaVA-1.5-7B 15.48 53.43 41.54 56.30 43.06 14.58 63.80 36.33 40.57 Qwen2.5-VL-3B 66.06 81.87 37.41 55.61 71.25 28.65 73.75 80.60 61.90 Qwen2.5-VL-7B 70.62 84.40 33.69 47.42 76.69 32.16 78.79 80.70 63.06 Qwen3-VL-2B 62.30 80.52 34.21 48.91 69.17 27.08 72.80 71.69 58.34 Qwen3-VL-4B 70.07 81.83 41.00 54.93 71.56 30.73 74.99 79.98 63.14 InternVL3-2B 51.90 76.27 26.08 46.91 75.55 25.91 67.53 65.40 54.44 w/ TTRL 53.30 78.71 33.20 51.72 76.32 26.95 72.72 66.92 57.48 w/ SCOPE 53.21 78.45 33.67 51.60 76.29 26.69 72.54 67.08 57.44 w/ TTRV 52.63 78.37 25.66 51.72 76.16 26.43 73.89 65.62 56.31                                                                                                    
+
+> w/ TTIQ (Ours) 53.21 79.48 35.11 53.09 77.69 27.21 75.14 69.19 58.77
+> InternVL2.5-4B 57.89 73.55 17.25 45.59 80.07 28.91 36.01 78.74 52.25 w/ TTRL 59.79 79.32 35.71 56.24 82.00 29.43 68.78 78.84 61.26 w/ SCOPE 59.67 78.82 35.35 56.99 81.98 28.91 70.13 79.06 61.36 w/ TTRV 58.35 74.76 31.06 55.50 81.84 29.17 69.58 77.85 59.76
+> w/ TTIQ (Ours) 59.73 79.52 37.15 57.10 82.67 29.56 74.70 78.81 62.41
+> InternVL3-8B 65.58 84.10 35.84 57.22 84.49 33.46 80.51 84.17 65.67 w/ TTRL 65.42 84.54 39.58 59.56 84.72 34.38 80.48 84.39 66.63 w/ SCOPE 65.82 84.90 39.79 59.11 84.71 34.11 80.55 84.36 66.67 w/ TTRV 65.51 83.86 39.66 58.13 84.52 34.51 80.37 84.39 66.37
+> w/ TTIQ (Ours) 65.76 84.48 40.10 60.31 84.84 34.77 80.80 84.50 66.94
+
+Table 1: Comparison with all test-time reinforcement learning baselines. Best and second-best results within each backbone block are shown in bold and underlined. [2019], ST-VQA Biten et al. [2019], the two largest VQA subsets in GQA Hudson and Manning [2019], Relation and Attribute, MathVerse Vision Dominant Zhang et al. [2024], COCO-QA Number Ren et al. [2015], and CLEVR-Humans Johnson et al. [2017a,b]. Our primary baselines are Base model, which per-forms deterministic zero-shot inference with the base VLM model, and TTRV Singh et al. [2026], the closest prior test-time reinforcement-learning method for VLMs. We additionally com-pare with two consensus-based methods originally developed for LLM test-time reinforcement learning and adapted here to VLM, TTRL [Zuo et al., 2026], which reinforces the majority-vote an-swer as a pseudo-label, and SCOPE [Wang et al., 2026], which weighting the consensus signal with the model’s own confidence. We also report zero-shot Llama-3.2-11B-Vision Grattafiori et al. [2024], LLaVA-1.5-7B Liu et al. [2024], Qwen2.5-VL-3B/7B Bai et al. [2025b], and Qwen3-VL-2B/4B Bai et al. [2025a] as VLM reference points. For fair comparisons, all methods use the same prompts, answer extraction, procedure and shared hyperparameters. For all experiments, we report exact match accuracy (%), We also report token-F1 and ROUGE-L results, to-gether with a detailed decomposition of TTIQ’s improvements, in Appendix C. 
+
+Implementation. We implement TTIQ with InternVL3-2B, InternVL2.5-4B, and InternVL3-8B Chen et al. [2024], Zhu et al. [2025], and evaluate cross-family transfer on Qwen2.5-VL-3B/7B. Following TTRV, for each task, we randomly sam-ple 20 examples as unlabeled training data, and evaluate each remaining example in the corresponding evaluation split. Fol-lowing TTRL and TTRV, we sample 32 responses per prompt at temperature 1.0, retain 16 for training, and use an actor learn-ing rate of 5 × 10 −7 with cosine decay and 3% warmup; we reuse the prompt provided by TTRL and TTRV, and prompt and response lengths are capped at 7,524 and 1,024 tokens. For joint-token credit, we map each token’s joint support to 
+
+w′ 
+
+> i,t
+
+= 0 .2 + 0 .8gi,t and then normalize the weights, preserv-ing nonzero credit for weakly grounded tokens. Evaluation uses greedy decoding. For Table 1, we report the best observed λ over 
+
+λ ∈ 0, 0.25 , 0.5, 0.75 , 1 which is our only tuned hyperparameter. All runs use NVIDIA A100 and GH200 GPUs. 
+
+## 4.2 Main Results 
+
+Table 1 shows that TTIQ achieves the highest average accu-racy at every model scale. More importantly, TTIQ outperforms TTRV in all 24 model–dataset settings. From these results, we make three observations. First, TTIQ yields particularly large gains on tasks requir-ing fine-grained image–question grounding, including visual relations, attributes, and counting. Averaged over the nine GQA-Relation, GQA-Attribute, and COCO-QA Number settings, TTIQ improves over Base by 11.18 points and over TTRV by 3.10 points. Case-level comparisons show that TTIQ corrects ob-ject identities, attributes, and counts even when Base and TTRV give the same wrong answer. This suggests that the gains go beyond answer reformatting and are consistent with better joint use of the image and question. Second, the benefit of test-time adaptation is smaller on the strongest 8B backbone than on the 2B and 4B models. This suggests that stronger pretrained mod-els already possess better multimodal understanding, leaving less room for further improvement at test time. Nevertheless, TTIQ improves all eight tasks with the 8B backbone, showing 5Backbone Method Target dataset Avg.                                                                         
+
+> Source: GQA-Attr GQA-Rel COCO-N MathV-VD
+> IVL3-2B Base 26.08 67.53 25.91 39.84 IVL3-2B TTRV 29.46 72.72 26.82 43.00 IVL3-2B TTIQ 30.34 73.31 26.95 43.53
+> IVL2.5-4B Base 17.25 36.01 28.91 27.39 IVL2.5-4B TTRV 30.00 71.12 29.17 43.43 IVL2.5-4B TTIQ 33.44 74.19 29.43 45.68 Source: GQA-Rel GQA-Attr COCO-N MathV-VD
+> IVL3-2B Base 46.91 67.53 25.91 46.78 IVL3-2B TTRV 50.46 71.66 26.17 49.43 IVL3-2B TTIQ 51.55 74.37 26.43 50.78
+> IVL2.5-4B Base 45.59 36.01 28.91 36.84 IVL2.5-4B TTRV 54.41 66.54 29.56 50.17 IVL2.5-4B TTIQ 56.70 75.28 30.21 54.06 Source: TextVQA GQA-Rel GQA-Attr COCO-N
+> IVL3-2B Base 26.08 46.91 67.53 46.84 IVL3-2B TTRV 29.72 48.51 72.91 50.38 IVL3-2B TTIQ 30.52 49.14 73.67 51.11
+> IVL2.5-4B Base 17.25 45.59 36.01 32.95 IVL2.5-4B TTRV 16.91 48.91 33.53 33.12 IVL2.5-4B TTIQ 30.16 55.67 72.39 52.74
+
+Table 2: Cross-dataset generalization of TTIQ. Bold values indi-cate the best result for each setting. that it remains effective even when the initial model is strong. Third, TTIQ remains effective across different task types. Be-yond its larger gains on fine-grained image–question grounding, it outperforms TTRV in all nine OCR-heavy settings and all three MathVerse Vision Dominant settings, while improving or matching Base throughout. This shows that emphasizing joint image–question dependence generalizes across text recognition and visual mathematical reasoning. 
+
+## 4.3 Generalization 
+
+Across datasets. Our method also generalizes well to unseen datasets after being trained on a single source dataset. We train InternVL3-2B and InternVL2.5-4B on one source dataset and evaluate them directly on unseen target datasets. As shown in Table 2, TTIQ improves over the base model and TTRV on all target datasets. The improvement also transfers between substantially different tasks. For example, adapting the 4B model on GQA-Relation improves its accuracy from 36.01 to 75.28 on COCO-QA-N and from 28.91 to 30.21 on MathVerse-VD. These results suggest that the learned updates strengthen the model’s general ability, rather than merely fitting the answer distribution of the source dataset. 
+
+Across VLM families. We further evaluate TTIQ on two model sizes from another VLM family, Qwen2.5-VL-3B and Qwen2.5-VL-7B. As shown in Table 3, TTIQ achieves the best average performance at both scales and is best or nearly tied on every task. These results show that TTIQ generalizes beyond Method InfoVQA GQA-Attr GQA-Rel COCO-N Avg. 
+
+n 3,268 1,746 3,873 2,735 
+
+Qwen2.5-VL-3B 
+
+Base 66.06 55.61 37.41 73.75 58.21 TTRV 65.97 55.44 37.31 73.49 58.05 
+
+TTIQ 66.03 55.90 37.70 74.19 58.45 Qwen2.5-VL-7B 
+
+Base 70.62 47.42 33.69 78.79 57.63 TTRV 70.53 50.11 36.97 78.90 59.13 
+
+TTIQ 70.87 51.78 37.67 79.01 59.83 
+
+Table 3: Generalization of TTIQ to Qwen2.5-VL. InternVL to a different VLM family and remains effective across model sizes. 
+
+## 4.4 Ablation Study 
+
+We conduct component ablations on InternVL2.5-4B over four representative tasks. All variants use the same training split and common hyperparameters and use eight updates. First, we vary the reward construction, then compare full-response credit with joint-token credit. Finally, we study the contribution of confidence. Table 4 yields three main observations. First, image and ques-tion dependence both contribute to robust reward construction. Removing either signal reduces average accuracy. Although the image-only reward remains competitive overall, the question-only reward degrades substantially on GQA-Relation, showing that single-input signals are not consistently reliable across tasks. Second, the aggregation design is important. Minimum fusion outperforms mean fusion, while incorporating sustained depen-dence improves over using only the overall dependence level by 8.08 points. These results support requiring every reward component to be strong and measuring whether dependence per-sists across the response. Third, joint-token credit and calibrated confidence provide complementary improvements. Token-level credit better reinforces tokens supported by both inputs, while confidence further filters insufficiently reliable responses. Com-bining all components gives the strongest overall performance. 
+
+## 4.5 Sensitivity Analysis 
+
+Confidence strength. To study sensitivity to the only method-specific hyperparameter, we vary the confidence strength λ while keeping all other settings fixed. Figure 4(a) shows that TTIQ outperforms TTRV throughout the sweep. Moderate values work best on TextVQA and GQA-Relation, whereas λ = 1 reduces their gains; InfoVQA and GQA-Attribute vary by less than 0.6
+
+points. Thus, TTIQ is generally robust to λ, but sensitive tasks benefit from a moderate rather than the strongest confidence constraint. 
+
+Confidence and initial task capacity. Figure 4(b) relates the raw-rollout correct-answer rate to the effect of full-strength confidence ( λ = 1 ). On InfoVQA, where only 15 .6% of rollouts 6Method Reward Credit InfoVQA TextVQA GQA-Attr GQA-Rel. Avg.                                                                                  
+
+> Reference methods
+> Base 57.89 73.55 45.59 17.25 48.57 TTRV answer frequency 58.35 74.76 55.50 31.06 54.92
+> Reward components
+> Image only Ifull response 59.49 78.71 56.13 36.33 57.66 Question only Qfull response 57.65 78.41 56.93 23.96 54.24 w/o image min( Q, C )full response 58.57 73.96 56.47 15.90 51.23 w/o question min( I, C )full response 58.14 73.43 44.04 16.24 47.96 Mean fusion mean( I, Q, C )full response 57.77 73.67 44.73 17.07 48.31 w/o sustained dependence min( Ioverall , Q overall , C )full response 57.62 73.43 45.19 17.04 48.32
+> Credit assignment; full reward fixed
+> Full-response credit min( I, Q, C )full response 59.49 76.37 56.19 33.57 56.40 Joint-token credit min( I, Q, C )joint token 59.61 76.51 56.99 35.48 57.14
+> Confidence component
+> w/o confidence min( I, Q )joint token 59.64 77.95 57.04 36.53 57.79
+> TTIQ min( I, Q, C λ> 0)joint token 59.73 79.52 57.10 37.15 58.38
+
+Table 4: Component ablation on InternVL2.5-4B. Bold indicates the best result in each column over the entire table.  
+
+> (a) (b)
+
+Figure 4: Sensitivity to confidence strength and its limiting behavior. (a) Accuracy gain over TTRV with InternVL2.5-4B; hollow markers indicate the best strength for each task. (b) Relationship between the raw-rollout correct answer rate and the relative effect of confidence on incorrect and correct responses. are correct, confidence suppresses correct responses 21 .3 points more often than incorrect ones, potentially weakening the scarce useful training signals. In contrast, on ST-VQA, with a 71 .2% 
+
+correct-answer rate, confidence suppresses incorrect responses 
+
+13 .9 points more often. This suggests that the role of confidence varies with the model’s initial capacity on each task, motivating a controlled rather than uniformly strong confidence term. 
+
+# 5 Related Work 
+
+LLM and VLM test-time reinforcement learning. Test-time training Sun et al. [2020, 2025] adapts pretrained models us-ing unlabeled target inputs and has recently been extended to large language-model (LLM) reasoning through reinforcement learning. Existing work in this direction has primarily focused on LLMs. TTRL uses majority-vote responses from repeated sampling as pseudo-labels Zuo et al. [2026]; subsequent work improves this consensus signal using step-wise confidence Wang et al. [2026], or analyzes how majority voting can suppress ini-tially rare correct responses Lin et al. [2026]. In comparison, test-time reinforcement learning for generative VLMs remains less explored. TTRV applies this paradigm to VLMs using response-frequency rewards and the empirical answer distribution Singh et al. [2026]. Existing approaches therefore largely derive super-vision from consistency within the model’s own outputs He et al. [2025], leaving it unclear whether the resulting improvements reflect stronger multimodal understanding or merely greater output consistency. 
+
+Grounding in VLMs. Despite their strong performance, VLMs often produce responses without faithfully using the pro-vided visual evidence. Recent analyses reveal different forms of this failure Tong et al. [2024], Li et al. [2024]. Mirage shows that frontier VLMs can retain substantial benchmark performance and generate detailed visual reasoning even without image ac-cess Asadi et al. [2026]. VLind-Bench further isolates language-prior-induced blindness through counterfactual tests Lee et al. [2025]. Motivated by these grounding failures, a complemen-tary line of work leverages visual grounding signals to improve model predictions at inference time. VCD contrasts predictions under original and distorted images to reduce reliance on lan-guage priors Leng et al. [2024], while entropy-based methods use model uncertainty to identify or retrieve relevant visual ev-idence Gröpl et al. [2026]. Grounding signals have also been incorporated into VLM training through fine-grained feedback and reward modeling Yu et al. [2024], Yan et al. [2024]. Given both the prevalence of grounding failures and the demonstrated effectiveness of grounding signals in inference and training, their use as supervision for unlabeled test-time fine-tuning represents a promising yet comparatively underexplored direction. 
+
+# 6 Conclusion 
+
+We studied test-time reinforcement learning for VLMs and iden-tified two limitations of output-consensus supervision. Moti-7vated by these findings, we proposed TTIQ, which estimates image and question dependence through controlled input abla-tions and uses the resulting signals for response-level reward construction and token-level credit assignment. Experiments across diverse VQA tasks and VLM scales show that TTIQ achieves the best average performance at every evaluated scale. It also generalizes across VLM families and improves perfor-mance on unseen datasets without further training. These results suggest that image-question dependence learning signals provide a promising alternative to output consensus for VLM test-time reinforcement learning. 
+
+# References 
+
+Mohammad Asadi, Jack W O’Sullivan, Fang Cao, Tahoura Nedaee, Kamyar Rajabalifardi, Fei-Fei Li, Ehsan Adeli, and Euan Ashley. Mirage: The illusion of visual understanding. 
+
+arXiv preprint arXiv:2603.21687 , 2026. Shuai Bai, Yuxuan Cai, Ruizhe Chen, Keqin Chen, Xionghui Chen, Zesen Cheng, Lianghao Deng, Wei Ding, Chang Gao, Chunjiang Ge, et al. Qwen3-vl technical report. arXiv preprint arXiv:2511.21631 , 2025a. Shuai Bai, Ke qin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu, Mingkun Yang, Zhaohai Li, Jianqiang Wan, Pengfei Wang, Wei Ding, Zheren Fu, Yiheng Xu, Jiabo Ye, Xi Zhang, Tianbao Xie, Zesen Cheng, Hang Zhang, Zhibo Yang, Haiyang Xu, and Junyang Lin. Qwen2.5-vl technical report. ArXiv , abs/2502.13923, 2025b. URL https://api.semanticscholar.org/CorpusID:276449796. Ali Furkan Biten, Ruben Tito, Andres Mafla, Lluis Gomez, Marçal Rusinol, Ernest Valveny, CV Jawahar, and Dimos-thenis Karatzas. Scene text visual question answering. In 
+
+Proceedings of the IEEE/CVF international conference on computer vision , pages 4291–4301, 2019. Zhe Chen, Weiyun Wang, Yue Cao, Yangzhou Liu, Zhang-wei Gao, Erfei Cui, Jinguo Zhu, Shenglong Ye, Hao Tian, Zhaoyang Liu, et al. Expanding performance boundaries of open-source multimodal models with model, data, and test-time scaling. arXiv preprint arXiv:2412.05271 , 2024. Yash Goyal, Tejasf Khot, Douglas Summers-Stay, Dhruv Batra, and Devi Parikh. Making the v in vqa matter: Elevating the role of image understanding in visual question answering. In 
+
+Proceedings of the IEEE conference on computer vision and pattern recognition , pages 6904–6913, 2017. Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Alex Vaughan, et al. The llama 3 herd of models. arXiv preprint arXiv:2407.21783 , 2024. Marcel Gröpl, Jaewoo Jung, Seungryong Kim, Marc Pollefeys, and Sunghwan Hong. Entropy-gradient grounding: Training-free evidence retrieval in vision-language models. arXiv preprint arXiv:2604.08456 , 2026. Xinrui He, Yikun Ban, Jiaru Zou, Tianxin Wei, Curtiss Cook, and Jingrui He. LLM-forest: Ensemble learning of LLMs with graph-augmented prompts for data imputation. In Wanx-iang Che, Joyce Nabende, Ekaterina Shutova, and Moham-mad Taher Pilehvar, editors, Findings of the Association for Computational Linguistics: ACL 2025 , pages 6921–6936, Vi-enna, Austria, July 2025. Association for Computational Lin-guistics. ISBN 979-8-89176-256-5. doi: 10.18653/v1/2025. findings-acl.361. URL https://aclanthology.org/2025.findings-acl.361/. Drew A Hudson and Christopher D Manning. Gqa: A new dataset for real-world visual reasoning and compositional question answering. In Proceedings of the IEEE/CVF con-ference on computer vision and pattern recognition , pages 6700–6709, 2019. Justin Johnson, Bharath Hariharan, Laurens Van Der Maaten, Li Fei-Fei, C Lawrence Zitnick, and Ross Girshick. Clevr: A diagnostic dataset for compositional language and elementary visual reasoning. In Proceedings of the IEEE conference on computer vision and pattern recognition , pages 2901–2910, 2017a. Justin Johnson, Bharath Hariharan, Laurens Van Der Maaten, Judy Hoffman, Li Fei-Fei, C Lawrence Zitnick, and Ross Girshick. Inferring and executing programs for visual reason-ing. In Proceedings of the IEEE international conference on computer vision , pages 2989–2998, 2017b. Kang-il Lee, Minbeom Kim, Seunghyun Yoon, Minsung Kim, Dongryeol Lee, Hyukhun Koh, and Kyomin Jung. Vlind-bench: Measuring language priors in large vision-language models. In Findings of the Association for Computational Linguistics: NAACL 2025 , pages 4129–4144, 2025. Sicong Leng, Hang Zhang, Guanzheng Chen, Xin Li, Shijian Lu, Chunyan Miao, and Lidong Bing. Mitigating object hal-lucinations in large vision-language models through visual contrastive decoding. In Proceedings of the IEEE/CVF Con-ference on Computer Vision and Pattern Recognition , pages 13872–13882, 2024. Baiqi Li, Zhiqiu Lin, Wenxuan Peng, Jean de Dieu Nyandwi, Daniel Jiang, Zixian Ma, Simran Khanuja, Ranjay Krishna, Graham Neubig, and Deva Ramanan. Naturalbench: Evalu-ating vision-language models on natural adversarial samples. In The Thirty-eight Conference on Neural Information Pro-cessing Systems Datasets and Benchmarks Track , 2024. Hongxiang Lin, Zhirui Kuai, Erpeng Xue, and Lei Wang. Detect-ing and mitigating the correct-answer extinction window in test-time reinforcement learning with majority voting. arXiv preprint arXiv:2605.19444 , 2026. Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. Im-proved baselines with visual instruction tuning. In Proceed-ings of the IEEE/CVF conference on computer vision and pattern recognition , pages 26296–26306, 2024. 8Minesh Mathew, Dimosthenis Karatzas, and CV Jawahar. Docvqa: A dataset for vqa on document images. In Pro-ceedings of the IEEE/CVF winter conference on applications of computer vision , pages 2200–2209, 2021. Minesh Mathew, Viraj Bagal, Rubèn Tito, Dimosthenis Karatzas, Ernest Valveny, and CV Jawahar. Infographicvqa. In Proceed-ings of the IEEE/CVF Winter Conference on Applications of Computer Vision , pages 1697–1706, 2022. Mengye Ren, Ryan Kiros, and Richard Zemel. Exploring models and data for image question answering. Advances in neural information processing systems , 28, 2015. Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, YK Li, Yang Wu, et al. Deepseekmath: Pushing the limits of mathe-matical reasoning in open language models. arXiv preprint arXiv:2402.03300 , 2024. Manli Shu, Weili Nie, De-An Huang, Zhiding Yu, Tom Gold-stein, Anima Anandkumar, and Chaowei Xiao. Test-time prompt tuning for zero-shot generalization in vision-language models. Advances in Neural Information Processing Systems ,35:14274–14289, 2022. Akshit Singh, Shyam Marjit, Wei Lin, Paul Gavrikov, Serena Yeung-Levy, Hilde Kuehne, Rogerio Feris, Sivan Doveh, James Glass, and M Jehanzeb Mirza. Ttrv: Test-time re-inforcement learning for vision language models. In Proceed-ings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 33153–33163, 2026. Amanpreet Singh, Vivek Natarajan, Meet Shah, Yu Jiang, Xin-lei Chen, Dhruv Batra, Devi Parikh, and Marcus Rohrbach. Towards vqa models that can read. In Proceedings of the IEEE/CVF conference on computer vision and pattern recog-nition , pages 8317–8326, 2019. Yu Sun, Xiaolong Wang, Zhuang Liu, John Miller, Alexei Efros, and Moritz Hardt. Test-time training with self-supervision for generalization under distribution shifts. In International conference on machine learning , pages 9229–9248. PMLR, 2020. Yu Sun, Xinhao Li, Karan Dalal, Jiarui Xu, Arjun Vikram, Genghan Zhang, Yann Dubois, Xinlei Chen, Xiaolong Wang, Sanmi Koyejo, Tatsunori Hashimoto, and Carlos Guestrin. Learning to (Learn at test time): RNNs with expressive hid-den states. In Aarti Singh, Maryam Fazel, Daniel Hsu, Simon Lacoste-Julien, Felix Berkenkamp, Tegan Maharaj, Kiri Wagstaff, and Jerry Zhu, editors, Proceedings of the 42nd International Conference on Machine Learning , vol-ume 267 of Proceedings of Machine Learning Research ,pages 57503–57522. PMLR, 13–19 Jul 2025. URL https: //proceedings.mlr.press/v267/sun25h.html. Shengbang Tong, Zhuang Liu, Yuexiang Zhai, Yi Ma, Yann LeCun, and Saining Xie. Eyes wide shut? exploring the visual shortcomings of multimodal llms. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition , pages 9568–9578, 2024. Weiqin Wang, Yile Wang, Kehao Chen, and Hui Huang. Be-yond majority voting: Towards fine-grained and more reliable reward signal for test-time reinforcement learning. In Pro-ceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) , pages 37251–37265, 2026. Lai Wei, Yuting Li, Chen Wang, Yue Wang, Linghe Kong, Weiran Huang, and Lichao Sun. First sft, second rl, third upt: Continual improving multi-modal llm reasoning via unsuper-vised post-training. 2025. URL https://api.semanticscholar. org/CorpusID:278959690. Siming Yan, Min Bai, Weifeng Chen, Xiong Zhou, Qixing Huang, and Li Erran Li. Vigor: Improving visual ground-ing of large vision language models with fine-grained reward modeling. In European Conference on Computer Vision ,pages 37–53. Springer, 2024. Tianyu Yu, Yuan Yao, Haoye Zhang, Taiwen He, Yifeng Han, Ganqu Cui, Jinyi Hu, Zhiyuan Liu, Hai-Tao Zheng, Maosong Sun, et al. Rlhf-v: Towards trustworthy mllms via behavior alignment from fine-grained correctional human feedback. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 13807–13816, 2024. Renrui Zhang, Dongzhi Jiang, Yichi Zhang, Haokun Lin, Ziyu Guo, Pengshuo Qiu, Aojun Zhou, Pan Lu, Kai-Wei Chang, Yu Qiao, et al. Mathverse: Does your multi-modal llm truly see the diagrams in visual math problems? In European Conference on Computer Vision , pages 169–186. Springer, 2024. Jinguo Zhu, Weiyun Wang, Zhe Chen, Zhaoyang Liu, Shenglong Ye, Lixin Gu, Hao Tian, Yuchen Duan, Weijie Su, Jie Shao, et al. Internvl3: Exploring advanced training and test-time recipes for open-source multimodal models. arXiv preprint arXiv:2504.10479 , 2025. Yuxin Zuo, Kaiyan Zhang, Li Sheng, Shang Qu, Ganqu Cui, Xuekai Zhu, Haozhan Li, Xinwei Long, Ermo Hua, Biqing Qi, et al. Ttrl: Test-time reinforcement learning. Advances in Neural Information Processing Systems , 38:131459–131483, 2026. 
+
+# A Dataset Statistics 
+
+Evaluation splits. For each dataset, we use the official test split whenever its ground-truth annotations are publicly avail-able. We randomly sample 20 examples from this split for test-time training and hide their answers throughout training; all remaining examples are used for evaluation. Although TTIQ does not access labels during training, ground-truth answers are still required to compute the evaluation metrics. Therefore, for datasets whose test annotations are not publicly released, we instead use the largest publicly available labeled validation or evaluation split and apply the same 20-example sampling pro-tocol. Table 5 reports the exact source split and the resulting training and evaluation sizes for each dataset. 9Dataset Task focus Public labeled source split Unlabeled train Evaluation InfoVQA Infographic reading and reasoning Official test split 20 3,268 TextVQA Scene-text question answering Validation split 20 4,980 GQA-Relation Visual relations Test-dev balanced, Relation subset 20 3,873 GQA-Attribute Visual attributes Test-dev balanced, Attribute subset 20 1,746 ST-VQA Scene-text question answering Public train split 20 26,054 MathVerse-VD Vision-dominant mathematical reasoning Test-mini, Vision-Dominant subset 20 768 COCO-QA-N Counting Test split, Number subset 20 2,735 CLEVR-Humans Compositional visual reasoning Validation split 20 7,182 Total 160 50,606 
+
+Table 5: Dataset statistics for the experiments. The 20 training answers are withheld from every test-time training method.                                         
+
+> Train nMethod InfoVQA TextVQA GQA-Rel. COCO-QA-N Avg. 20 TTRV 58.31 74.73 31.00 69.91 58.49
+> TTIQ 59.69 79.45 37.12 75.03 62.82
+> 50 TTRV 59.03 77.12 35.43 73.56 61.29
+> TTIQ 58.85 79.14 37.33 73.71 62.26
+> 100 TTRV 57.94 77.86 38.20 72.81 61.70
+> TTIQ 58.47 80.43 37.36 74.16 62.60
+
+Table 6: Exact match accuracy (%) with 20, 50, and 100 unla-beled training examples. Bold marks the better method for each training size and task. 
+
+# B Training-Set Size and Efficiency 
+
+## B.1 Impact of Training-Set Size 
+
+We evaluate TTIQ and TTRV using nested sets of 20, 50, and 100 unlabeled examples on four representative tasks with InternVL2.5-4B. All settings use the same held-out split ob-tained by excluding the full 100-example training pool. We increase the number of updates proportionally with the training-set size, keeping the average number of exposures per example approximately constant. Table 6 and Figure 5 show distinct scaling behavior. TTIQ achieves strong macro result with only 20 examples and remains broadly stable as more examples are added. In contrast, TTRV improves more with training-set size, but its result with 100 examples still remains below that of TTIQ with 20 examples. TTIQ also wins on most individual task–size combinations. This contrast reflects a fundamental difference in their supervision signals. TTRV relies on response agreement as an indirect proxy for correctness, whose useful effects may accumulate over more training examples. In contrast, TTIQ uses controlled input ab-lations to expose, within each example, whether a response is grounded in both the image and the question. It therefore di-rectly corrects how the model uses multimodal evidence rather than relying on a useful training signal to emerge across many examples. Once this effective signal is available, increasing the training set mainly broadens example coverage, resulting in limited and task-dependent gains beyond 20 examples. 
+
+(a) (b) 
+
+Figure 5: Effect of training-set size with InternVL2.5-4B. (a) 
+
+Macro accuracy over InfoVQA, TextVQA, GQA-Relation, and COCO-QA-N. (b) Mean training time on four GH200 GPUs. Training time includes only the update loop; model setup and evaluation are excluded. 
+
+Method Extra TF Sec./update 8 updates Peak GB/GPU TTRV 0 21.9 2.92 min 76.84 
+
+TTIQ 2 35.8 4.78 min 76.84 
+
+Table 7: Matched training-only efficiency on InternVL2.5-4B and InfoVQA with four GH200 GPUs. 
+
+## B.2 Training Efficiency 
+
+Table 7 reports a matched training-only comparison on InfoVQA. The two additional teacher-forced scoring passes increase the update time, but do not increase peak GPU memory. With eight updates, TTIQ finishes in 4.78 minutes, compared with 2.92 minutes for TTRV, while both use the same peak memory. Figure 5 further shows that training time grows approximately linearly with the number of updates. Because test-time training is performed on a small unlabeled subset, the absolute training cost remains modest, making the additional scoring overhead of TTIQ acceptable in practice. In particular, the 20-example setting provides a favorable accuracy–efficiency trade-off. 10 Backbone Method Token-F1 ROUGE-L InternVL3-2B Base 61.65 61.56 TTRL 62.65 62.58 SCOPE 62.66 62.59 TTRV 62.16 62.07                         
+
+> TTIQ 63.53 63.45
+> InternVL2.5-4B Base 59.94 59.87 TTRL 65.41 65.36 SCOPE 65.55 65.49 TTRV 65.23 65.17
+> TTIQ 66.96 66.89
+> InternVL3-8B Base 70.22 70.14 TTRL 69.88 69.82 SCOPE 69.75 69.69 TTRV 69.79 69.73
+> TTIQ 70.76 70.69
+
+Table 8: Macro Token-F1 and ROUGE-L F1 over the eight complete evaluation sets. Best results within each backbone are bold. 
+
+# C Beyond Exact Match 
+
+## C.1 Additional Evaluation Metrics 
+
+We further report Token-F1 and ROUGE-L F1 alongside exact-match accuracy. These metrics provide a more graded evaluation by measuring token and sequence overlap between the predic-tion and the ground-truth answer. Let N (z) denote the token sequence obtained after applying the same normalization as the exact-match evaluator. For a prediction ˆy and a ground-truth answer a, we define their multiset token overlap as 
+
+O(ˆ y, a ) = X
+
+> w
+
+min( cw(N (ˆ y)) , c w(N (a))) , (16) where cw(·) denotes the number of occurrences of token w.Token-level precision, recall, and F1 are then defined as 
+
+Ptok = O(ˆ y, a )
+
+|N (ˆ y)| , Rtok = O(ˆ y, a )
+
+|N (a)| ,Ftok = 2Ptok Rtok 
+
+Ptok + Rtok 
+
+.
+
+(17) For ROUGE-L, let 
+
+L(ˆ y, a ) = LCS( N (ˆ y), N (a)) (18) denote the length of the longest common subsequence between the normalized prediction and ground-truth answer. ROUGE-L precision, recall, and F1 are defined as 
+
+PL = L(ˆ y, a )
+
+|N (ˆ y)| , RL = L(ˆ y, a )
+
+|N (a)| ,FL = 2PLRL
+
+PL + RL
+
+.
+
+(19) When an example contains multiple ground-truth answers, we take the maximum score over the ground-truth answer set G:
+
+Stok (ˆ y, G) = max  
+
+> a∈G
+
+Ftok (ˆ y, a ),SL(ˆ y, G) = max  
+
+> a∈G
+
+FL(ˆ y, a ). (20) 
+
+Figure 7: Composition of exact-match corrections. “Base to TTRV” denotes examples answered incorrectly by the base model but correctly by TTRV; “Base to TTIQ” is defined anal-ogously. “TTRV to TTIQ” denotes examples for which TTRV remains incorrect but TTIQ becomes correct. Each bar shows the proportion of form-only and content-changing corrections within the corresponding correction set. Table 8 reports macro averages over the eight complete eval-uation sets. TTIQ achieves the highest average Token-F1 and ROUGE-L F1 for every backbone. Since these metrics place greater emphasis on content overlap and are less sensitive to mi-nor differences in answer form, the results suggest that TTIQ’s gains extend beyond answer-form changes to better alignment with the ground-truth content. 
+
+## C.2 Correction Composition 
+
+We further analyze the exact-match corrections using the diag-nostic defined in Section 3.1, which distinguishes form-only corrections from corrections that change the predicted content. As shown in Figure 7, both TTRV and TTIQ correct many form-related errors, but TTIQ produces a larger proportion of content corrections relative to the base model. More importantly, among cases where TTRV remains incorrect but TTIQ becomes correct, content corrections account for slightly more than half of the improvement. Thus, TTIQ preserves the benefit of improved answer formulation while extending the gains to more substan-tive changes in the predicted answer, consistent with its stronger Token-F1 and ROUGE-L results. 
+
+# D Additional Qualitative Examples 
+
+## D.1 Additional Content Corrections 
+
+Table 9 supplements the first analysis in Section 3.1 with cases not shown in the main paper. In every row, Base and TTRV retain the same incorrect content, whereas TTIQ changes the predicted object, attribute, count, text, or mathematical decision to an acceptable answer. The table covers all eight evaluation tasks and seven further cases. 11 Task Question Base TTRV TTIQ GT GQA-Rel. What vehicle is in front of the red vehicle? A car. Car. SUV suv GQA-Rel. What are the jars sitting on top of? Tea cups. Cups. Stove. stove GQA-Attr How clean are the pots? The pots are clean. Clean. Dirty. dirty GQA-Attr Which side of the image is the cyclist on? Left. Left Right. right ST-VQA What number is this bus known as? Private bus. Private. 23 23 ST-VQA What does the advertisement say be-hind the woman’s head? Stretchy shery Stretchy Stretch Stretch COCO-QA-N How many giraffes are standing near each other in an enclosed area? Three giraffes are standing near each other in an enclosed area. 3 4 four COCO-QA-N How many people are on snow skis while one also has wheels? Two people on snow skis, one of whom has a wheelchair. 2 3 three CLEVR-H What color is the metallic cylinder? Blue. The metallic cylinder is blue. Red red 
+
+Table 9: Representative form-to-content correction chains from the final InternVL3-2B outputs. TTRV changes the surface form or length of the Base response but retains the same central incorrect answer, whereas TTIQ changes the answer content to an acceptable ground truth. 
+
+Image salience without question alignment (InfoVQA)            
+
+> Q: When was the second-generation 8080 chip produced?
+> ×Image-only: “1972”
+> I= +1 .00 , Q =−1.00
+> ✓Joint: “1974”
+> I=−.33 , Q = + .33
+
+Image salience without question alignment (TextVQA)             
+
+> Q: What is the name of this issue?
+> ×Image-only: “99 DEC”
+> I= +1 .00 , Q =−1.00
+> ✓Joint: “Temptation: Lust”
+> I=.00 , Q =.00
+
+Image salience without question alignment (ST-VQA)            
+
+> Q: What is the brand of mustard?
+> ×Image-only: “DeliStyle Spanish”
+> I= +1 .00 , Q =−1.00
+> ✓Joint: “Publix”
+> I=−.33 , Q = + .33
+
+Image salience without question alignment (COCO-QA)           
+
+> Q: How many trains are on the multiple tracks side by side?
+> ×Image-only: “5”
+> I= + .33 , Q =−1.00
+> ✓Joint: “1”
+> I= +1 .00 , Q = +1 .00
+
+Weak image dependence (TextVQA)            
+
+> Q: What is the number on the last player in blue?
+> ×Question-only: “16”
+> I=−1.00 , Q =−1.00
+> ✓Joint: “19”
+> I= + .67 , Q = + .67
+
+Weak image dependence (GQA)           
+
+> Q: What is the color of the soft blanket?
+> ×Question-only: “green”
+> I=−1.00 , Q = + .33
+> ✓Joint: “white”
+> I= +1 .00 , Q = +1 .00
+
+Weak image dependence (COCO-QA)            
+
+> Q: How many large giraffes are standing next to the barn?
+> ×Question-only: “two”
+> I=−.33 , Q =−.33
+> ✓Joint: “three”
+> I= + .67 , Q = + .67
+
+Weak image dependence (MathVerse)             
+
+> Q: Solve for the unknown Pin the adjacent figure.
+> ×Question-only: “10”
+> I=−1.00 , Q = + .33
+> ✓Joint: “17”
+> I= +1 .00 , Q = +1 .00
+
+Figure 6: Qualitative examples of image–question dependence before test-time training. Each example compares two responses sampled for the same image–question input. Incorrect responses either follow visual content without sufficient question alignment (top) or exhibit weak image dependence (bottom), while the correct responses depend more strongly on both inputs. 
+
+## D.2 Examples of Joint Image–Question Depen-dence 
+
+Figure 6 presents eight additional image–question examples, each with two responses sampled from InternVL2.5-4B before test-time training. The displayed I and Q values measure how strongly each response depends on the image and the question, respectively. In the top four examples, the incorrect response has strong image dependence but weak question dependence. It follows salient visual content without correctly addressing the question. In the bottom four examples, the incorrect response has weak image dependence and relies more heavily on textual cues or language priors, resulting in an answer that is not sufficiently 12 supported by the image. These examples show that strong de-pendence on either input alone is insufficient. TTIQ therefore rewards responses only when they depend strongly on both the image and the question. Across all examples, the response with stronger joint dependence gives the correct answer. 13

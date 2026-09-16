@@ -6,38 +6,27 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-09-15
-- 运行时间：2026-09-15 22:06:21 UTC
+- 最新运行日期：2026-09-16
+- 运行时间：2026-09-16 22:17:16 UTC
 - 运行状态：成功
-- 本次总论文数：5
-- 精读区：2
-- 速读区：3
+- 本次总论文数：2
+- 精读区：0
+- 速读区：2
 
 ### 今日简报（AI）
-- 今日共生成 5 篇推荐（精读 2 篇，速读 3 篇）
-- 精读：《Reducing the Output-Mode Gap in Speech Language Models via Joint-Output On-Policy Distillation》（9.0/10）, 《Temporal Self-Distillation: Faster Inference in Discrete Diffusion Language Models》（8.0/10）
-- 速读：《FLoKD: Adaptive Knowledge Distillation for Federated Low-Rank LLM over Wireless Networks》（7.0/10）, 《Learning to Refer from Estimated Listener Gaze》（6.0/10）, 《Not All Prompts Are Equal: Exploration-Guided Prompt Scaffolding for Multimodal Reinforcement Post-Training》（6.0/10）
-- 这些结果覆盖了当下较热的方向，建议先看精读区论文的关键问题与方法。
-- 详情：[/202609/15/README](/202609/15/README)
+2026-09-16 日报共筛出 2 篇速读论文，聚焦 VLM 测试时强化学习与稀疏结果优化两个方向。最值得看的是《Harnessing Image Question Dependence for Better VLM Test-time Reinforcement Learning》（7.0/10），关注如何利用图像与问题的依赖关系提升 VLM 测试时强化学习效果。普通读者可优先浏览这篇的摘要与方法部分，再按兴趣决定是否深入另一篇偏好蒸馏工作。
+- 详情：[/202609/16/README](/202609/16/README)
 
 ### 精读区论文标签
-1. [Reducing the Output-Mode Gap in Speech Language Models via Joint-Output On-Policy Distillation](/202609/15/2609.15313v1-reducing-the-output-mode-gap-in-speech-language-models-via-joint-output-on-policy-distillation)  
-   标签：评分：9.0/10、query:distillation
-   evidence：面向语音大模型的联合输出在线策略蒸馏
-2. [Temporal Self-Distillation: Faster Inference in Discrete Diffusion Language Models](/202609/15/2609.15177v1-temporal-self-distillation-faster-inference-in-discrete-diffusion-language-models)  
-   标签：评分：8.0/10、query:distillation
-   evidence：面向语言模型的在线策略自蒸馏方法
+- 本次无精读推荐。
 
 ### 速读区论文标签
-1. [FLoKD: Adaptive Knowledge Distillation for Federated Low-Rank LLM over Wireless Networks](/202609/15/2609.13580v1-flokd-adaptive-knowledge-distillation-for-federated-low-rank-llm-over-wireless-networks)  
+1. [Harnessing Image Question Dependence for Better VLM Test-time Reinforcement Learning](/202609/16/2609.13296v1-harnessing-image-question-dependence-for-better-vlm-test-time-reinforcement-learning)  
    标签：评分：7.0/10、query:distillation
-   evidence：大语言模型自适应知识蒸馏
-2. [Learning to Refer from Estimated Listener Gaze](/202609/15/2609.14207v1-learning-to-refer-from-estimated-listener-gaze)  
+   evidence：面向视觉语言模型的测试时强化学习与同策略自生成信号
+2. [Optimizing Sparse Outcomes Through Dense Behavioral Signals via Value-Guided Preference Distillation](/202609/16/2609.14648v1-optimizing-sparse-outcomes-through-dense-behavioral-signals-via-value-guided-preference-distillation)  
    标签：评分：6.0/10、query:distillation
-   evidence：用注视奖励在线微调视觉语言模型
-3. [Not All Prompts Are Equal: Exploration-Guided Prompt Scaffolding for Multimodal Reinforcement Post-Training](/202609/15/2609.15051v1-not-all-prompts-are-equal-exploration-guided-prompt-scaffolding-for-multimodal-reinforcement-post-training)  
-   标签：评分：6.0/10、query:distillation
-   evidence：基于在线采样统计的多模态大模型在线策略强化后训练
+   evidence：强化学习中由价值模型引导的偏好蒸馏
 
 
 <div class="dpr-home-promo-card">
