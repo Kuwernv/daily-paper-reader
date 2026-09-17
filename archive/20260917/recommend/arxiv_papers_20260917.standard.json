@@ -1,0 +1,503 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-09-17T22:38:47.822774+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 6,
+    "deep_cap": 6,
+    "deep_selected": 6,
+    "quick_candidates": 6,
+    "quick_skim_target": 11,
+    "quick_selected": 6
+  },
+  "deep_dive": [
+    {
+      "id": "2609.14193v1",
+      "source": "arxiv",
+      "title": "Data-free On-policy Distillation",
+      "abstract": "On-policy distillation (OPD) has become a standard component of frontier post-training pipelines, yet how much its training data actually contributes has gone largely unexamined. On the two teacher-student pairings most common in practice, we find OPD almost indifferent to its data: eight prompts already match a 17k-problem dataset, and three independently built datasets whose difficulty and teacher-student KL differ several-fold produce nearly indistinguishable training curves. Two causes account for this. First, the unit of data in OPD is the state a prompt leads to, not the prompt itself: a single prompt keeps exposing new teacher correction as sampling continues, while the marginal value of additional prompts collapses after eight. Second, replacing mathematics with competitive programming still recovers over ninety percent of the in-domain gain, indicating that OPD transfers the teacher's mode of reasoning rather than knowledge related to the data. We take this to its limit with Data-free On-policy Distillation (DF-OPD), in which the teacher writes its own training questions under a simple prompt -- no external data, no filtering -- leaving a system of just two policies. DF-OPD matches and even surpasses real data, and the questions it produces track the teacher's own post-training data on three key diagnostics of training dynamics, which other real datasets do not. Applied to multi-teacher distillation, where the (prompt, domain) pairs normally have to be derived from post-training data that is often out of reach, 1k self-generated questions close 98.5% of the available headroom, even surpassing the 96.6% reached with 7k real examples. Moreover, together these results invite a reassessment of the role data plays in OPD.",
+      "authors": [
+        "Gengsheng Li",
+        "Mao Zheng",
+        "Mingyang Song",
+        "Jie Sun",
+        "Zeyuan Liu",
+        "Ruiqi Liu",
+        "Qiyong Zhong",
+        "Haiyun Guo",
+        "Junfeng Fang",
+        "Jinqiao Wang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-09-12T23:51:35+00:00",
+      "link": "https://arxiv.org/pdf/2609.14193v1",
+      "tags": [
+        "keyword:distillation"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "on-policy distillation data analysis",
+      "llm_evidence_cn": "在线策略蒸馏的数据分析",
+      "llm_evidence": "在线策略蒸馏的数据分析",
+      "canonical_evidence": "在线策略蒸馏的数据分析",
+      "llm_tldr_en": "On-policy distillation (OPD) is a standard post-training component, yet its data contribution is unexamined. The paper finds OPD nearly indifferent to data: eight prompts match a 17k-problem dataset and diverse datasets yield indistinguishable curves, because the unit of data is the state a prompt leads to, not the prompt.",
+      "llm_tldr_cn": "在线策略蒸馏（OPD）已成为前沿后训练流程的标准组件，但其训练数据的实际贡献长期缺乏审视。本文发现OPD对数据几乎不敏感：八个提示即可媲美1.7万题数据集，多个难度和KL差异数倍的数据集产生几乎相同的训练曲线。作者归因于OPD的数据单位是提示导致的状态而非提示本身，单提示可持续暴露新的教师纠正。该发现挑战了数据规模至上的直觉，为高效后训练数据设计提供了依据。",
+      "llm_tldr": "在线策略蒸馏（OPD）已成为前沿后训练流程的标准组件，但其训练数据的实际贡献长期缺乏审视。本文发现OPD对数据几乎不敏感：八个提示即可媲美1.7万题数据集，多个难度和KL差异数倍的数据集产生几乎相同的训练曲线。作者归因于OPD的数据单位是提示导致的状态而非提示本身，单提示可持续暴露新的教师纠正。该发现挑战了数据规模至上的直觉，为高效后训练数据设计提供了依据。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.16459v1",
+      "source": "arxiv",
+      "title": "OPD-Aha: From Linguistic Momentum to Visual Reflection in Multimodal On-Policy Distillation",
+      "abstract": "Privileged on-policy distillation improves multimodal reasoning by allowing a teacher to evaluate student trajectories using rich, training-only visual evidence. Both models score these trajectories while conditioning on the same student-generated prefix. When a student misinterprets an image early in a response, this accumulating erroneous rationale eventually pulls the teacher away from its visual evidence. The teacher and student converge on the same hallucination, causing standard cross-model supervision to collapse precisely where correction is most needed. We find that the teacher's visual corrective preference is not lost under this misleading agreement. Comparing the predictions of the identical teacher given the real image and a visual null reveals that the privileged evidence still pushes the model toward the correct interpretation. We introduce OPD-Aha, which reconstructs the distillation target directly from this isolated visual preference rather than relying on the fragile teacher-student discrepancy. This reconstructed target aggressively suppresses continuations that contradict the image. Trained with this objective, students learn to naturally interrupt their own flawed reasoning with reflection tokens such as wait and actually. After reflection, subsequent generation relies less on the accumulated erroneous text and more on the visual evidence. Correcting these trajectories mid-generation fundamentally alters the reasoning process, yielding broad and consistent improvements across diverse fine-grained perception and complex multimodal reasoning benchmarks. Our code and models are available at https://github.com/Echochef/OPD-Aha.",
+      "authors": [
+        "Chenhao Qiu",
+        "Dawei Li",
+        "Yechao Zhang",
+        "Lei Gong",
+        "Zhen Tan"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-09-15T00:25:28+00:00",
+      "link": "https://arxiv.org/pdf/2609.16459v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "multimodal on-policy distillation",
+      "llm_evidence_cn": "多模态在线策略蒸馏",
+      "llm_evidence": "多模态在线策略蒸馏",
+      "canonical_evidence": "多模态在线策略蒸馏",
+      "llm_tldr_en": "Privileged on-policy distillation lets a teacher score student trajectories with training-only visual evidence, but early student misreads drag the teacher toward the same hallucination. OPD-Aha exploits the same teacher's predictions under the real image to recover its hidden visual corrective preference and turns it into a visual reflection signal for multimodal reasoning.",
+      "llm_tldr_cn": "特权在线策略蒸馏通过让教师利用训练时可见的视觉证据评估学生轨迹来提升多模态推理，但当学生早期误解图像时，错误推理会累积并把教师拉离视觉证据，导致师生共同陷入幻觉、监督失效。本文提出OPD-Aha方法，利用同一教师在有真实图像条件下的预测进行对比，挖掘教师被掩盖的视觉纠正偏好，将其转化为视觉反思信号。实验表明该方法能在最需纠正之处恢复有效的跨模型监督，改善多模态推理蒸馏效果。",
+      "llm_tldr": "特权在线策略蒸馏通过让教师利用训练时可见的视觉证据评估学生轨迹来提升多模态推理，但当学生早期误解图像时，错误推理会累积并把教师拉离视觉证据，导致师生共同陷入幻觉、监督失效。本文提出OPD-Aha方法，利用同一教师在有真实图像条件下的预测进行对比，挖掘教师被掩盖的视觉纠正偏好，将其转化为视觉反思信号。实验表明该方法能在最需纠正之处恢复有效的跨模型监督，改善多模态推理蒸馏效果。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation for vision language models",
+      "matched_requirement_id": "req-9",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.16937v1",
+      "source": "arxiv",
+      "title": "Beyond Token-Local Imitation: Reward-Compatible Temporal Credit Assignment for On-Policy Distillation",
+      "abstract": "On-policy distillation (OPD) has emerged as an effective approach for large language model post-training, yet existing objectives face a trade-off between objective fidelity and optimization stability. Token-level OPD provides stable but local supervision, whereas sequence-level OPD captures future credit at the cost of horizon-dependent variance. We establish a unified temporal-credit view of these formulations, showing that practical token-level OPD can be interpreted as a temporal approximation to the sequence-level reverse-KL gradient. Building on this connection, we propose $γ$OPD, which uses discounted temporal credit assignment to balance long-horizon supervision and optimization stability, while admitting a horizon-independent variance bound. We further develop a reward-compatible bounded mixing (RBM) mechanism for $γ\\mathrm{OPD}$ that balances verifiable outcome feedback with the discounted OPD advantage to move beyond purely teacher-dependent optimization. Experiments on mathematical and code reasoning demonstrate consistent improvements over existing OPD methods across vanilla, size-mismatched, and multi-teacher distillation settings.",
+      "authors": [
+        "Shiqi Liu",
+        "Zeyu He",
+        "Letian Tao",
+        "Guojian Zhan",
+        "Jiaxin Gao",
+        "Feihong Zhang",
+        "Jingliang Duan",
+        "Wei Xiong",
+        "Kehua Sheng",
+        "Bo Zhang",
+        "Yang Guan",
+        "Shengbo Eben Li"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.PL"
+      ],
+      "published": "2026-09-15T10:12:56+00:00",
+      "link": "https://arxiv.org/pdf/2609.16937v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "on-policy distillation for LLM post-training with temporal credit assignment",
+      "llm_evidence_cn": "面向大模型后训练的在线策略蒸馏与时序信用分配",
+      "llm_evidence": "面向大模型后训练的在线策略蒸馏与时序信用分配",
+      "canonical_evidence": "面向大模型后训练的在线策略蒸馏与时序信用分配",
+      "llm_tldr_en": "On-policy distillation (OPD) struggles to balance objective fidelity and optimization stability. This paper unifies token-level and sequence-level OPD via temporal credit assignment and proposes gamma-OPD, a discounted temporal credit scheme, improving LLM post-training.",
+      "llm_tldr_cn": "在线策略蒸馏(OPD)在大模型后训练中面临目标保真度与优化稳定性的权衡，token级目标稳定但局部，序列级目标捕捉长程信用却方差大。论文建立统一的时序信用分配视角，指出token级OPD可视为序列级reverse-KL梯度的时序近似，并据此提出γOPD，用折扣式时序信用分配平衡长程监督与稳定性。实验表明γOPD在保持优化稳定性的同时更好地利用长程监督信号，为大模型后训练提供统一理论框架与更稳定的实用算法。",
+      "llm_tldr": "在线策略蒸馏(OPD)在大模型后训练中面临目标保真度与优化稳定性的权衡，token级目标稳定但局部，序列级目标捕捉长程信用却方差大。论文建立统一的时序信用分配视角，指出token级OPD可视为序列级reverse-KL梯度的时序近似，并据此提出γOPD，用折扣式时序信用分配平衡长程监督与稳定性。实验表明γOPD在保持优化稳定性的同时更好地利用长程监督信号，为大模型后训练提供统一理论框架与更稳定的实用算法。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.14636v1",
+      "source": "arxiv",
+      "title": "Know When to Stop, Where to Restart: Accelerating Multi-Turn Agentic On-Policy Distillation",
+      "abstract": "On-policy distillation (OPD) has become a standard approach for transferring capabilities from large teachers to compact students. Its cost, however, is dominated by autoregressive student rollouts and scales poorly in multi-turn agentic settings. Existing acceleration methods truncate or relocate the supervision signal according to fixed, offline budgets, despite substantial variation in teacher-signal reliability both within and across trajectories. Our empirical analysis on $τ^2$-bench reveals a clear structure in this variation: informative supervision is concentrated in the prefix of each turn, and, most importantly for multi-turn agentic training, the cross-turn loss of teacher endorsement is temporally locked to the student's first erroneous action rather than accumulating gradually over turns. Building on these findings, we propose STRIDE (Stop-and-Restart on-policy Distillation acceleration), which combines two complementary techniques: adaptive early stopping, which terminates a rollout once the cumulative teacher log-probability falls below an out-of-distribution threshold, and a prefix buffer, which caches high-quality prefixes and restarts generation at the weakest correct turn. Together, these mechanisms induce a data-driven curriculum that progressively extends coverage to later turns. On $τ^2$-bench retail, our method matches full-trajectory OPD and exceeds the 30B teacher at a $3.73\\times$ speedup, surpasses the baseline itself at $2.34\\times$, and retains a $4.51\\times$ speedup under cross-domain multi-teacher training. As a supplementary generalization test beyond the agentic setting, STRIDE outperforms full OPD on AIME 2025 at a $5.10\\times$ speedup and on AIME 2024 at a $3.08\\times$ speedup; averaged across the two evaluations, both fixed-budget truncation baselines remain below full OPD.",
+      "authors": [
+        "Zhiyu Gui",
+        "Kexin Huang",
+        "Jia Guo",
+        "Junkang Wu",
+        "Zihao Wang",
+        "Zhiqiang Zhang",
+        "Jun Zhou",
+        "Jiancan Wu",
+        "Xiang Wang"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "published": "2026-09-13T16:17:35+00:00",
+      "link": "https://arxiv.org/pdf/2609.14636v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "accelerating multi-turn agentic on-policy distillation",
+      "llm_evidence_cn": "加速多轮智能体同策略蒸馏",
+      "llm_evidence": "加速多轮智能体同策略蒸馏",
+      "canonical_evidence": "加速多轮智能体同策略蒸馏",
+      "llm_tldr_en": "This work accelerates multi-turn agentic on-policy distillation by exploiting the structure of teacher-signal reliability, deciding when to stop and where to restart supervision.",
+      "llm_tldr_cn": "同策略蒸馏是向小模型迁移大模型能力的标准方法，但其成本主要由自回归学生 rollout 主导，在多轮智能体场景中扩展性差。现有加速方法按固定离线预算截断或重定位监督信号，忽略了教师信号可靠性在轨迹内与轨迹间的显著差异。作者在τ²-bench上分析发现，有用监督集中在每轮前缀，且跨轮的教师认可损失与学生学习状态时间锁定。据此提出动态决定何时停止、何处重启监督的加速方法。实验表明该方法在保持蒸馏效果的同时显著降低训练成本。",
+      "llm_tldr": "同策略蒸馏是向小模型迁移大模型能力的标准方法，但其成本主要由自回归学生 rollout 主导，在多轮智能体场景中扩展性差。现有加速方法按固定离线预算截断或重定位监督信号，忽略了教师信号可靠性在轨迹内与轨迹间的显著差异。作者在τ²-bench上分析发现，有用监督集中在每轮前缀，且跨轮的教师认可损失与学生学习状态时间锁定。据此提出动态决定何时停止、何处重启监督的加速方法。实验表明该方法在保持蒸馏效果的同时显著降低训练成本。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.17474v1",
+      "source": "arxiv",
+      "title": "Coupled Calibration and Learning: Mitigating Teacher Bias in LLM Distillation without Target-Domain Reward Feedback",
+      "abstract": "Large language model (LLM) distillation aims to transfer the capabilities of a powerful teacher to a smaller student. Direct imitation, however, can also transfer the teacher's systematic bias and errors. This challenge is particularly pronounced under covariate shift, when the teacher's reliability on target questions is uncertain and target-domain reward feedback is unavailable. We propose Coupled Calibration and Learning (CCL), an LLM distillation algorithm that couples teacher calibration with student updates through token-level branching, using reward feedback only on source questions. Each iteration calibrates the teacher using source feedback and then uses the calibrated teacher to train the student on target questions. The updated student, in turn, informs subsequent calibration. In an autoregressive policy framework, we prove that the output student's expected average Kullback-Leibler divergence to the oracle student converges to zero at a polynomial rate in the number of iterations. The oracle maximizes the true reference-regularized target reward within the student class, which need not represent the unrestricted optimal policy. Our analysis quantifies the progress of projected student gradient updates while controlling the error in teacher calibration. We further establish a separation from regularized direct matching: its error relative to the oracle student can remain bounded away from zero even when the teacher achieves higher regularized target reward than every student policy. These results demonstrate that LLM distillation can overcome persistent teacher bias and recover the optimal student through coupled calibration and learning, without target-domain reward feedback.",
+      "authors": [
+        "Haichen Hu",
+        "Yuheng Zhang",
+        "David Simchi-Levi"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "math.ST",
+        "stat.ML"
+      ],
+      "published": "2026-09-15T17:15:40+00:00",
+      "link": "https://arxiv.org/pdf/2609.17474v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "LLM distillation mitigating teacher bias",
+      "llm_evidence_cn": "LLM蒸馏并缓解教师偏差",
+      "llm_evidence": "LLM蒸馏并缓解教师偏差",
+      "canonical_evidence": "LLM蒸馏并缓解教师偏差",
+      "llm_tldr_en": "LLM distillation transfers a strong teacher to a smaller student, but direct imitation also copies the teacher's systematic bias, especially under covariate shift with no target-domain reward. The paper proposes Coupled Calibration and Learning, coupling teacher calibration with student updates via token-level branching using only source-domain feedback.",
+      "llm_tldr_cn": "大语言模型蒸馏旨在将强教师能力迁移给小模型，但直接模仿会传递教师的系统性偏差，在目标域奖励反馈缺失的协变量偏移场景下尤为严重。本文提出耦合校准与学习（CCL）算法，通过token级分支将教师校准与学生更新耦合，仅利用源问题的奖励反馈迭代校准教师再训练学生。该框架在缺乏目标域反馈时提升了蒸馏的稳健性，为迁移教师能力提供了新思路。",
+      "llm_tldr": "大语言模型蒸馏旨在将强教师能力迁移给小模型，但直接模仿会传递教师的系统性偏差，在目标域奖励反馈缺失的协变量偏移场景下尤为严重。本文提出耦合校准与学习（CCL）算法，通过token级分支将教师校准与学生更新耦合，仅利用源问题的奖励反馈迭代校准教师再训练学生。该框架在缺乏目标域反馈时提升了蒸馏的稳健性，为迁移教师能力提供了新思路。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.18321v1",
+      "source": "arxiv",
+      "title": "Trajectory Learnability for Offline On-Policy Distillation with Imperfect Teachers",
+      "abstract": "Offline on-policy distillation gains efficiency by collecting student trajectories and teacher supervision once and reusing them throughout optimization. The same reuse makes imperfect supervision persistent. Since even strong teachers can fail, we ask \\emph{what remains learnable from imperfect teacher supervision?} Teacher failure is only a coarse problem-level signal and does not imply that all supervision along the associated student trajectory is unhelpful. A natural alternative is to estimate teacher recoverability along the trajectory, but repeated continuations largely erase the efficiency advantage of offline distillation. We instead use teacher-successful problems to define a cheap reference for what the student can learn. We train on teacher-successful problems and measure how the likelihood of each observed token in trajectories from teacher-failed problems changes. We use these signed likelihood changes as an operational \\emph{learnability signal}: larger increases indicate behavior more strongly promoted by successful-only learning. We aggregate this signal into trajectory-level weights for the original distillation loss. Unlike continuation-based estimates, our learnability requires no additional generation and can be computed once from stored trajectories and model checkpoints. Across mathematical reasoning and code generation, our method improves an offline OPD baseline by up to 2.7 percentage points and matches or outperforms online OPD variants on multiple benchmarks. Despite the additional successful-only distillation stage, it uses 2 GPUs and about 22 GPU hours, compared with 3 GPUs and 36--48 GPU hours for representative online OPD methods.",
+      "authors": [
+        "Yihao Ai",
+        "Weilong Yan"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-09-16T08:41:16+00:00",
+      "link": "https://arxiv.org/pdf/2609.18321v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "directly studies offline on-policy distillation with imperfect teachers for language model students",
+      "llm_evidence_cn": "直接研究面向语言模型学生的不完美教师离线同策略蒸馏",
+      "llm_evidence": "直接研究面向语言模型学生的不完美教师离线同策略蒸馏",
+      "canonical_evidence": "直接研究面向语言模型学生的不完美教师离线同策略蒸馏",
+      "llm_tldr_en": "This paper asks what remains learnable from imperfect teacher supervision in offline on-policy distillation, using teacher-successful problems as a cheap reference to estimate trajectory learnability without repeated continuations.",
+      "llm_tldr_cn": "离线同策略蒸馏通过一次性收集学生轨迹与教师监督并在优化中反复复用，显著提升效率，但复用也使得不完美的教师监督持续影响训练。作者提出核心问题：在不完美教师监督下，学生还能学到什么。由于教师失败只是问题级的粗粒度信号，并不代表对应学生轨迹上所有监督都无用，直接估计轨迹可恢复性又需反复续写，抵消离线效率优势。本文转而利用教师成功的问题定义廉价参考，刻画学生可学习的部分。该工作为不完美教师下的高效离线同策略蒸馏提供了新的分析视角与方法依据。",
+      "llm_tldr": "离线同策略蒸馏通过一次性收集学生轨迹与教师监督并在优化中反复复用，显著提升效率，但复用也使得不完美的教师监督持续影响训练。作者提出核心问题：在不完美教师监督下，学生还能学到什么。由于教师失败只是问题级的粗粒度信号，并不代表对应学生轨迹上所有监督都无用，直接估计轨迹可恢复性又需反复续写，抵消离线效率优势。本文转而利用教师成功的问题定义廉价参考，刻画学生可学习的部分。该工作为不完美教师下的高效离线同策略蒸馏提供了新的分析视角与方法依据。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2609.16059v1",
+      "source": "arxiv",
+      "title": "Towards Scalable RLVR: Multimodal Instruction Following Data Synthesis and Distillation",
+      "abstract": "Multimodal instruction following (MMIF) is crucial for building generalist agents. However, current training paradigms rely heavily on Supervised Fine-Tuning (SFT), which often leads to surface-level pattern matching and degrades general capabilities. While Reinforcement Learning with Verifiable Rewards (RLVR) offers a promising alternative, its scalability in MMIF is severely bottlenecked by the scarcity of high-quality, RL-ready multimodal data. To bridge this gap, we present MIFS (\\textbf{M}ultimodal \\textbf{I}nstruction \\textbf{F}ollowing \\textbf{S}ynthesis), a systematic pipeline designed to generate RL-ready multimodal data. Specifically, MIFS introduces a generative constraint protocol to synthesize diverse raw samples, followed by a learnability-aware distillation mechanism that filters data based on RL training dynamics to ensure stable policy optimization. Furthermore, a code-based verifier provides high-precision reward signals for policy learning. The resulting dataset comprises 90k samples across 8 constraint categories and 14 task domains. Empirical evaluations demonstrate that MIFS-trained MLLMs achieve an average improvement of 8.13\\% on four MMIF benchmarks and a 3$\\times$ faster training convergence compared to using raw data. Crucially, our approach mitigates the generalization trade-offs typical of SFT, preserving core visual capabilities while significantly boosting instruction-following precision.",
+      "authors": [
+        "Yirong Zeng",
+        "Zhang Sai",
+        "Yuxian Wang",
+        "Yutai Hou",
+        "Yufei Liu",
+        "Xiao Ding",
+        "Bibo Cai"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "published": "2026-09-13T08:50:30+00:00",
+      "link": "https://arxiv.org/pdf/2609.16059v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "multimodal instruction-following data synthesis and distillation for vision-language training",
+      "llm_evidence_cn": "面向视觉语言训练的多模态指令跟随数据合成与蒸馏",
+      "llm_evidence": "面向视觉语言训练的多模态指令跟随数据合成与蒸馏",
+      "canonical_evidence": "面向视觉语言训练的多模态指令跟随数据合成与蒸馏",
+      "llm_tldr_en": "MIFS synthesizes RL-ready multimodal instruction-following data and applies distillation to scale RLVR training for vision-language models.",
+      "llm_tldr_cn": "多模态指令跟随训练依赖监督微调，易产生表面模式匹配并损害通用能力，而RLVR受限于高质量多模态数据稀缺。MIFS提出系统性数据合成流程，通过生成约束协议构造多样化原始样本并结合蒸馏扩展RLVR。实验表明该流程可提升多模态指令跟随的可扩展性与表现。这为视觉语言模型训练提供了可复用的数据合成与蒸馏范式。",
+      "llm_tldr": "多模态指令跟随训练依赖监督微调，易产生表面模式匹配并损害通用能力，而RLVR受限于高质量多模态数据稀缺。MIFS提出系统性数据合成流程，通过生成约束协议构造多样化原始样本并结合蒸馏扩展RLVR。实验表明该流程可提升多模态指令跟随的可扩展性与表现。这为视觉语言模型训练提供了可复用的数据合成与蒸馏范式。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2609.12913v1",
+      "source": "arxiv",
+      "title": "Parameter-Efficient Retrievers for Polish and European Languages",
+      "abstract": "Dense retrieval systems increasingly rely on multi-billion-parameter language models, whose memory and computational requirements make large-scale indexing, frequent corpus updates, and low-latency serving costly. We present a three-stage training pipeline for developing compact and efficient retrievers that remain competitive with substantially larger models. The pipeline combines cross-lingual alignment, relational knowledge distillation, and contrastive fine-tuning. It requires no original ground-truth relevance labels, relying exclusively on supervision generated by strong embedding models and rerankers utilised as teachers. Using this pipeline, we develop PolDense and EuroDense, both supporting contexts of up to 8,192 tokens. PolDense is a family of six Polish retrievers ranging from 17M to 1B parameters. EuroDense is a 435M-parameter retriever supporting nine European languages. We conduct an extensive evaluation covering 41 Polish and 150 multilingual retrieval tasks. The results demonstrate strong quality-efficiency trade-offs. PolDense-1B outperforms the evaluated retrievers with up to 9B parameters, while the PolDense family forms the Pareto frontier across model sizes. Among the evaluated models below 1B parameters, EuroDense ranks first in both task-averaged and language-averaged performance and leads in seven of nine languages. We release all models publicly.",
+      "authors": [
+        "Sławomir Dadas",
+        "Rafał Poświata",
+        "Małgorzata Grębowiec",
+        "Michał Perełkiewicz"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-09-11T14:41:26+00:00",
+      "link": "https://arxiv.org/pdf/2609.12913v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "relational knowledge distillation for compact dense retrievers",
+      "llm_evidence_cn": "面向紧凑稠密检索器的关系型知识蒸馏",
+      "llm_evidence": "面向紧凑稠密检索器的关系型知识蒸馏",
+      "canonical_evidence": "面向紧凑稠密检索器的关系型知识蒸馏",
+      "llm_tldr_en": "To cut the memory and latency cost of multi-billion-parameter dense retrievers, this paper builds a three-stage pipeline of cross-lingual alignment, relational knowledge distillation and contrastive fine-tuning, yielding compact PolDense and EuroDense retrievers.",
+      "llm_tldr_cn": "稠密检索系统依赖数十亿参数的语言模型，带来高昂的内存、索引更新与低延迟服务成本。本文提出三阶段训练流程，结合跨语言对齐、关系型知识蒸馏与对比微调，仅以强嵌入模型与重排器作为教师提供监督，无需人工相关性标注。由此得到的 PolDense 与 EuroDense 在保持竞争力的同时支持长达 8192 token 的上下文，为多语言检索提供了紧凑高效的蒸馏方案。",
+      "llm_tldr": "稠密检索系统依赖数十亿参数的语言模型，带来高昂的内存、索引更新与低延迟服务成本。本文提出三阶段训练流程，结合跨语言对齐、关系型知识蒸馏与对比微调，仅以强嵌入模型与重排器作为教师提供监督，无需人工相关性标注。由此得到的 PolDense 与 EuroDense 在保持竞争力的同时支持长达 8192 token 的上下文，为多语言检索提供了紧凑高效的蒸馏方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2609.16255v1",
+      "source": "arxiv",
+      "title": "Efficient Reasoning Distillation: Small Video-Language Models via Synthetic CoT and Difficulty-Aware Fine-Tuning",
+      "abstract": "We present an efficient method to distill reasoning capabilities into compact video-language models (VLMs) for video question answering (VideoQA). Our approach fine-tunes a 2B-parameter model using only $\\sim$900 uncertainty-selected examples, each augmented with synthetic chain-of-thought (CoT) rationales generated by a 4B teacher. Despite its minimal compute cost - under two hours on a single A100 GPU - our method enables the 2B model to outperform VLMs up to 4$\\times$ larger, and generalize across CinePile, ActivityNet-QA, and MLVU, approaching the performance of its own 4B teacher. A key finding is that placing CoT rationales after the answer - contrary to standard prompting - substantially improves reasoning in compact models. This insight challenges prevailing CoT conventions and reveals new alignment strategies under limited model capacity. Our findings offer a practical blueprint for training deployable, reasoning-rich VLMs suited for mobile and edge applications.",
+      "authors": [
+        "Mantek Singh",
+        "Jeshwanth Challagundla",
+        "Siddharth Raina",
+        "Jasmin Jarsania"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "published": "2026-09-14T19:21:06+00:00",
+      "link": "https://arxiv.org/pdf/2609.16255v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "reasoning distillation into compact video-language models with synthetic CoT",
+      "llm_evidence_cn": "将推理能力蒸馏进小型视频语言模型",
+      "llm_evidence": "将推理能力蒸馏进小型视频语言模型",
+      "canonical_evidence": "将推理能力蒸馏进小型视频语言模型",
+      "llm_tldr_en": "Efficient reasoning distillation fine-tunes a 2B video-language model with about 900 uncertainty-selected examples and synthetic CoT from a 4B teacher, outperforming VLMs up to 4x larger.",
+      "llm_tldr_cn": "针对视频问答中大型视觉语言模型推理成本高、数据需求大的问题，本文提出高效推理蒸馏方法。仅用约900个不确定性筛选样本和4B教师生成的合成思维链，微调2B参数视频语言模型。实验表明该2B模型可超越体积达4倍的模型，并在多个基准上逼近教师性能，且发现将思维链置于答案之后能显著提升推理效果。",
+      "llm_tldr": "针对视频问答中大型视觉语言模型推理成本高、数据需求大的问题，本文提出高效推理蒸馏方法。仅用约900个不确定性筛选样本和4B教师生成的合成思维链，微调2B参数视频语言模型。实验表明该2B模型可超越体积达4倍的模型，并在多个基准上逼近教师性能，且发现将思维链置于答案之后能显著提升推理效果。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy distillation technique for vision and language models",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2609.12913v2",
+      "source": "arxiv",
+      "title": "Parameter-Efficient Retrievers for Polish and European Languages",
+      "abstract": "Dense retrieval systems increasingly rely on multi-billion-parameter language models, whose memory and computational requirements make large-scale indexing, frequent corpus updates, and low-latency serving costly. We present a three-stage training pipeline for developing compact and efficient retrievers that remain competitive with substantially larger models. The pipeline combines cross-lingual alignment, relational knowledge distillation, and contrastive fine-tuning. It requires no original ground-truth relevance labels, relying exclusively on supervision generated by strong embedding models and rerankers utilised as teachers. Using this pipeline, we develop PolDense and EuroDense, both supporting contexts of up to 8,192 tokens. PolDense is a family of six Polish retrievers ranging from 17M to 1B parameters. EuroDense is a 435M-parameter retriever supporting nine European languages. We conduct an extensive evaluation covering 41 Polish and 150 multilingual retrieval tasks. The results demonstrate strong quality-efficiency trade-offs. PolDense-1B outperforms the evaluated retrievers with up to 9B parameters, while the PolDense family forms the Pareto frontier across model sizes. Among the evaluated models below 1B parameters, EuroDense ranks first in both task-averaged and language-averaged performance and leads in seven of nine languages. We release all models publicly.",
+      "authors": [
+        "Sławomir Dadas",
+        "Rafał Poświata",
+        "Małgorzata Grębowiec",
+        "Michał Perełkiewicz"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-09-11T14:41:26+00:00",
+      "link": "https://arxiv.org/pdf/2609.12913v2",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "relational knowledge distillation for compact dense retrievers",
+      "llm_evidence_cn": "面向紧凑稠密检索器的关系型知识蒸馏",
+      "llm_evidence": "面向紧凑稠密检索器的关系型知识蒸馏",
+      "canonical_evidence": "面向紧凑稠密检索器的关系型知识蒸馏",
+      "llm_tldr_en": "To cut the memory and latency cost of multi-billion-parameter dense retrievers, this paper builds a three-stage pipeline of cross-lingual alignment, relational knowledge distillation and contrastive fine-tuning, yielding compact PolDense and EuroDense retrievers.",
+      "llm_tldr_cn": "稠密检索系统依赖数十亿参数的语言模型，带来高昂的内存、索引更新与低延迟服务成本。本文提出三阶段训练流程，结合跨语言对齐、关系型知识蒸馏与对比微调，仅以强嵌入模型与重排器作为教师提供监督，无需人工相关性标注。由此得到的 PolDense 与 EuroDense 在保持竞争力的同时支持长达 8192 token 的上下文，为多语言检索提供了紧凑高效的蒸馏方案。",
+      "llm_tldr": "稠密检索系统依赖数十亿参数的语言模型，带来高昂的内存、索引更新与低延迟服务成本。本文提出三阶段训练流程，结合跨语言对齐、关系型知识蒸馏与对比微调，仅以强嵌入模型与重排器作为教师提供监督，无需人工相关性标注。由此得到的 PolDense 与 EuroDense 在保持竞争力的同时支持长达 8192 token 的上下文，为多语言检索提供了紧凑高效的蒸馏方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2609.18057v1",
+      "source": "arxiv",
+      "title": "Anchoring What Matters: A Dual-Level Learning Framework for Visually-Grounded Multimodal Reasoning",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has significantly improved the reasoning capabilities of large vision-language models (LVLMs). However, standard on-policy RLVR algorithms face a critical optimization bottleneck in preserving and reinforcing visually grounded reasoning behaviors: valuable visually-grounded reasoning trajectories are discarded after a single update, while uniform token advantage allocation prevents the model from reinforcing critical perception or reasoning steps. To bridge this gap, we propose PIVOT, a dual-level learning framework that anchors policy optimization around informative visual reasoning signals. Specifically, PIVOT introduces a self-calibrated experience replay mechanism, which selectively collects and replays visually-grounded historical experiences as stable reference anchors for policy optimization. Building upon this, we further design a vision-guided advantage allocation mechanism to allocate additional vision-aware advantages to tokens based on their local visual support and impact on downstream reasoning. Extensive experiments across diverse benchmarks demonstrate that PIVOT achieves highly competitive performance in enhancing the multimodal reasoning capabilities of LVLMs.",
+      "authors": [
+        "Xinxin Song",
+        "Siyuan Li",
+        "Tingxiong Xiao",
+        "Jinli Suo"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-09-16T03:00:32+00:00",
+      "link": "https://arxiv.org/pdf/2609.18057v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "on-policy RLVR learning framework for large vision-language models",
+      "llm_evidence_cn": "面向大型视觉语言模型的在策略RLVR学习框架",
+      "llm_evidence": "面向大型视觉语言模型的在策略RLVR学习框架",
+      "canonical_evidence": "面向大型视觉语言模型的在策略RLVR学习框架",
+      "llm_tldr_en": "PIVOT is a dual-level learning framework with self-calibrated experience replay that anchors on-policy RLVR optimization around visually grounded multimodal reasoning signals.",
+      "llm_tldr_cn": "标准在策略RLVR在保留视觉落地推理行为时存在优化瓶颈，有价值的推理轨迹单次更新即被丢弃且优势分配均匀。PIVOT提出双层学习框架，通过自校准经验回放锚定信息量大的视觉推理信号并细化词元优势。实验表明其在多模态推理任务上更好保持视觉落地能力。这为LVLM的在策略强化学习提供了改进范式。",
+      "llm_tldr": "标准在策略RLVR在保留视觉落地推理行为时存在优化瓶颈，有价值的推理轨迹单次更新即被丢弃且优势分配均匀。PIVOT提出双层学习框架，通过自校准经验回放锚定信息量大的视觉推理信号并细化词元优势。实验表明其在多模态推理任务上更好保持视觉落地能力。这为LVLM的在策略强化学习提供了改进范式。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "on-policy learning in vision language models",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2609.16689v1",
+      "source": "arxiv",
+      "title": "Efficient Quantization-Aware Distillation with Cross-Modal Alignment for Edge Vision-Language Models",
+      "abstract": "Large-scale vision-language models (VLM) such as CLIP enable strong open-vocabulary reasoning, yet deploying these capabilities on resource-constrained edge devices remains challenging. EdgeVL addresses this problem by distilling CLIP representations into lightweight multi-modal encoders and applying quantization-aware training (QAT) for efficient Open-Vocabulary Classification (OVC) on edge hardware. However, its two-stage optimization applies different objectives for distillation and QAT, and contrastive learning is performed within the quantized student space, which can result in inconsistent optimization and reduced training efficiency. Moreover, identical supervision across RGB and non-RGB modalities may lead to modality imbalance. We propose a unified framework for quantized semantic distillation tailored to edge deployment. By jointly optimizing distillation and quantization within a unified teacher-anchored framework, our method ensures consistent training under quantization, suppressing hard negatives and enlarging decision margins. Additionally, we design a lightweight cross-attention adapter that enhances non-RGB representations through RGB-guided semantic transfer, narrowing the modality gap. Extensive experiments demonstrate consistent improvements on non-RGB modalities while maintaining deployment efficiency.",
+      "authors": [
+        "Jinwoo Jeon",
+        "GyuYeop Do",
+        "Yubin Lim",
+        "Nam-Joon Kim",
+        "Hyun Gon Ryu",
+        "Hyuk-Jae Lee",
+        "Byung-Jun Lee"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-09-15T06:12:54+00:00",
+      "link": "https://arxiv.org/pdf/2609.16689v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "quantization-aware distillation for vision-language models",
+      "llm_evidence_cn": "面向视觉语言模型的量化感知蒸馏",
+      "llm_evidence": "面向视觉语言模型的量化感知蒸馏",
+      "canonical_evidence": "面向视觉语言模型的量化感知蒸馏",
+      "llm_tldr_en": "Quantization-aware distillation with cross-modal alignment distills CLIP into lightweight multimodal encoders with QAT, improving consistency and efficiency for edge open-vocabulary classification.",
+      "llm_tldr_cn": "针对大规模视觉语言模型难以部署到资源受限边缘设备的问题，本文提出量化感知蒸馏与跨模态对齐方法。该方法将CLIP表征蒸馏进轻量多模态编码器，并结合量化感知训练，缓解两阶段优化目标不一致以及RGB与非RGB模态监督相同导致的模态偏差。实验在边缘硬件上实现高效的开放词汇分类，验证了该蒸馏部署方案的有效性。",
+      "llm_tldr": "针对大规模视觉语言模型难以部署到资源受限边缘设备的问题，本文提出量化感知蒸馏与跨模态对齐方法。该方法将CLIP表征蒸馏进轻量多模态编码器，并结合量化感知训练，缓解两阶段优化目标不一致以及RGB与非RGB模态监督相同导致的模态偏差。实验在边缘硬件上实现高效的开放词汇分类，验证了该蒸馏部署方案的有效性。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
