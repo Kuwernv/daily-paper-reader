@@ -1,0 +1,139 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-09-18T21:14:44.754287+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 2,
+    "deep_cap": 6,
+    "deep_selected": 2,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [
+    {
+      "id": "2609.20612v1",
+      "source": "arxiv",
+      "title": "What Does Privileged Information Add to On-Policy Self-Distillation?",
+      "abstract": "On-policy self-distillation (OPSD) lets a language model learn from a frozen copy of itself that sees an answer or a worked solution. Giving the teacher this extra information seems to offer the student more to learn, but how much does it add beyond distillation itself? To isolate that contribution, we construct AMPLE-Math, a reusable suite of 5,319 mathematical problems with six reasoning views that share the same answer, and compare each view with matched reference-free distillation. With a thinking-enabled teacher supervising direct-response rollouts, reference-free distillation accounts for much of Qwen3-1.7B's improvement under thinking-enabled evaluation, both in domain and on external benchmarks. Evidence for an additional reference benefit is modest in Qwen, strongest for a polished solution, whereas complete traces add two percentage points in SmolLM3-3B at step 50. These benefits depend on the student being trained. At the same checkpoint, replacing short direct-response rollouts with long thinking-enabled rollouts turns gains into losses in both families while the problems, references, and evaluation stay fixed. Teacher profiles and matched loss interventions in Qwen further show that changing token-level supervision can leave student behavior largely unchanged. Together, these findings suggest that OPSD can improve access to existing reasoning capabilities through parameters shared by direct-response and thinking-enabled inference. The value of a privileged reference is what it adds to this cross-mode transfer, not how much of the solution it reveals.",
+      "authors": [
+        "XiuYu Zhang",
+        "Wei Chow",
+        "Junfeng Fang",
+        "Zhenkai Liang",
+        "Tat-Seng Chua"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-09-17T15:57:10+00:00",
+      "link": "https://arxiv.org/pdf/2609.20612v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "On-policy self-distillation for language model improvement",
+      "llm_evidence_cn": "面向语言模型改进的同策略自蒸馏",
+      "llm_evidence": "面向语言模型改进的同策略自蒸馏",
+      "canonical_evidence": "面向语言模型改进的同策略自蒸馏",
+      "llm_tldr_en": "Using the AMPLE-Math suite of 5319 problems and six reasoning views, the study shows reference-free on-policy self-distillation explains most of Qwen3-1.7B's gains, with limited extra benefit from privileged information.",
+      "llm_tldr_cn": "同策略自蒸馏让语言模型从看到答案或解答的自身冻结副本中学习，但教师所携带的特权信息究竟贡献多少并不清楚。本文构建AMPLE-Math，包含5319道数学题及六种共享同一答案的推理视角，并将各视角与无参考蒸馏严格对照。在Qwen3-1.7B上，无参考蒸馏已能解释思考式评测下的多数提升，特权信息的额外收益有限，说明自蒸馏增益主要来自蒸馏过程本身，为方法设计提供了重要参照。",
+      "llm_tldr": "同策略自蒸馏让语言模型从看到答案或解答的自身冻结副本中学习，但教师所携带的特权信息究竟贡献多少并不清楚。本文构建AMPLE-Math，包含5319道数学题及六种共享同一答案的推理视角，并将各视角与无参考蒸馏严格对照。在Qwen3-1.7B上，无参考蒸馏已能解释思考式评测下的多数提升，特权信息的额外收益有限，说明自蒸馏增益主要来自蒸馏过程本身，为方法设计提供了重要参照。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Improving language model via on policy distillation",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.20784v1",
+      "source": "arxiv",
+      "title": "RetireOPD: Self-Retiring On-Policy Distillation for Agentic Reinforcement Learning",
+      "abstract": "Multi-turn agents trained with reinforcement learning (RL) receive a single scalar reward per trajectory, which motivates self on-policy distillation (OPD) to supply dense token-level supervision from a self-teacher with privileged task skills, letting a skill-free student internalize them. This recipe, however, is undermined by two findings in agentic tasks: privileged information alone does not always make a teacher reliable, and the benefit of teacher supervision is stage-dependent. We therefore propose RetireOPD (Self-Retiring On-Policy Distillation), which first optimizes a decoupled, skill-conditioned teacher with environment rewards and then trains a skill-free student jointly with RL and OPD. Rather than following a predefined distillation schedule, RetireOPD adopts Adaptive Retirement: the student drops the teacher on its own once their discrepancy stops shrinking and it reaches a target fraction of the teacher's success rate, after which training proceeds with RL alone. Across Qwen2.5 models from 1.5B to 7B, RetireOPD improves ALFWorld success rate over RL baseline by 14.1% to 18.8% and WebShop accuracy by 11.8% to 19.0%, and surpasses its own skill-conditioned teacher in every setting.",
+      "authors": [
+        "Yan Yu",
+        "Zhengxi Lu",
+        "Yizhou Liu",
+        "Yichen Pan",
+        "Aozhe Wang",
+        "Qipeng Chen",
+        "Hua Yang",
+        "Wenqi Zhang",
+        "Weiming Lu",
+        "Qianglong Chen",
+        "Yongliang Shen"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "published": "2026-09-17T17:52:08+00:00",
+      "link": "https://arxiv.org/pdf/2609.20784v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "self on-policy distillation combined with RL for LLM agents",
+      "llm_evidence_cn": "智能体强化学习中的自在线策略蒸馏",
+      "llm_evidence": "智能体强化学习中的自在线策略蒸馏",
+      "canonical_evidence": "智能体强化学习中的自在线策略蒸馏",
+      "llm_tldr_en": "Multi-turn agents trained with RL get only trajectory-level scalar rewards, so self on-policy distillation provides dense token supervision. RetireOPD trains a skill-conditioned teacher with environment rewards, then jointly trains a skill-free student with RL and OPD, retiring supervision when it stops helping.",
+      "llm_tldr_cn": "多轮智能体经强化学习训练时仅获得轨迹级标量奖励，因此可用自在线策略蒸馏从具备特权技能的自教师提供稠密的词元级监督。然而在智能体任务中，特权信息并不总能保证教师可靠，且教师监督的收益随训练阶段变化。本文提出RetireOPD，先用环境奖励优化解耦的技能条件教师，再以强化学习与在线策略蒸馏联合训练无技能学生，并在监督失效时将其退役。该方法稳定了教师监督并提升了学生能力，为智能体强化学习中的在线策略蒸馏提供了新范式。",
+      "llm_tldr": "多轮智能体经强化学习训练时仅获得轨迹级标量奖励，因此可用自在线策略蒸馏从具备特权技能的自教师提供稠密的词元级监督。然而在智能体任务中，特权信息并不总能保证教师可靠，且教师监督的收益随训练阶段变化。本文提出RetireOPD，先用环境奖励优化解耦的技能条件教师，再以强化学习与在线策略蒸馏联合训练无技能学生，并在监督失效时将其退役。该方法稳定了教师监督并提升了学生能力，为智能体强化学习中的在线策略蒸馏提供了新范式。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Knowledge distillation techniques in reinforcement learning for LLMs",
+      "matched_requirement_id": "req-7",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2609.19745v1",
+      "source": "arxiv",
+      "title": "Region-Level Policy Optimization for Fine-grained MLLM Perception",
+      "abstract": "Fine-grained visual perception in MLLMs is commonly improved by raising the resolution, but the added visual tokens inflate vision-encoding and language-model prefilling costs. We show that the two operations underlying fine-grained perception, localizing the region of interest (RoI) and recognizing its content, have different resolution requirements. In a controlled diagnostic, localization tolerates roughly 3 to 4 times stronger token compression than recognition, which motivates localizing from a coarse view and concentrating resolution on the selected evidence. Decoding coordinates with the MLLM can be trained end-to-end from answers, but costs a full model pass per query and depends on grounding ability. A lightweight proposal network distilled from the model's attention is fast, but inherits the noise of its attention targets. The RoI from the proposal network reaches the answer through a discrete region choice, so its faithfulness to the answer cannot supervise the network. We therefore optimize the proposal network with region-level reinforcement learning, which we call Vision-RL2. It treats coherent regions as actions, and a frozen MLLM reader scores each one by how its removal changes the answer likelihood. Complementary subtractive and additive objectives suppress distracting proposals and recover missing evidence, updating only the predictor without region annotations, response sampling, or reasoning trajectories. The refined proposal further enables a sparse encoding that magnifies evidence and excludes background tokens. Across six fine-grained benchmarks and four MLLM backbones, Vision-RL2 improves accuracy over the base model at every token budget and surpasses its largest-budget accuracy with about 4 times fewer visual tokens. Code is available at https://github.com/YuHengsss/VisionRL2 .",
+      "authors": [
+        "Yuheng Shi",
+        "Xiaohuan Pei",
+        "Minjing Dong",
+        "Chang Xu"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-09-17T06:10:34+00:00",
+      "link": "https://arxiv.org/pdf/2609.19745v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "MLLM region-level policy optimization with distilled proposal network",
+      "llm_evidence_cn": "多模态大模型区域级策略优化并蒸馏轻量提议网络",
+      "llm_evidence": "多模态大模型区域级策略优化并蒸馏轻量提议网络",
+      "canonical_evidence": "多模态大模型区域级策略优化并蒸馏轻量提议网络",
+      "llm_tldr_en": "This paper shows localization tolerates stronger token compression than recognition, and uses a lightweight proposal network distilled from the MLLM to localize coarse RoIs while cutting vision-encoding and prefilling cost.",
+      "llm_tldr_cn": "多模态大模型常靠提高分辨率改善细粒度视觉感知，但视觉词元增加会显著抬升视觉编码与语言模型预填充开销。本文发现定位感兴趣区域与识别其内容对分辨率需求不同，定位可承受约3到4倍更强的词元压缩，于是提出从粗视图定位、再将分辨率集中于所选证据，并用从大模型蒸馏的轻量提议网络替代昂贵的端到端坐标解码。实验表明该方法在降低开销的同时保持细粒度感知性能，为高效多模态视觉感知提供了新思路。",
+      "llm_tldr": "多模态大模型常靠提高分辨率改善细粒度视觉感知，但视觉词元增加会显著抬升视觉编码与语言模型预填充开销。本文发现定位感兴趣区域与识别其内容对分辨率需求不同，定位可承受约3到4倍更强的词元压缩，于是提出从粗视图定位、再将分辨率集中于所选证据，并用从大模型蒸馏的轻量提议网络替代昂贵的端到端坐标解码。实验表明该方法在降低开销的同时保持细粒度感知性能，为高效多模态视觉感知提供了新思路。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
