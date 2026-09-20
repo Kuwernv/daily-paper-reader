@@ -1,0 +1,39 @@
+{
+  "label": "2026-09-20",
+  "date": "2026-09-20",
+  "generated_at": "2026-09-20T21:42:04",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202609/20/2609.14708v1-lightning-weave-improving-the-accuracy-efficiency-frontier-of-reasoning-models-through-capability-composition",
+      "section": "deep",
+      "title_en": "Lightning Weave: Improving the Accuracy-Efficiency Frontier of Reasoning Models through Capability Composition",
+      "authors": "Yecheng Wu, Song Han, Han Cai",
+      "date": "2026-09-13",
+      "pdf": "https://arxiv.org/pdf/2609.14708v1",
+      "score": "9.0",
+      "evidence": "通过对策蒸馏将能力组合进学生大模型",
+      "tldr": "高效推理的核心目标是提升准确率-效率前沿，但准确率与效率往往偏好不同的推理行为，难以同时优化；独立后训练得到的模型则分别擅长准确率或效率。Lightning Weave 通过在线策略蒸馏，将这些独立学到的能力提取并组合到单一学生模型中，并利用对齐的对数比率策略偏移与 Tilted-Target DOPD 构造稳定学习目标。在 Qwen3.5-4B 上，HMMT 2025 准确率从 59.2% 提升到 64.0%，响应 token 减少 10.7%；LiveCodeBench v5 从 41.7% 提升到 54.2%，token 减少 9.6%。该方法在数学与代码任务上达到新的准确率-效率前沿，为高效推理提供了通过能力组合实现的新实用路线。",
+      "tags": "query:distillation",
+      "abstract_en": "A core goal of efficient reasoning is to improve the accuracy-efficiency frontier. However, jointly improving reasoning accuracy and inference efficiency can be challenging, as the two objectives can favor different reasoning behaviors. Independently post-trained models already offer distinct strengths in accuracy and efficiency. We introduce Lightning Weave, a post-training framework that extracts and composes these independently learned capabilities in a single student through on-policy distillation. Each acquired capability is represented by the policy shift from the model before post-training to the resulting specialist. Lightning Weave combines aligned log-ratio shifts at shared student token states and uses Tilted-Target DOPD to convert the cached signals into a stable learning target. Each anchor pair scores the cached trajectories once, enabling subsequent student training without serving multiple live anchor models concurrently. Across diverse student models and benchmarks in mathematics and code, Lightning Weave substantially improves upon the base students and achieves a state-of-the-art accuracy-efficiency frontier. On Qwen3.5-4B, it raises HMMT 2025 accuracy from 59.2% to 64.0% with 10.7% fewer response tokens, and LiveCodeBench v5 accuracy from 41.7% to 54.2% with 9.6% fewer response tokens. Adjusting the relative strengths of the anchor signals yields a strong empirical accuracy-efficiency Pareto frontier. These results establish Lightning Weave as a new practical route to efficient reasoning through capability composition. Code will be released soon.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202609/20/2609.20791v1-stageguard-learning-stage-transitions-for-long-horizon-robot-tasks-via-agentic-distillation",
+      "section": "quick",
+      "title_en": "StageGuard: Learning Stage Transitions for Long-Horizon Robot Tasks via Agentic Distillation",
+      "authors": "Jinbang Huang, Yuanzhao Hu, Zhiyuan Li, Ran Qi, Yixin Xiao, Yangzheng Wu, Tengyue Ba, Zhanguang Zhang, Yingxue Zhang",
+      "date": "2026-09-17",
+      "pdf": "https://arxiv.org/pdf/2609.20791v1",
+      "score": "6.0",
+      "evidence": "利用视觉语言模型的智能体蒸馏框架",
+      "tldr": "长时程机器人任务依赖分层规划，但现有方法需预设计完成信号检查器，真实场景难以获取；大型VLM推理能力强，却与任务完成标准不对齐，云端部署和长推理延迟高。StageGuard提出智能体蒸馏框架，结合教师模型推理与演示轨迹生成结构化解释，让轻量学生VLM生成紧凑自解释并监督微调，从而无需人工检查器。在多个基准的阶段转换预测上大幅提升，并在BEHAVIOR-1K与真实机器人闭环控制中验证，支持高效在线监控。",
+      "tags": "query:distillation",
+      "abstract_en": "Hierarchical planning frameworks combine skills from multiple robot control policies for long-horizon task execution, where determining when to terminate the current skill and advance to the next subtask is essential. Existing approaches often rely on pre-designed completion signal checkers that are hard to obtain in real-world execution. Large-scale vision-language models (VLMs) offer strong reasoning capabilities, but their decision boundaries are not inherently aligned with task completion criteria, while cloud deployment and lengthy reasoning introduce substantial latency, limiting real-time monitoring. We propose StageGuard, an agentic distillation framework for accurate and efficient stage-transition decisions. StageGuard combines teacher-model reasoning with demonstration trajectories to generate structured explanations of subtask completion and policy switching. A lightweight student VLM uses these explanations to generate compact self-explanations, which are used for supervised fine-tuning. We evaluate stage-transition prediction on trajectories from two benchmarks and assess closed-loop task success through integration into hierarchical robot control on BEHAVIOR-1K, with further validation on real robots. Results show substantial improvements in stage-transition prediction while supporting efficient online monitoring.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
