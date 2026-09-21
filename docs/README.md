@@ -6,26 +6,41 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-09-20
-- 运行时间：2026-09-20 21:42:01 UTC
+- 最新运行日期：2026-09-21
+- 运行时间：2026-09-21 22:30:17 UTC
 - 运行状态：成功
-- 本次总论文数：2
-- 精读区：1
-- 速读区：1
+- 本次总论文数：7
+- 精读区：4
+- 速读区：3
 
 ### 今日简报（AI）
-今日精读1篇、速读1篇，聚焦推理模型效率与长程机器人任务。最值得看的是9.0分的《Lightning Weave》，用能力组合改进推理模型的精度-效率前沿。普通读者可优先了解这篇的效率思路，再按兴趣速览StageGuard的分阶段学习方案。
-- 详情：[/202609/20/README](/202609/20/README)
+今天精读4篇、速读3篇，蒸馏研究成绝对主线，两篇高分论文拿下精读席位。最值得看的是《Calibrating Teacher-Student Discrepancy for On-Policy Distillation》以满分领跑，以及9分的《What Does Privileged Information Add to On-Policy Self-Distillation?》，都聚焦师生差异与特权信息如何影响在线蒸馏。普通读者可优先读这两篇精读，速读里的智能体蒸馏与VLA适配论文按兴趣补充即可。
+- 详情：[/202609/21/README](/202609/21/README)
 
 ### 精读区论文标签
-1. [Lightning Weave: Improving the Accuracy-Efficiency Frontier of Reasoning Models through Capability Composition](/202609/20/2609.14708v1-lightning-weave-improving-the-accuracy-efficiency-frontier-of-reasoning-models-through-capability-composition)  
+1. [Calibrating Teacher--Student Discrepancy for On-Policy Distillation](/202609/21/2609.21619v1-calibrating-teacher--student-discrepancy-for-on-policy-distillation)  
+   标签：评分：10.0/10、query:distillation
+   evidence：面向推理模型的校准在线策略蒸馏
+2. [What Does Privileged Information Add to On-Policy Self-Distillation?](/202609/21/2609.20612v2-what-does-privileged-information-add-to-on-policy-self-distillation)  
    标签：评分：9.0/10、query:distillation
-   evidence：通过对策蒸馏将能力组合进学生大模型
+   evidence：面向语言模型的在策略自蒸馏
+3. [GVPO++: Group Variance Policy Optimization for LLM Post-Training and On-Policy Distillation](/202609/21/2609.21432v1-gvpo-group-variance-policy-optimization-for-llm-post-training-and-on-policy-distillation)  
+   标签：评分：9.0/10、query:distillation
+   evidence：面向LLM后训练与在线策略蒸馏的组方差策略优化
+4. [On Repulsive and Attractive Teachers: Separating Correctness from Behavior in Self-Distillation](/202609/21/2609.21561v1-on-repulsive-and-attractive-teachers-separating-correctness-from-behavior-in-self-distillation)  
+   标签：评分：9.0/10、query:distillation
+   evidence：区分正确性与行为的在线策略自蒸馏
 
 ### 速读区论文标签
-1. [StageGuard: Learning Stage Transitions for Long-Horizon Robot Tasks via Agentic Distillation](/202609/20/2609.20791v1-stageguard-learning-stage-transitions-for-long-horizon-robot-tasks-via-agentic-distillation)  
+1. [Distilling Foundation Models for Agentic What-If Reasoning:Cost, Latency, and Governance in a Hybrid LLM+SLM Architecture](/202609/21/2609.16091v1-distilling-foundation-models-for-agentic-what-if-reasoningcost-latency-and-governance-in-a-hybrid-llmslm-architecture)  
    标签：评分：6.0/10、query:distillation
-   evidence：利用视觉语言模型的智能体蒸馏框架
+   evidence：大模型蒸馏为紧凑学生模型
+2. [StageGuard: Learning Stage Transitions for Long-Horizon Robot Tasks via Agentic Distillation](/202609/21/2609.20791v1-stageguard-learning-stage-transitions-for-long-horizon-robot-tasks-via-agentic-distillation)  
+   标签：评分：6.0/10、query:distillation
+   evidence：对VLM做智能体蒸馏以判断阶段转换
+3. [SynthDemo-RL: Breaking the Zero-Reward Barrier in VLA Adaptation with LLM-Guided Synthetic Demonstrations](/202609/21/2609.21650v1-synthdemo-rl-breaking-the-zero-reward-barrier-in-vla-adaptation-with-llm-guided-synthetic-demonstrations)  
+   标签：评分：6.0/10、query:distillation
+   evidence：师生蒸馏后接PPO强化学习
 
 
 <div class="dpr-home-promo-card">

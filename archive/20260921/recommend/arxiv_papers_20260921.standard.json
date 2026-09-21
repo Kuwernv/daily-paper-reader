@@ -1,0 +1,294 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-09-21T22:25:58.634711+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 4,
+    "deep_cap": 6,
+    "deep_selected": 4,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [
+    {
+      "id": "2609.21619v1",
+      "source": "arxiv",
+      "title": "Calibrating Teacher--Student Discrepancy for On-Policy Distillation",
+      "abstract": "On-policy distillation (OPD) improves reasoning models by learning the token-level discrepancy between a stronger teacher and an on-policy student. However, this discrepancy does not purely reflect the capability gap between the teacher and the student: it also contains deviations arising from the teacher itself, which are consequently mixed into the observed teacher--student discrepancy and indiscriminately learned by standard OPD during training. This issue is further exacerbated by privileged OPD, where privileged information induces larger teacher-side likelihood shifts, thereby encouraging the student to learn more of the teacher's own deviation. We introduce \\textbf{Calibrated On-Policy Distillation (Cal-OPD)}, which estimates the teacher's self-deviation region through positive and negative privileged interventions and calibrates the original teacher--student discrepancy by retaining only the component that lies beyond this region. Experiments on mathematical reasoning benchmarks show that, while retaining only about 52--65\\% of the original teacher--student discrepancy as the optimization signal, Cal-OPD consistently outperforms standard OPD and its variants across model scales.",
+      "authors": [
+        "Qiangqiang He",
+        "Jin Li",
+        "MingCai Chen"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-09-18T11:00:44+00:00",
+      "link": "https://arxiv.org/pdf/2609.21619v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 10.0,
+      "llm_evidence_en": "calibrated on-policy distillation for reasoning models",
+      "llm_evidence_cn": "面向推理模型的校准在线策略蒸馏",
+      "llm_evidence": "面向推理模型的校准在线策略蒸馏",
+      "canonical_evidence": "面向推理模型的校准在线策略蒸馏",
+      "llm_tldr_en": "Standard on-policy distillation indiscriminately learns teacher-student token-level discrepancy that also contains the teacher's own deviations, worsened by privileged information; Cal-OPD estimates teacher self-deviation to calibrate the distillation signal.",
+      "llm_tldr_cn": "在线策略蒸馏通过让学生学习师生逐词差异来提升推理模型，但该差异中混入了教师自身的偏差，特权信息还会进一步放大这一问题。作者提出校准在线策略蒸馏Cal-OPD，估计教师自偏差并据此校准师生差异后再进行训练。该工作澄清了在线蒸馏监督信号的构成，为更准确的语言模型蒸馏目标提供了改进方向。",
+      "llm_tldr": "在线策略蒸馏通过让学生学习师生逐词差异来提升推理模型，但该差异中混入了教师自身的偏差，特权信息还会进一步放大这一问题。作者提出校准在线策略蒸馏Cal-OPD，估计教师自偏差并据此校准师生差异后再进行训练。该工作澄清了在线蒸馏监督信号的构成，为更准确的语言模型蒸馏目标提供了改进方向。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "Improving language model via on policy distillation",
+      "matched_requirement_id": "req-8",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.20612v2",
+      "source": "arxiv",
+      "title": "What Does Privileged Information Add to On-Policy Self-Distillation?",
+      "abstract": "On-policy self-distillation (OPSD) lets a language model learn from a frozen copy of itself that sees an answer or a worked solution. Giving the teacher this extra information seems to offer the student more to learn, but how much does it add beyond distillation itself? To isolate that contribution, we construct AMPLE-Math, a reusable suite of 5,319 mathematical problems with six reasoning views that share the same answer, and compare each view with matched reference-free distillation. With a thinking-enabled teacher supervising direct-response rollouts, reference-free distillation accounts for much of Qwen3-1.7B's improvement under thinking-enabled evaluation, both in domain and on external benchmarks. Evidence for an additional reference benefit is modest in Qwen, strongest for a polished solution, whereas complete traces add two percentage points in SmolLM3-3B at step 50. These benefits depend on the student being trained. At the same checkpoint, replacing short direct-response rollouts with long thinking-enabled rollouts turns gains into losses in both families while the problems, references, and evaluation stay fixed. Teacher profiles and matched loss interventions in Qwen further show that changing token-level supervision can leave student behavior largely unchanged. Together, these findings suggest that OPSD can improve access to existing reasoning capabilities through parameters shared by direct-response and thinking-enabled inference. The value of a privileged reference is what it adds to this cross-mode transfer, not how much of the solution it reveals.",
+      "authors": [
+        "XiuYu Zhang",
+        "Wei Chow",
+        "Junfeng Fang",
+        "Xingyu Zhu",
+        "Zhenkai Liang",
+        "Tat-Seng Chua"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-09-17T15:57:10+00:00",
+      "link": "https://arxiv.org/pdf/2609.20612v2",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy self-distillation for language models",
+      "llm_evidence_cn": "面向语言模型的在策略自蒸馏",
+      "llm_evidence": "面向语言模型的在策略自蒸馏",
+      "canonical_evidence": "面向语言模型的在策略自蒸馏",
+      "llm_tldr_en": "The paper isolates how much privileged information adds to on-policy self-distillation by building AMPLE-Math with six reasoning views, finding reference-free distillation explains most of Qwen3-1.7B's gains.",
+      "llm_tldr_cn": "在策略自蒸馏让语言模型从能看到答案或解题过程的自身副本中学习，但特权信息究竟带来多少额外收益尚不清楚。本文构建 AMPLE-Math 基准，包含 5,319 道数学题与六种共享答案的推理视角，并将各视角与无参考蒸馏进行对照比较。实验显示，在思维型教师监督直接回答轨迹时，无参考蒸馏已能解释 Qwen3-1.7B 的大部分提升。该工作澄清了特权信息与蒸馏本身各自的贡献。",
+      "llm_tldr": "在策略自蒸馏让语言模型从能看到答案或解题过程的自身副本中学习，但特权信息究竟带来多少额外收益尚不清楚。本文构建 AMPLE-Math 基准，包含 5,319 道数学题与六种共享答案的推理视角，并将各视角与无参考蒸馏进行对照比较。实验显示，在思维型教师监督直接回答轨迹时，无参考蒸馏已能解释 Qwen3-1.7B 的大部分提升。该工作澄清了特权信息与蒸馏本身各自的贡献。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.21432v1",
+      "source": "arxiv",
+      "title": "GVPO++: Group Variance Policy Optimization for LLM Post-Training and On-Policy Distillation",
+      "abstract": "Post-training plays a pivotal role in enhancing the reasoning capabilities and task-specific expertise of large language models (LLMs). Despite recent advances in post-training methods, such as Group Relative Policy Optimization (GRPO), their practical deployment remains impeded by training instability arising from the reliance on importance sampling.   We introduce Group Variance Policy Optimization (GVPO), a novel post-training method that integrates the analytical solution of KL-constrained reward maximization into its gradient weighting scheme. This formulation provides an intuitive interpretation: GVPO's gradient corresponds to the mean squared error between the central distance of implicit rewards and that of actual rewards. GVPO offers two key advantages: (1) it guarantees a unique optimal solution, exactly to the KL-constrained reward maximization objective, and (2) it enables flexible sampling distributions without requiring importance sampling.   Beyond general post-training, we show that GVPO naturally extends to on-policy distillation (OPD). Furthermore, GVPO enables the optimization of a broad family of extended OPD objectives, providing a principled foundation for diverse objective design. By unifying theoretical guarantees with practical adaptability, GVPO establishes a new paradigm for reliable and versatile LLM post-training and on-policy distillation.",
+      "authors": [
+        "Kaichen Zhang",
+        "Yuzhong Hong",
+        "Junwei Bao",
+        "Hongfei Jiang",
+        "Yang Song",
+        "Dingqian Hong",
+        "Hui Xiong"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-09-18T07:44:54+00:00",
+      "link": "https://arxiv.org/pdf/2609.21432v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "On-policy distillation and post-training for LLMs via Group Variance Policy Optimization",
+      "llm_evidence_cn": "面向LLM后训练与在线策略蒸馏的组方差策略优化",
+      "llm_evidence": "面向LLM后训练与在线策略蒸馏的组方差策略优化",
+      "canonical_evidence": "面向LLM后训练与在线策略蒸馏的组方差策略优化",
+      "llm_tldr_en": "GVPO++ targets training instability in LLM post-training caused by importance sampling, integrating the analytic KL-constrained reward solution into gradient weighting and extending to on-policy distillation.",
+      "llm_tldr_cn": "大模型后训练对提升推理能力至关重要，但GRPO等方法因依赖重要性采样而训练不稳定，阻碍实际部署。作者提出组方差策略优化GVPO，将KL约束奖励最大化的解析解融入梯度加权，并扩展到在线策略蒸馏场景。该方法给出直观解释并缓解训练不稳定问题，为LLM后训练与在线蒸馏提供统一稳定的优化框架。",
+      "llm_tldr": "大模型后训练对提升推理能力至关重要，但GRPO等方法因依赖重要性采样而训练不稳定，阻碍实际部署。作者提出组方差策略优化GVPO，将KL约束奖励最大化的解析解融入梯度加权，并扩展到在线策略蒸馏场景。该方法给出直观解释并缓解训练不稳定问题，为LLM后训练与在线蒸馏提供统一稳定的优化框架。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.21561v1",
+      "source": "arxiv",
+      "title": "On Repulsive and Attractive Teachers: Separating Correctness from Behavior in Self-Distillation",
+      "abstract": "On-policy self-distillation provides dense, token-level supervision by conditioning a model on privileged information and distilling the resulting teacher distribution back into the model. However, privileged information can change not only what the teacher knows, but also how it behaves, entangling correctness-relevant learning signals with unintended behavioral shifts. We study this effect in reasoning tasks by contrasting attractive self-distillation, which moves the model toward a privileged teacher, with repulsive self-distillation, which moves it away from a privileged teacher. We find that both objectives can induce strong and opposing behavioral shifts: attraction suppresses exploratory reasoning and promotes shorter, more confident responses, whereas repulsion increases response length, can trigger unintended switches into a model's latent thinking mode, and ultimately becomes unstable. Motivated by these observations, we study contrastive self-distillation, which combines attraction toward a correct-solution-conditioned teacher with repulsion from an incorrect-solution-conditioned teacher. In contrast to prior work that combines such distillation signals with a GRPO objective, we isolate the self-distillation objective and study its behavior on its own. We find that the shared behavioral shifts of the two teachers largely cancel, leaving a token-level signal that more directly reflects correctness. Across non-thinking, instruct-only, and already-thinking models, this contrastive objective improves reasoning performance while maintaining stable response lengths.",
+      "authors": [
+        "Anton Baumann",
+        "Akmal Ashirmatov",
+        "Leo Schmidt-Traub",
+        "Frederike Lübeck",
+        "Jonas Hübotter",
+        "Thomas Kleine Buening",
+        "Andreas Krause"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-09-18T09:51:36+00:00",
+      "link": "https://arxiv.org/pdf/2609.21561v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy self-distillation separating correctness from behavior",
+      "llm_evidence_cn": "区分正确性与行为的在线策略自蒸馏",
+      "llm_evidence": "区分正确性与行为的在线策略自蒸馏",
+      "canonical_evidence": "区分正确性与行为的在线策略自蒸馏",
+      "llm_tldr_en": "On-policy self-distillation gives dense token-level supervision but privileged information can entangle correctness signals with unintended behavioral shifts. The paper contrasts attractive and repulsive self-distillation, finding both induce strong opposing behavioral shifts such as suppressed exploration and shorter reasoning.",
+      "llm_tldr_cn": "在线策略自蒸馏通过让模型在特权信息下生成教师分布并回传，提供密集的token级监督。然而特权信息不仅改变教师所知，也会改变其行为方式，把与正确性相关的学习信号与意外的行为偏移纠缠在一起。本文在推理任务上对比吸引式与排斥式自蒸馏，发现二者都会引发强烈且相反的行为偏移，例如吸引式会抑制探索性推理并产生更短的输出。该研究揭示了自蒸馏中正确性与行为的分离问题，为设计更可控的蒸馏目标提供依据。",
+      "llm_tldr": "在线策略自蒸馏通过让模型在特权信息下生成教师分布并回传，提供密集的token级监督。然而特权信息不仅改变教师所知，也会改变其行为方式，把与正确性相关的学习信号与意外的行为偏移纠缠在一起。本文在推理任务上对比吸引式与排斥式自蒸馏，发现二者都会引发强烈且相反的行为偏移，例如吸引式会抑制探索性推理并产生更短的输出。该研究揭示了自蒸馏中正确性与行为的分离问题，为设计更可控的蒸馏目标提供依据。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2609.16091v1",
+      "source": "arxiv",
+      "title": "Distilling Foundation Models for Agentic What-If Reasoning:Cost, Latency, and Governance in a Hybrid LLM+SLM Architecture",
+      "abstract": "Tabular foundation models deliver strong zero-training predictive performance via in-context learning, but their high inference latency makes them impractical as hot-path decision backends in interactive agentic loops. We distill a TabPFN teacher into a compact feed-forward student across a business-decision simulation on UCI Adult and five OpenML benchmarks: the classification head compresses 53.2M parameters to 8,546 (6,220x); the deployed two-head loan pipeline compresses 111.4M parameters to 17,059 (6,532x). The student retains 95.4-100.5% accuracy and 96.8-100.0% AUC, with the lowest accuracy retention on credit-g at 95.4%; an alpha = 0 hard-label control shows that the teacher's soft targets provide a 2.1-7.0 AUC point gain.",
+      "authors": [
+        "Sourish Dey",
+        "Aditya Kumar"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-09-14T11:26:21+00:00",
+      "link": "https://arxiv.org/pdf/2609.16091v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "distilling foundation models into compact students",
+      "llm_evidence_cn": "大模型蒸馏为紧凑学生模型",
+      "llm_evidence": "大模型蒸馏为紧凑学生模型",
+      "canonical_evidence": "大模型蒸馏为紧凑学生模型",
+      "llm_tldr_en": "Tabular foundation models are too slow for hot-path agentic decisions; distilling a TabPFN teacher into a compact feed-forward student cuts parameters thousands-fold while retaining 95%+ accuracy and near-perfect AUC.",
+      "llm_tldr_cn": "表格基础模型凭借上下文学习具备强零训练预测能力，但推理延迟高，难以作为交互式智能体中的热路径决策后端。论文将TabPFN教师模型蒸馏为紧凑前馈学生模型，在UCI Adult与五个OpenML基准的业务决策模拟上评估。结果显示分类头参数压缩逾六千倍，学生模型仍保留95%以上准确率与近满的AUC，表明蒸馏可在控制成本与延迟的同时维持预测质量。",
+      "llm_tldr": "表格基础模型凭借上下文学习具备强零训练预测能力，但推理延迟高，难以作为交互式智能体中的热路径决策后端。论文将TabPFN教师模型蒸馏为紧凑前馈学生模型，在UCI Adult与五个OpenML基准的业务决策模拟上评估。结果显示分类头参数压缩逾六千倍，学生模型仍保留95%以上准确率与近满的AUC，表明蒸馏可在控制成本与延迟的同时维持预测质量。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2609.20791v1",
+      "source": "arxiv",
+      "title": "StageGuard: Learning Stage Transitions for Long-Horizon Robot Tasks via Agentic Distillation",
+      "abstract": "Hierarchical planning frameworks combine skills from multiple robot control policies for long-horizon task execution, where determining when to terminate the current skill and advance to the next subtask is essential. Existing approaches often rely on pre-designed completion signal checkers that are hard to obtain in real-world execution. Large-scale vision-language models (VLMs) offer strong reasoning capabilities, but their decision boundaries are not inherently aligned with task completion criteria, while cloud deployment and lengthy reasoning introduce substantial latency, limiting real-time monitoring. We propose StageGuard, an agentic distillation framework for accurate and efficient stage-transition decisions. StageGuard combines teacher-model reasoning with demonstration trajectories to generate structured explanations of subtask completion and policy switching. A lightweight student VLM uses these explanations to generate compact self-explanations, which are used for supervised fine-tuning. We evaluate stage-transition prediction on trajectories from two benchmarks and assess closed-loop task success through integration into hierarchical robot control on BEHAVIOR-1K, with further validation on real robots. Results show substantial improvements in stage-transition prediction while supporting efficient online monitoring.",
+      "authors": [
+        "Jinbang Huang",
+        "Yuanzhao Hu",
+        "Zhiyuan Li",
+        "Ran Qi",
+        "Yixin Xiao",
+        "Yangzheng Wu",
+        "Tengyue Ba",
+        "Zhanguang Zhang",
+        "Yingxue Zhang"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-09-17T17:53:48+00:00",
+      "link": "https://arxiv.org/pdf/2609.20791v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "agentic distillation of VLM for stage transitions",
+      "llm_evidence_cn": "对VLM做智能体蒸馏以判断阶段转换",
+      "llm_evidence": "对VLM做智能体蒸馏以判断阶段转换",
+      "canonical_evidence": "对VLM做智能体蒸馏以判断阶段转换",
+      "llm_tldr_en": "StageGuard addresses stage-transition decisions in long-horizon robot tasks by distilling a large VLM into an efficient agentic model aligned with task completion criteria, reducing latency for real-time monitoring.",
+      "llm_tldr_cn": "该工作针对长时程机器人任务中何时终止当前技能并切换到下一子任务的问题，指出现有完成信号检查器难以获得。大型视觉语言模型虽推理强，但其决策边界与任务完成标准不对齐且云端推理延迟高。作者提出StageGuard，把大型VLM蒸馏为高效的智能体式阶段转换判定模型。该框架在保持准确性的同时降低延迟，支持实时监控，体现了面向VLM的蒸馏思路。",
+      "llm_tldr": "该工作针对长时程机器人任务中何时终止当前技能并切换到下一子任务的问题，指出现有完成信号检查器难以获得。大型视觉语言模型虽推理强，但其决策边界与任务完成标准不对齐且云端推理延迟高。作者提出StageGuard，把大型VLM蒸馏为高效的智能体式阶段转换判定模型。该框架在保持准确性的同时降低延迟，支持实时监控，体现了面向VLM的蒸馏思路。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2609.21650v1",
+      "source": "arxiv",
+      "title": "SynthDemo-RL: Breaking the Zero-Reward Barrier in VLA Adaptation with LLM-Guided Synthetic Demonstrations",
+      "abstract": "Fine-tuning Vision-Language-Action (VLA) models commonly relies on human teleoperation demonstrations, while reinforcement learning (RL) with sparse binary rewards faces an exploration challenge when successful trajectories are rarely sampled. We propose SynthDemo-RL, a teacher-student framework in which an automated teacher converts simulator-privileged state into successful manipulation trajectories, a VLA student is distilled from them by supervised fine-tuning (SFT), and PPO with binary task-success rewards refines the student. We study reward coverage, the fraction of tasks for which at least one success is observed under the fixed evaluation protocol, as a complement to the average success rate. On LIBERO-PRO, a public benchmark of perturbed LIBERO tasks for which no demonstrations exist, 27 of 57 scored tasks are at exactly 0% success for a pi_0.5 policy fine-tuned on the original LIBERO tasks. Direct PPO from this policy, under the same PPO recipe and the same RL compute as SynthDemo-RL's refinement stage, rescues 10 of these 27 tasks and leaves 17 at 0%. SynthDemo-RL, with 50 synthesized trajectories per task and no new human demonstrations, rescues all 27 and reaches average success rates of 97.8% and 97.1% on the Position and Task axes of LIBERO-PRO, respectively. On standard LIBERO, the same pipeline reaches 96.0% with no human demonstrations, within 1.7 points of pi_0.5 trained on 50 human demonstrations per task. We further validate the pipeline on RoboTwin 2.0 and verify that trajectories from a policy trained in a MuJoCo twin execute open-loop on a physical robot.",
+      "authors": [
+        "Hiroaki Kingetsu",
+        "Hiroaki Kurihara",
+        "Kaoru Yokoo",
+        "Kenji Fukumizu",
+        "Manohar Kaul"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "published": "2026-09-18T11:48:05+00:00",
+      "link": "https://arxiv.org/pdf/2609.21650v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "teacher-student distillation then PPO RL for VLA",
+      "llm_evidence_cn": "师生蒸馏后接PPO强化学习",
+      "llm_evidence": "师生蒸馏后接PPO强化学习",
+      "canonical_evidence": "师生蒸馏后接PPO强化学习",
+      "llm_tldr_en": "SynthDemo-RL addresses sparse-reward exploration in VLA adaptation by having an automated teacher generate successful trajectories, distilling them into a student via SFT, then refining with PPO under binary task-success rewards.",
+      "llm_tldr_cn": "该工作针对视觉-语言-动作模型在稀疏二值奖励下难以探索成功轨迹的问题，提出SynthDemo-RL师生框架。自动教师把仿真特权状态转成成功操作轨迹，学生模型先经监督微调蒸馏这些演示，再用PPO以二值成功奖励精调。在LIBERO-PRO上，该方法以奖励覆盖率补充成功率指标，缓解了零奖励障碍。其意义在于把蒸馏与强化学习结合用于具身策略适配。",
+      "llm_tldr": "该工作针对视觉-语言-动作模型在稀疏二值奖励下难以探索成功轨迹的问题，提出SynthDemo-RL师生框架。自动教师把仿真特权状态转成成功操作轨迹，学生模型先经监督微调蒸馏这些演示，再用PPO以二值成功奖励精调。在LIBERO-PRO上，该方法以奖励覆盖率补充成功率指标，缓解了零奖励障碍。其意义在于把蒸馏与强化学习结合用于具身策略适配。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "reinforcement learning from human feedback distillation",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
