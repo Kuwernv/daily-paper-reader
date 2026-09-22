@@ -6,41 +6,41 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-09-21
-- 运行时间：2026-09-21 22:30:17 UTC
+- 最新运行日期：2026-09-22
+- 运行时间：2026-09-22 22:10:55 UTC
 - 运行状态：成功
 - 本次总论文数：7
 - 精读区：4
 - 速读区：3
 
 ### 今日简报（AI）
-今天精读4篇、速读3篇，蒸馏研究成绝对主线，两篇高分论文拿下精读席位。最值得看的是《Calibrating Teacher-Student Discrepancy for On-Policy Distillation》以满分领跑，以及9分的《What Does Privileged Information Add to On-Policy Self-Distillation?》，都聚焦师生差异与特权信息如何影响在线蒸馏。普通读者可优先读这两篇精读，速读里的智能体蒸馏与VLA适配论文按兴趣补充即可。
-- 详情：[/202609/21/README](/202609/21/README)
+2026-09-22 日报精选 7 篇，精读 4 篇、速读 3 篇，聚焦 on-policy 蒸馏与智能体持续学习。最值得看的是两篇 9.0 分工作：用奖励兼容的时间信用分配突破 token 级模仿，以及工具增强的 on-policy 蒸馏做 LLM 序列组学域适应。普通读者可先读这两篇精读，再按需浏览速读里的 ACLArena 多阶段后训练与 PSD 记忆表示方向。
+- 详情：[/202609/22/README](/202609/22/README)
 
 ### 精读区论文标签
-1. [Calibrating Teacher--Student Discrepancy for On-Policy Distillation](/202609/21/2609.21619v1-calibrating-teacher--student-discrepancy-for-on-policy-distillation)  
-   标签：评分：10.0/10、query:distillation
-   evidence：面向推理模型的校准在线策略蒸馏
-2. [What Does Privileged Information Add to On-Policy Self-Distillation?](/202609/21/2609.20612v2-what-does-privileged-information-add-to-on-policy-self-distillation)  
+1. [Beyond Token-Local Imitation: Reward-Compatible Temporal Credit Assignment for On-Policy Distillation](/202609/22/2609.16937v2-beyond-token-local-imitation-reward-compatible-temporal-credit-assignment-for-on-policy-distillation)  
    标签：评分：9.0/10、query:distillation
-   evidence：面向语言模型的在策略自蒸馏
-3. [GVPO++: Group Variance Policy Optimization for LLM Post-Training and On-Policy Distillation](/202609/21/2609.21432v1-gvpo-group-variance-policy-optimization-for-llm-post-training-and-on-policy-distillation)  
+   evidence：面向大语言模型同策略蒸馏的时间信用分配
+2. [Tool-Augmented On-Policy Distillation for LLM Domain Adaptation in Sequence-Based Omics Tasks](/202609/22/2609.23435v1-tool-augmented-on-policy-distillation-for-llm-domain-adaptation-in-sequence-based-omics-tasks)  
    标签：评分：9.0/10、query:distillation
-   evidence：面向LLM后训练与在线策略蒸馏的组方差策略优化
-4. [On Repulsive and Attractive Teachers: Separating Correctness from Behavior in Self-Distillation](/202609/21/2609.21561v1-on-repulsive-and-attractive-teachers-separating-correctness-from-behavior-in-self-distillation)  
+   evidence：面向大模型领域适应的工具增强同策略蒸馏
+3. [Distill What You Trust: Reliability-Aware Multi-Teacher On-Policy Distillation](/202609/22/2609.23697v1-distill-what-you-trust-reliability-aware-multi-teacher-on-policy-distillation)  
    标签：评分：9.0/10、query:distillation
-   evidence：区分正确性与行为的在线策略自蒸馏
+   evidence：可靠性感知的多教师同策略蒸馏，采用词元级监督分配
+4. [iSDFT: Information-Proximal Self-Distillation for Continual Learning in LLMs](/202609/22/2609.24646v1-isdft-information-proximal-self-distillation-for-continual-learning-in-llms)  
+   标签：评分：9.0/10、query:distillation
+   evidence：面向LLM持续学习的在线策略自蒸馏微调，采用预算化教师
 
 ### 速读区论文标签
-1. [Distilling Foundation Models for Agentic What-If Reasoning:Cost, Latency, and Governance in a Hybrid LLM+SLM Architecture](/202609/21/2609.16091v1-distilling-foundation-models-for-agentic-what-if-reasoningcost-latency-and-governance-in-a-hybrid-llmslm-architecture)  
+1. [ACLArena: Agent Continue Learning in Multi-stage Post-training](/202609/22/2609.23989v1-aclarena-agent-continue-learning-in-multi-stage-post-training)  
+   标签：评分：7.0/10、query:distillation
+   evidence：多教师在线策略蒸馏对比
+2. [PSD: Pseudo Self-Distillation of Memory Representation Capabilities for LLM Agents](/202609/22/2609.23449v1-psd-pseudo-self-distillation-of-memory-representation-capabilities-for-llm-agents)  
    标签：评分：6.0/10、query:distillation
-   evidence：大模型蒸馏为紧凑学生模型
-2. [StageGuard: Learning Stage Transitions for Long-Horizon Robot Tasks via Agentic Distillation](/202609/21/2609.20791v1-stageguard-learning-stage-transitions-for-long-horizon-robot-tasks-via-agentic-distillation)  
+   evidence：自蒸馏让小语言模型从黑盒教师蒸馏行为
+3. [Look Where It Counts: A Free, Label-Free Visual Evidence Signal for Fine-Grained Vision-Language Reasoning](/202609/22/2609.24244v1-look-where-it-counts-a-free-label-free-visual-evidence-signal-for-fine-grained-vision-language-reasoning)  
    标签：评分：6.0/10、query:distillation
-   evidence：对VLM做智能体蒸馏以判断阶段转换
-3. [SynthDemo-RL: Breaking the Zero-Reward Barrier in VLA Adaptation with LLM-Guided Synthetic Demonstrations](/202609/21/2609.21650v1-synthdemo-rl-breaking-the-zero-reward-barrier-in-vla-adaptation-with-llm-guided-synthetic-demonstrations)  
-   标签：评分：6.0/10、query:distillation
-   evidence：师生蒸馏后接PPO强化学习
+   evidence：细粒度视觉语言推理；将在线策略蒸馏列为昂贵基线
 
 
 <div class="dpr-home-promo-card">

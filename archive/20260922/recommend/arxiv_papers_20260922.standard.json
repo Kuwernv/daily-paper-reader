@@ -1,0 +1,326 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-09-22T22:04:31.697228+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 4,
+    "deep_cap": 6,
+    "deep_selected": 4,
+    "quick_candidates": 3,
+    "quick_skim_target": 11,
+    "quick_selected": 3
+  },
+  "deep_dive": [
+    {
+      "id": "2609.16937v2",
+      "source": "arxiv",
+      "title": "Beyond Token-Local Imitation: Reward-Compatible Temporal Credit Assignment for On-Policy Distillation",
+      "abstract": "On-policy distillation (OPD) has emerged as an effective approach for large language model post-training, yet existing objectives face a trade-off between objective fidelity and optimization stability. Token-level OPD provides stable but local supervision, whereas sequence-level OPD captures future credit at the cost of horizon-dependent variance. We establish a unified temporal-credit view of these formulations, showing that practical token-level OPD can be interpreted as a temporal approximation to the sequence-level reverse-KL gradient. Building on this connection, we propose $γ$OPD (GammaOPD), which uses discounted temporal credit assignment to balance long-horizon supervision and optimization stability, while admitting a horizon-independent variance bound. We further develop a reward-compatible bounded mixing (RBM) mechanism for $γ$OPD that balances verifiable outcome feedback with the discounted OPD advantage to move beyond purely teacher-dependent optimization. Experiments on mathematical and code reasoning demonstrate consistent improvements over existing OPD methods across vanilla, size-mismatched, and multi-teacher distillation settings.",
+      "authors": [
+        "Shiqi Liu",
+        "Zeyu He",
+        "Letian Tao",
+        "Guojian Zhan",
+        "Jiaxin Gao",
+        "Feihong Zhang",
+        "Jingliang Duan",
+        "Wei Xiong",
+        "Kehua Sheng",
+        "Bo Zhang",
+        "Yang Guan",
+        "Shengbo Eben Li"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.PL"
+      ],
+      "published": "2026-09-15T10:12:56+00:00",
+      "link": "https://arxiv.org/pdf/2609.16937v2",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "temporal credit assignment for on-policy distillation of LLMs",
+      "llm_evidence_cn": "面向大语言模型同策略蒸馏的时间信用分配",
+      "llm_evidence": "面向大语言模型同策略蒸馏的时间信用分配",
+      "canonical_evidence": "面向大语言模型同策略蒸馏的时间信用分配",
+      "llm_tldr_en": "On-policy distillation objectives trade fidelity for stability. This paper unifies token- and sequence-level OPD via temporal credit, proposing GammaOPD to balance long-horizon supervision and stability.",
+      "llm_tldr_cn": "同策略蒸馏已成为大语言模型后训练的有效手段，但现有目标在目标保真度与优化稳定性之间难以兼顾：词元级监督稳定却局部，序列级能捕捉未来信用却伴随方差。论文建立统一的时间信用视角，指出实际词元级OPD可视为序列级反向KL梯度的时间近似，并据此提出γOPD，用折扣式时间信用分配平衡长程监督与优化稳定性。实验证明该方法在提升蒸馏效果的同时保持优化稳定，为OPD目标设计提供了统一理论与实用方案。",
+      "llm_tldr": "同策略蒸馏已成为大语言模型后训练的有效手段，但现有目标在目标保真度与优化稳定性之间难以兼顾：词元级监督稳定却局部，序列级能捕捉未来信用却伴随方差。论文建立统一的时间信用视角，指出实际词元级OPD可视为序列级反向KL梯度的时间近似，并据此提出γOPD，用折扣式时间信用分配平衡长程监督与优化稳定性。实验证明该方法在提升蒸馏效果的同时保持优化稳定，为OPD目标设计提供了统一理论与实用方案。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.23435v1",
+      "source": "arxiv",
+      "title": "Tool-Augmented On-Policy Distillation for LLM Domain Adaptation in Sequence-Based Omics Tasks",
+      "abstract": "Multi-omics sequences contain complex biological patterns, yet deciphering their mechanisms for automated scientific discovery remains challenging. As large language models (LLMs) interpret these sequences, evaluating both predictions and scientific reasoning is critical. However, existing benchmarks for multi-omics sequence tasks rely on classification and regression metrics, neglecting whether models grasp the underlying biological evidence. We introduce OmicsBench, the first reasoning benchmark for multi-omics sequences, comprising 1,160 expert-validated questions across six tasks spanning DNA regulation, RNA processing, and protein function. OmicsBench requires traceable evidence chains, evaluated using instance-specific rubrics developed with domain experts. Evaluating 17 LLMs reveals an inverse relationship: while scientific LLMs outperform general-purpose LLMs in sequence classification accuracy, they fail to provide valid evidence to support their predictions. One plausible interpretation is shortcut learning: specialized models may rely on statistical patterns rather than the biological mechanisms needed for scientific discovery. Motivated by this finding, we introduce tool-augmented on-policy distillation (TA-OPD), a post-training method to align sequence prediction with evidence-grounded biological reasoning. Across five Qwen3.5 models spanning 0.8B to 27B parameters, TA-OPD consistently strengthens biological evidence grounding while improving predictive performance on most tasks. These gains persist across model scales, indicating that stronger sequence reasoning does not arise solely from increased model capacity, but can be improved through evidence-aware training. Together, OmicsBench and TA-OPD provide a framework for diagnosing reasoning failures in multi-omics LLMs and a path toward models whose predictions are better grounded in biologically meaningful evidence.",
+      "authors": [
+        "Jie Ying",
+        "Zhefan Wang",
+        "Zihong Chen",
+        "Zhengqing Li",
+        "Jinzhe Li",
+        "Gang Li",
+        "Jian Liu",
+        "Fang Hu",
+        "Tao Luo",
+        "Zhonghang Yuan",
+        "Wanli Ouyang",
+        "Stan Z. Li",
+        "Fan Yang",
+        "Nanqing Dong"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "published": "2026-09-20T08:08:34+00:00",
+      "link": "https://arxiv.org/pdf/2609.23435v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "tool-augmented on-policy distillation for LLM domain adaptation",
+      "llm_evidence_cn": "面向大模型领域适应的工具增强同策略蒸馏",
+      "llm_evidence": "面向大模型领域适应的工具增强同策略蒸馏",
+      "canonical_evidence": "面向大模型领域适应的工具增强同策略蒸馏",
+      "llm_tldr_en": "Introduces OmicsBench and a tool-augmented on-policy distillation approach to adapt LLMs to multi-omics sequence tasks, evaluating both predictions and scientific reasoning via traceable evidence chains.",
+      "llm_tldr_cn": "该论文指出多组学序列任务现有基准只关注分类回归指标、忽视模型是否掌握生物学证据，因此提出首个多组学序列推理基准 OmicsBench。方法采用工具增强的同策略蒸馏，将大模型适配到序列组学领域，并要求给出可追溯的证据链。实验基于 1160 道专家验证问题覆盖六类任务，验证了推理与预测的联合评估。其贡献在于推动大模型在科学发现中的可解释领域适应与推理评测。",
+      "llm_tldr": "该论文指出多组学序列任务现有基准只关注分类回归指标、忽视模型是否掌握生物学证据，因此提出首个多组学序列推理基准 OmicsBench。方法采用工具增强的同策略蒸馏，将大模型适配到序列组学领域，并要求给出可追溯的证据链。实验基于 1160 道专家验证问题覆盖六类任务，验证了推理与预测的联合评估。其贡献在于推动大模型在科学发现中的可解释领域适应与推理评测。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.23697v1",
+      "source": "arxiv",
+      "title": "Distill What You Trust: Reliability-Aware Multi-Teacher On-Policy Distillation",
+      "abstract": "Multi-teacher on-policy distillation allows a student to learn from complementary specialists on its own trajectories. Domain-routed approaches, however, select one teacher per example and keep it fixed throughout the response. This design both depends on labels that mixed training corpora often lack and cannot adapt teacher selection when the expertise required changes within a trajectory. We propose \\textbf{TrustMOPD}, which replaces example-level teacher selection with label-free, token-level supervision allocation. At each student-generated prefix, TrustMOPD uses each specialist's RL-induced displacement from a shared pre-RL reference as a proxy for local reliability, calibrates these scores across teachers, and constructs a weighted distillation target. Across mathematics, code, and instruction following, TrustMOPD outperforms the strongest label-free baseline, increasing the recovery ratio from $54.4\\%$ to $91.5\\%$ on \\textsc{SingleCap} and from $54.5\\%$ to $98.0\\%$ on \\textsc{MultiCap}, while approaching label-based MOPD on \\textsc{SingleCap}. Randomizing token-level weights independently of the student-generated prefix performs no better than uniform weighting, supporting the importance of conditioning supervision on the evolving generation context.",
+      "authors": [
+        "Jie Sun",
+        "Mao Zheng",
+        "Mingyang Song",
+        "Zeyuan Liu",
+        "Gengsheng Li",
+        "Houcheng Jiang",
+        "Yilin Cheng",
+        "Bichuan Feng",
+        "Yuchen Cai",
+        "Junfeng Fang",
+        "Xiang Wang"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "published": "2026-09-20T15:15:24+00:00",
+      "link": "https://arxiv.org/pdf/2609.23697v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "reliability-aware multi-teacher on-policy distillation with token-level supervision",
+      "llm_evidence_cn": "可靠性感知的多教师同策略蒸馏，采用词元级监督分配",
+      "llm_evidence": "可靠性感知的多教师同策略蒸馏，采用词元级监督分配",
+      "canonical_evidence": "可靠性感知的多教师同策略蒸馏，采用词元级监督分配",
+      "llm_tldr_en": "Multi-teacher on-policy distillation fixes one teacher per example and needs labels. TrustMOPD allocates token-level supervision by calibrating each specialist's RL-induced displacement as local reliability.",
+      "llm_tldr_cn": "多教师同策略蒸馏允许学生沿自身轨迹向互补专家学习，但现有领域路由方法按样本固定选择单一教师，既依赖混合语料常缺失的标签，也无法在轨迹内随所需专长变化调整教师。论文提出TrustMOPD，以各专家相对RL前参考的策略位移作为局部可靠性代理，跨教师校准后构建词元级加权蒸馏。实验表明该方法无需标签即可实现细粒度监督分配，显著优于固定教师的基线，提升了多教师蒸馏的可靠性与适应性。",
+      "llm_tldr": "多教师同策略蒸馏允许学生沿自身轨迹向互补专家学习，但现有领域路由方法按样本固定选择单一教师，既依赖混合语料常缺失的标签，也无法在轨迹内随所需专长变化调整教师。论文提出TrustMOPD，以各专家相对RL前参考的策略位移作为局部可靠性代理，跨教师校准后构建词元级加权蒸馏。实验表明该方法无需标签即可实现细粒度监督分配，显著优于固定教师的基线，提升了多教师蒸馏的可靠性与适应性。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2609.24646v1",
+      "source": "arxiv",
+      "title": "iSDFT: Information-Proximal Self-Distillation for Continual Learning in LLMs",
+      "abstract": "On-policy self-distillation fine-tuning (SDFT) learns new skills from demonstrations while reducing forgetting, but it always distils toward the full demonstration-conditioned teacher. This fixes teacher influence at the full-teacher endpoint, providing no control over how much demonstration information should be transferred at each prediction state. We introduce Information-Proximal SDFT (iSDFT), which instead treats the teacher as a budgeted source of information. At each token, iSDFT selects the distribution closest to the current student that satisfies a prescribed teacher-information constraint, yielding a closed-form exponential target with a locally determined tilt. To control cumulative drift, we further anchor the student to its frozen base policy. Across four heterogeneous LLM backbones and two specialisation tasks, iSDFT improves vanilla SDFT in 7 of 8 model-task settings and matches it in the remaining one. It also provides tighter retention on the original SDFT benchmark suite, with 73% of evaluations remaining within 0.5 points of the base model versus 52% for the strongest baseline, while achieving the largest mean improvement on all ten additional mathematics, coding, and competition-mathematics benchmarks. These results show that controlling how much and when teacher information is introduced improves specialisation while preserving broader capability.",
+      "authors": [
+        "Ahmed Khaled Khamis",
+        "Xiaotong Ji",
+        "Hassan Jaber",
+        "Rasul Tutunov",
+        "Matthieu Zimmer",
+        "Jun Wang",
+        "Haitham Bou-Ammar"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-09-21T14:21:50+00:00",
+      "link": "https://arxiv.org/pdf/2609.24646v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "on-policy self-distillation fine-tuning for continual learning in LLMs with budgeted teacher",
+      "llm_evidence_cn": "面向LLM持续学习的在线策略自蒸馏微调，采用预算化教师",
+      "llm_evidence": "面向LLM持续学习的在线策略自蒸馏微调，采用预算化教师",
+      "canonical_evidence": "面向LLM持续学习的在线策略自蒸馏微调，采用预算化教师",
+      "llm_tldr_en": "On-policy self-distillation fine-tuning reduces forgetting but always distils toward the full demonstration-conditioned teacher. iSDFT treats the teacher as a budgeted information source, selecting the closest distribution satisfying a teacher-information constraint per token.",
+      "llm_tldr_cn": "在线策略自蒸馏微调SDFT能让大语言模型从示范中学习新技能并减少遗忘，但它始终以完整示范条件教师为目标，教师影响被固定在满教师端点，无法控制每个预测状态应迁移多少示范信息。作者提出信息邻近自蒸馏iSDFT，将教师视为有预算的信息源，在每个token处选择满足指定教师信息约束且最接近当前学生的分布，得到带局部倾斜的闭式指数目标，并通过锚定冻结基模型控制累积漂移。该工作为在线策略蒸馏中的教师信息量控制提供了新机制，兼顾技能学习与灾难性遗忘的缓解。",
+      "llm_tldr": "在线策略自蒸馏微调SDFT能让大语言模型从示范中学习新技能并减少遗忘，但它始终以完整示范条件教师为目标，教师影响被固定在满教师端点，无法控制每个预测状态应迁移多少示范信息。作者提出信息邻近自蒸馏iSDFT，将教师视为有预算的信息源，在每个token处选择满足指定教师信息约束且最接近当前学生的分布，得到带局部倾斜的闭式指数目标，并通过锚定冻结基模型控制累积漂移。该工作为在线策略蒸馏中的教师信息量控制提供了新机制，兼顾技能学习与灾难性遗忘的缓解。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2609.23989v1",
+      "source": "arxiv",
+      "title": "ACLArena: Agent Continue Learning in Multi-stage Post-training",
+      "abstract": "Building general-purpose agents for industrial deployment requires integrating multiple capabilities, each typically acquired at a distinct stage of training. Yet there is currently no well-established recipe for Agent Continual Learning (ACL), with little understanding of the trade-offs among existing integration paradigms. To address this gap, we introduce ACLArena, a framework for comprehensively studying, analyzing, and evaluating ACL. We first build a sequential training pipeline and conduct an in-depth analysis that explains the mechanisms of forgetting and generalization from two complementary perspectives, the model level and the token level. Guided by these analyses, we systematically compare multi-teacher on-policy distillation, self-distilled fine-tuning, and model merging to assess their ability to recover previously learned capabilities while preserving newly acquired ones. Through extensive experiments, we develop a detailed understanding of how capabilities transfer across stages. Finally, we propose a new ACL recipe that combines offline replay over high-quality trajectories with a routed network of multiple LoRA experts each specialized via RL, substantially improving the agent's ability to learn across multiple domains. Comprehensive experiments on four reasoning and agentic tasks, evaluated under both in-domain and out-of-domain settings, demonstrate the value of our analysis and the effectiveness of our approach.",
+      "authors": [
+        "Haixin Wang",
+        "Xiaoxuan Wang",
+        "Junkai Zhang",
+        "Han Zhang",
+        "Renliang Sun",
+        "Alexander K Taylor",
+        "Yidan Shi",
+        "Haoran Deng",
+        "Chenguang Wang",
+        "Jason Cong",
+        "Yizhou Sun",
+        "Wei Wang"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-09-21T01:48:37+00:00",
+      "link": "https://arxiv.org/pdf/2609.23989v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "multi-teacher on-policy distillation comparison",
+      "llm_evidence_cn": "多教师在线策略蒸馏对比",
+      "llm_evidence": "多教师在线策略蒸馏对比",
+      "canonical_evidence": "多教师在线策略蒸馏对比",
+      "llm_tldr_en": "ACLArena studies agent continual learning with a sequential training pipeline and model/token-level analyses of forgetting, systematically comparing multi-teacher on-policy distillation and self-distillation paradigms.",
+      "llm_tldr_cn": "工业级通用智能体需整合多个训练阶段获得的能力，但智能体持续学习缺乏成熟方案，各集成范式的权衡也不清楚。论文提出ACLArena框架，构建顺序训练流水线并从模型级与token级分析遗忘与泛化机制，系统比较多教师在线策略蒸馏、自蒸馏微调等范式。实验揭示了不同集成策略的优劣。为智能体持续学习提供了评估与分析基准。",
+      "llm_tldr": "工业级通用智能体需整合多个训练阶段获得的能力，但智能体持续学习缺乏成熟方案，各集成范式的权衡也不清楚。论文提出ACLArena框架，构建顺序训练流水线并从模型级与token级分析遗忘与泛化机制，系统比较多教师在线策略蒸馏、自蒸馏微调等范式。实验揭示了不同集成策略的优劣。为智能体持续学习提供了评估与分析基准。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "On policy distillation methods for large language models",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2609.23449v1",
+      "source": "arxiv",
+      "title": "PSD: Pseudo Self-Distillation of Memory Representation Capabilities for LLM Agents",
+      "abstract": "Memory systems are becoming a core component of LLM agents, but constructing and maintaining memory remains expensive because it relies on repeated calls to large proprietary language models. This cost creates a major barrier to deploying memory-enhanced agents at scale. In this paper, we present Pseudo Self-Distillation (PSD), a framework that enables small language models (SLMs) to construct hierarchical memory representations by distilling behavior from a strong black-box oracle through a multi-stage training pipeline. Standard distillation methods require access to teacher logits or hidden states, which closed models do not expose. Unlike conventional self-distillation settings, where supervision is derived from a model's own predictions, sampled rollouts, or aggregated outputs, PSD enables a single-model distillation setup while channeling external oracle knowledge through the prompt. PSD uses a single small model in two roles: a teacher that sees a privileged prompt containing the oracle's answer as reference context, and a student that sees only the task prompt. The student learns to reproduce the teacher's output distribution, absorbing oracle-guided behavior into its own weights without accessing the oracle's internals. On LoCoMo, PSD-trained Qwen3-0.6B, 1.7B, and 4B match or exceed GPT-4.1-mini on downstream retrieval at a fraction of the deployment cost, with off-policy PSD achieving the strongest results across most conditions. We further show that this memory-construction capability transfers out-of-distribution to LongMemEval, despite the students being trained exclusively on LoCoMo with no exposure to LongMemEval data.",
+      "authors": [
+        "Pirzada Suhail",
+        "Menglin Xia",
+        "Xuchao Zhang",
+        "Mayukh Das",
+        "Chetan Bansal",
+        "Saravan Rajmohan"
+      ],
+      "primary_category": "cs.IR",
+      "categories": [
+        "cs.IR",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "published": "2026-09-20T08:24:52+00:00",
+      "link": "https://arxiv.org/pdf/2609.23449v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "self-distillation enabling small language models to distill behavior from black-box oracle",
+      "llm_evidence_cn": "自蒸馏让小语言模型从黑盒教师蒸馏行为",
+      "llm_evidence": "自蒸馏让小语言模型从黑盒教师蒸馏行为",
+      "canonical_evidence": "自蒸馏让小语言模型从黑盒教师蒸馏行为",
+      "llm_tldr_en": "Memory systems for LLM agents are costly due to repeated proprietary model calls. PSD distills hierarchical memory representations into small models from a black-box oracle via multi-stage training, avoiding teacher logits and cutting deployment cost.",
+      "llm_tldr_cn": "LLM智能体的记忆系统依赖反复调用大型专有模型，构建与维护成本高昂，阻碍其规模化部署。作者提出伪自蒸馏PSD框架，通过多阶段训练管线让小型语言模型从强黑盒教师蒸馏行为，从而构建分层记忆表示。该方法无需访问教师logits或隐状态，克服了闭源模型不暴露内部信息的限制，区别于监督来自自身预测的常规自蒸馏。该工作为语言模型蒸馏在智能体记忆场景下的落地提供了可行方案，显著降低了记忆增强智能体的部署成本。",
+      "llm_tldr": "LLM智能体的记忆系统依赖反复调用大型专有模型，构建与维护成本高昂，阻碍其规模化部署。作者提出伪自蒸馏PSD框架，通过多阶段训练管线让小型语言模型从强黑盒教师蒸馏行为，从而构建分层记忆表示。该方法无需访问教师logits或隐状态，克服了闭源模型不暴露内部信息的限制，区别于监督来自自身预测的常规自蒸馏。该工作为语言模型蒸馏在智能体记忆场景下的落地提供了可行方案，显著降低了记忆增强智能体的部署成本。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "large language model distillation",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2609.24244v1",
+      "source": "arxiv",
+      "title": "Look Where It Counts: A Free, Label-Free Visual Evidence Signal for Fine-Grained Vision-Language Reasoning",
+      "abstract": "Multimodal large language models (MLLMs) fail at fine-grained visual questions less because they cannot reason than because they never see the evidence: high-resolution images are downsampled before encoding, so the model answers from linguistic priors. The standard remedies are expensive: annotated answers (SFT), hand-engineered verifiers (RLVR), or a large external teacher (on-policy distillation). We ask whether the visual evidence itself can supply the signal for free. We formalize the contrastive evidence gap, the per-token log-likelihood ratio that a model assigns to its own output when conditioned on a question-relevant region versus an irrelevant one, and study it across Qwen2.5-VL-7B, Qwen3-VL-8B, and Qwen3-VL-30B-A3B on V*Bench. Our main positive result is training-free: selecting the candidate crop under which the model's answer distribution is most peaked, using a single-view, label-free criterion, discovers the answer-bearing region with no bounding boxes, training, or labels. It localizes the target 4.4 to 5.1 times better than chance and raises fine-grained accuracy from 70 percent to 85 percent at inference. We further show that the gap is complementary to the model's own confidence. Combining them predicts correctness better than either alone, with AUC up to 0.99, and flags confidently wrong answers, with AUC ranging from 0.97 to 1.00 within the high-confidence subset. All effects concentrate on perception-bottleneck questions and vanish on a global-context control. Finally, we report an honest negative result: converting the same signal into a training method, gated self-distillation (SEG-Distill), does not outperform the base model at pilot scale across three gate designs, while more aggressive gating degrades accuracy. The signal is real, but converting it into training gains remains an open problem.",
+      "authors": [
+        "Santi Ram Tiwari",
+        "Nihal Naik",
+        "Devbrat Pandey",
+        "Nishant Sinha"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "eess.IV"
+      ],
+      "published": "2026-09-21T08:09:18+00:00",
+      "link": "https://arxiv.org/pdf/2609.24244v1",
+      "tags": [
+        "keyword:distillation",
+        "query:distillation"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "fine-grained vision-language reasoning; cites on-policy distillation as standard costly remedy",
+      "llm_evidence_cn": "细粒度视觉语言推理；将在线策略蒸馏列为昂贵基线",
+      "llm_evidence": "细粒度视觉语言推理；将在线策略蒸馏列为昂贵基线",
+      "canonical_evidence": "细粒度视觉语言推理；将在线策略蒸馏列为昂贵基线",
+      "llm_tldr_en": "Multimodal LLMs miss fine-grained visual evidence due to downsampling. The paper formalizes a contrastive evidence gap signal from regions and studies it across Qwen-VL models, offering a free alternative to costly SFT, RLVR, or on-policy distillation.",
+      "llm_tldr_cn": "多模态大模型在细粒度视觉问题上常因高分辨率图像被下采样而看不到证据，只能依赖语言先验作答。作者提出对比证据差这一逐token对数似然比信号，衡量模型在相关区域与无关区域条件下对自身输出的置信差异，并在Qwen2.5-VL-7B、Qwen3-VL-8B等多个模型上系统研究。结果表明视觉证据本身即可免费提供监督信号，为替代标注答案、验证器或在线策略蒸馏等昂贵方案提供了新思路，对视觉语言模型的训练与对齐具有启发意义。",
+      "llm_tldr": "多模态大模型在细粒度视觉问题上常因高分辨率图像被下采样而看不到证据，只能依赖语言先验作答。作者提出对比证据差这一逐token对数似然比信号，衡量模型在相关区域与无关区域条件下对自身输出的置信差异，并在Qwen2.5-VL-7B、Qwen3-VL-8B等多个模型上系统研究。结果表明视觉证据本身即可免费提供监督信号，为替代标注答案、验证器或在线策略蒸馏等昂贵方案提供了新思路，对视觉语言模型的训练与对齐具有启发意义。",
+      "llm_tags": [
+        "query:distillation"
+      ],
+      "matched_query_tag": "query:distillation",
+      "matched_query_text": "visual language model training",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
