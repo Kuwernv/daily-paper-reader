@@ -6,41 +6,32 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-09-22
-- 运行时间：2026-09-22 22:10:55 UTC
+- 最新运行日期：2026-09-23
+- 运行时间：2026-09-23 22:18:04 UTC
 - 运行状态：成功
-- 本次总论文数：7
-- 精读区：4
-- 速读区：3
+- 本次总论文数：4
+- 精读区：3
+- 速读区：1
 
 ### 今日简报（AI）
-2026-09-22 日报精选 7 篇，精读 4 篇、速读 3 篇，聚焦 on-policy 蒸馏与智能体持续学习。最值得看的是两篇 9.0 分工作：用奖励兼容的时间信用分配突破 token 级模仿，以及工具增强的 on-policy 蒸馏做 LLM 序列组学域适应。普通读者可先读这两篇精读，再按需浏览速读里的 ACLArena 多阶段后训练与 PSD 记忆表示方向。
-- 详情：[/202609/22/README](/202609/22/README)
+今日精读3篇、速读1篇，重点落在在线策略蒸馏：CLOOPD 以“闭合学习者回路”拿下满分，BAS-OPD 用预算感知的选择性自蒸馏强化细粒度多模态感知。最值得看的是这两个满分方向——如何让蒸馏真正跟随学习者状态、以及如何在有限预算下选择性蒸馏。普通读者可优先从 CLOOPD 入手理解闭环思路，再对照 BAS-OPD 看预算约束下的取舍。
+- 详情：[/202609/23/README](/202609/23/README)
 
 ### 精读区论文标签
-1. [Beyond Token-Local Imitation: Reward-Compatible Temporal Credit Assignment for On-Policy Distillation](/202609/22/2609.16937v2-beyond-token-local-imitation-reward-compatible-temporal-credit-assignment-for-on-policy-distillation)  
-   标签：评分：9.0/10、query:distillation
-   evidence：面向大语言模型同策略蒸馏的时间信用分配
-2. [Tool-Augmented On-Policy Distillation for LLM Domain Adaptation in Sequence-Based Omics Tasks](/202609/22/2609.23435v1-tool-augmented-on-policy-distillation-for-llm-domain-adaptation-in-sequence-based-omics-tasks)  
-   标签：评分：9.0/10、query:distillation
-   evidence：面向大模型领域适应的工具增强同策略蒸馏
-3. [Distill What You Trust: Reliability-Aware Multi-Teacher On-Policy Distillation](/202609/22/2609.23697v1-distill-what-you-trust-reliability-aware-multi-teacher-on-policy-distillation)  
-   标签：评分：9.0/10、query:distillation
-   evidence：可靠性感知的多教师同策略蒸馏，采用词元级监督分配
-4. [iSDFT: Information-Proximal Self-Distillation for Continual Learning in LLMs](/202609/22/2609.24646v1-isdft-information-proximal-self-distillation-for-continual-learning-in-llms)  
-   标签：评分：9.0/10、query:distillation
-   evidence：面向LLM持续学习的在线策略自蒸馏微调，采用预算化教师
+1. [CLOOPD: Closing the Learner Loop in On-Policy Distillation](/202609/23/2609.24141v1-cloopd-closing-the-learner-loop-in-on-policy-distillation)  
+   标签：评分：10.0/10、query:distillation
+   evidence：面向大模型的闭环在线策略蒸馏框架
+2. [BAS-OPD: Budget-Aware Selective On-Policy Self-Distillation for Fine-Grained Multimodal Perception](/202609/23/2609.25891v1-bas-opd-budget-aware-selective-on-policy-self-distillation-for-fine-grained-multimodal-perception)  
+   标签：评分：10.0/10、query:distillation
+   evidence：面向多模态感知的预算感知在线策略自蒸馏
+3. [Train Where the Quantized Model Goes: On-Policy Distillation for Low-Bit Reasoning](/202609/23/2609.26708v1-train-where-the-quantized-model-goes-on-policy-distillation-for-low-bit-reasoning)  
+   标签：评分：10.0/10、query:distillation
+   evidence：面向低比特量化的在线策略蒸馏
 
 ### 速读区论文标签
-1. [ACLArena: Agent Continue Learning in Multi-stage Post-training](/202609/22/2609.23989v1-aclarena-agent-continue-learning-in-multi-stage-post-training)  
-   标签：评分：7.0/10、query:distillation
-   evidence：多教师在线策略蒸馏对比
-2. [PSD: Pseudo Self-Distillation of Memory Representation Capabilities for LLM Agents](/202609/22/2609.23449v1-psd-pseudo-self-distillation-of-memory-representation-capabilities-for-llm-agents)  
+1. [Pretraining of Medical Visual Encoders Toward Multi-modal Large Language Models](/202609/23/2609.23860v1-pretraining-of-medical-visual-encoders-toward-multi-modal-large-language-models)  
    标签：评分：6.0/10、query:distillation
-   evidence：自蒸馏让小语言模型从黑盒教师蒸馏行为
-3. [Look Where It Counts: A Free, Label-Free Visual Evidence Signal for Fine-Grained Vision-Language Reasoning](/202609/22/2609.24244v1-look-where-it-counts-a-free-label-free-visual-evidence-signal-for-fine-grained-vision-language-reasoning)  
-   标签：评分：6.0/10、query:distillation
-   evidence：细粒度视觉语言推理；将在线策略蒸馏列为昂贵基线
+   evidence：用局部关系蒸馏预训练多模态大模型视觉编码器
 
 
 <div class="dpr-home-promo-card">

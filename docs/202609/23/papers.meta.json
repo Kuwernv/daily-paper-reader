@@ -1,0 +1,69 @@
+{
+  "label": "2026-09-23",
+  "date": "2026-09-23",
+  "generated_at": "2026-09-23T22:18:09",
+  "count": 4,
+  "papers": [
+    {
+      "paper_id": "202609/23/2609.24141v1-cloopd-closing-the-learner-loop-in-on-policy-distillation",
+      "section": "deep",
+      "title_en": "CLOOPD: Closing the Learner Loop in On-Policy Distillation",
+      "authors": "Keye Zheng, Hanyu Li, Zhan Cheng, Yuan Gao",
+      "date": "2026-09-21",
+      "pdf": "https://arxiv.org/pdf/2609.24141v1",
+      "score": "10.0",
+      "evidence": "面向大模型的闭环在线策略蒸馏框架",
+      "tldr": "在线策略蒸馏中，学生生成轨迹、教师打分，每批代价翻倍，但现有方法多只做一次 actor 更新。CLOOPD 分离教师信号获取与学生实现：在 KL 包络内选自适应 α 路点，冻结打分批次与优势，每次 actor 更新后重前向学生并度量实现度。8-H20 上 300 步实验中，CLOOPD-Fixed3 宏准确率从 15.41 升至 19.36，且少用 67.2% 教师 token 与 28.0% GPU 小时，表明可按预算控制学生学到多少。",
+      "tags": "query:distillation",
+      "abstract_en": "On-policy distillation (OPD) pays twice for each fresh batch: the student generates trajectories and a stronger teacher scores them. Existing methods improve which trajectories are scored and how the teacher signal is constructed, but usually consume it with one actor update. We introduce CLOOPD, a closed-loop framework separating teacher-signal acquisition from student-side realization. CLOOPD selects an adaptive $α$ waypoint inside a KL envelope, freezes the scored batch and its advantages, re-forwards the student after each actor pass, measures realization, and allocates actor work under a separate token budget. The framework includes deterministic two- and three-pass policies, token-priced CLOOPD-TPMR, and a budget-matched control. Across six 300-step runs on an 8-H20 node, every CLOOPD policy improves the one-pass TOP-D anchor at comparable teacher-token scale: macro accuracy rises from 15.41 to 17.78 with CLOOPD-Fixed2 and 19.36 with CLOOPD-Fixed3. At step 100, CLOOPD-Fixed3 reaches 15.35, nearly matching TOP-D at step 300 while using 67.2% fewer teacher-scored tokens and 28.0% fewer GPU-hours. Earlier 8-A100 ablations show adaptive $α$ eliminates observed trust-envelope violations; a third pass adds headroom. These results position CLOOPD as a framework for budgeting how fully students learn from teacher-scored tokens.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202609/23/2609.25891v1-bas-opd-budget-aware-selective-on-policy-self-distillation-for-fine-grained-multimodal-perception",
+      "section": "deep",
+      "title_en": "BAS-OPD: Budget-Aware Selective On-Policy Self-Distillation for Fine-Grained Multimodal Perception",
+      "authors": "Zihan Chen, Hengguang Zhou, Yuan Kang, Yiming Zhang, Wenhui Fang, Zenghui Ding, Yining Sun, Cho-Jui Hsieh",
+      "date": "2026-09-22",
+      "pdf": "https://arxiv.org/pdf/2609.25891v1",
+      "score": "10.0",
+      "evidence": "面向多模态感知的预算感知在线策略自蒸馏",
+      "tldr": "多模态大模型在全图推理时易忽略局部关键证据，而在线策略自蒸馏（OPD）虽能利用特权视图提升细粒度感知，却因逐样本查询教师模型导致监督成本高昂。BAS-OPD提出预算感知的选择性OPD框架，在保持全批量学生生成的同时，仅按预算挑选高信息量轨迹样本进行教师监督。方法探索随机、不确定性与学习式效用选择，其中学习选择器利用学生-教师一致性和教师置信度估计查询价值。实验表明，该方法在多个细粒度多模态感知基准上保持强劲性能，并大幅降低教师监督开销。",
+      "tags": "query:distillation",
+      "abstract_en": "Multimodal large language models (MLLMs) often struggle with fine-grained visual perception when processing complete images, as critical evidence may only appear in local regions. On-policy self-distillation (OPD) enables transferring privileged visual knowledge from informative views to full-image policies, but querying the teacher for every rollout introduces substantial supervision costs. In this work, we propose BAS-OPD, a budget-aware selective OPD framework that allocates teacher supervision under limited query budgets. Instead of querying all rollouts, BAS-OPD selects informative samples while maintaining full-batch student generation. We explore random, uncertainty-based, and learned utility-based selection strategies, where the learned selector estimates query value from detached rollout statistics and online utility signals derived from student--teacher agreement and teacher confidence without additional student forward passes. BAS-OPD only changes training-time supervision allocation and preserves single-pass full-image inference. Experiments on fine-grained multimodal perception benchmarks demonstrate that BAS-OPD achieves strong performance while substantially reducing teacher supervision costs, highlighting the effectiveness of selective OPD under constrained budgets.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202609/23/2609.26708v1-train-where-the-quantized-model-goes-on-policy-distillation-for-low-bit-reasoning",
+      "section": "deep",
+      "title_en": "Train Where the Quantized Model Goes: On-Policy Distillation for Low-Bit Reasoning",
+      "authors": "Yuanteng Chen, Zhilei Liu, Peisong Wang, Yuantian Shao, Chuangyi Li, Weining Wang, Shuang Qiu, Gang Li, Jing Liu, Jian Cheng",
+      "date": "2026-09-22",
+      "pdf": "https://arxiv.org/pdf/2609.26708v1",
+      "score": "10.0",
+      "evidence": "面向低比特量化的在线策略蒸馏",
+      "tldr": "低比特量化严重损害数学与代码推理，长生成常陷入重复循环；QAD虽恢复短问答，却因固定语料前缀训练放大曝光偏差。本文提出在线策略蒸馏OPD：从QAD检查点出发，让量化学生沿部署前向路径自生成，并由冻结全精度教师在自身前缀上提供密集token指导与任务验证奖励。在四个模型、2.79和1.88有效比特下，OPD将MATH-500的BF16保留率从35%提至70%，HumanEval从66%提至91%，且保持短格式能力。该框架结合QAD稳定初始化与OPD在线策略恢复，为sub-3-bit推理提供综合方案。",
+      "tags": "query:distillation",
+      "abstract_en": "Quantization-aware distillation (QAD) restores much of the short-form question-answering performance lost to sub-3-bit quantization, yet leaves mathematical and code reasoning substantially impaired. Long generations often degenerate into repetitive loops, exhausting the decoding budget without completing a solution. We trace this gap to quantization-amplified exposure bias: QAD trains on fixed corpus prefixes, while quantization-induced deviations compound along the model's own autoregressive trajectories. To address this mismatch, we introduce an on-policy distillation (OPD) stage that places teacher supervision where the quantized model actually goes. Starting from a QAD checkpoint, the student generates through the quantized forward path used at deployment and receives feedback from a frozen full-precision teacher on its own prefixes, combining dense token-level guidance with task-verifier rewards. Across four models at 2.79 and 1.88 effective bits, OPD raises average BF16 performance retention from 35% to 70% on MATH-500 and from 66% to 91% on HumanEval while preserving short-form performance, with reasoning gains substantially exceeding those of continued teacher-forced QAD in matched-budget comparisons. By coupling QAD's stable low-bit initialization with OPD's on-policy reasoning recovery, our framework provides a comprehensive sub-3-bit solution that preserves broad capabilities while restoring long-form reasoning.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202609/23/2609.23860v1-pretraining-of-medical-visual-encoders-toward-multi-modal-large-language-models",
+      "section": "quick",
+      "title_en": "Pretraining of Medical Visual Encoders Toward Multi-modal Large Language Models",
+      "authors": "Tianyou Jiang",
+      "date": "2026-09-20",
+      "pdf": "https://arxiv.org/pdf/2609.23860v1",
+      "score": "6.0",
+      "evidence": "用局部关系蒸馏预训练多模态大模型视觉编码器",
+      "tldr": "多模态大模型常复用 CLIP 视觉编码器，但其特征最终由自回归 LLM 消费，存在语义接口不匹配。为此提出 MedMLIP：用冻结 LLM 通过医学报告生成预训练视觉编码器，并以局部关系蒸馏 LRD 保留 patch 间关系、防止视觉坍塌。方法在 IU-Xray 与 Open-PMC-300K 上预训练，迁移至 VQA-RAD 和 SLAKE 评估。跨 LLM 迁移显示，面向自回归 LLM 接口预训练视觉编码器并保留细粒度信息具有价值。",
+      "tags": "query:distillation",
+      "abstract_en": "Multimodal Large Language Models (MLLMs) commonly reuse visual encoders pretrained with CLIP, although the features of these ViTs are ultimately consumed by autoregressive LLMs. We refer to this mismatch as the semantic-interface gap and introduce MedMLIP, a framework that pretrains the visual encoder through report generation with a frozen LLM, while employing Local Relational Distillation (LRD) to preserve relationships among visual patches to avoid visual collapse. We pretrain MedMLIP on IU-Xray and Open-PMC-300K and evaluate the resulting encoders on VQA-RAD and SLAKE. Only the ViT is transferred, while the guiding LLM and projector are replaced, allowing us to assess cross-LLM transferability. Our cross-LLM transfer experiments demonstrate the value of pretraining visual encoders for their autoregressive LLM interface while trying to preserve more fine-grained visual information. Code and the pretrained model are available at https://github.com/SkyCol/MedMLIP",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
